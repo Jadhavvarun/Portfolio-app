@@ -260,11 +260,11 @@ const Main = () => {
               <p className="mb-4">Fill out the form and I will get back to you within 24 hours.</p>
               <div className="flex items-center mb-4">
                 <FaEnvelope className="mr-2" />
-                <span>your.email@example.com</span>
+                <span>jadhavvarun67@gmail.com</span>
               </div>
               <div className="flex items-center mb-4">
                 <FaUser className="mr-2" />
-                <span>Your Name</span>
+                <span>Varun Jadhav</span>
               </div>
               {/* Add more contact details or social media links here */}
             </div>
