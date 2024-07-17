@@ -7,12 +7,12 @@ const Hero = () => {
       <div className="container mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8 flex flex-col md:flex-row items-center">
         <div className="md:w-1/2 text-center md:text-left">
           <h1 className="text-5xl font-bold mb-4">
-            Hi, I'm <span className="text-yellow-300">Varun Jadhav</span>
+            Hi, I&apos;m <span className="text-yellow-300">Varun Jadhav</span>
           </h1>
           <h2 className="text-3xl mb-6">Frontend Developer</h2>
           <p className="text-xl mb-8 max-w-md">
             I create beautiful, responsive websites that drive results. 
-            Let's bring your vision to life!
+            Let&apos;s bring your vision to life!
           </p>
           <div className="flex justify-center md:justify-start space-x-4 mb-8">
             <button className="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-yellow-300 hover:text-blue-800 transition duration-300">

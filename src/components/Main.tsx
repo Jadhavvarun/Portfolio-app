@@ -60,14 +60,14 @@ const Main = () => {
       </div>
       <div className="lg:w-1/2">
         <h3 className="text-3xl font-bold text-gray-800 mb-6">
-          Hello, I'm <span className="text-blue-600">Varun Jadhav</span>
+        Hello, I&apos;m <span className="text-blue-600">Varun Jadhav</span>
         </h3>
         <p className="text-xl text-gray-600 mb-6 leading-relaxed">
-          I'm a passionate Frontend Developer with a keen eye for design. 
+        I&apos;m a passionate Frontend Developer with a keen eye for design. 
           My mission is to create beautiful, functional websites that solve real-world problems and deliver exceptional user experiences.
         </p>
         <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-          With <span className="font-semibold text-gray-800">1.6 years</span> of experience in the field, I've had the privilege of working on a diverse range of projects, 
+          With <span className="font-semibold text-gray-800">1.6 years</span> of experience in the field, I&apos;ve had the privilege of working on a diverse range of projects, 
           from small business websites to complex web applications. Each project has honed my skills and fueled my passion for web development.
         </p>
       </div>
@@ -251,7 +251,7 @@ const Main = () => {
           Get In Touch
         </h2>
         <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-          I'm always open to new opportunities and collaborations. Feel free to reach out if you have any questions or just want to say hello!
+        I&apos;m always open to new opportunities and collaborations. Feel free to reach out if you have any questions or just want to say hello!
         </p>
         <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden">
           <div className="md:flex">
