@@ -2,32 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.affix {
+  background: transparent;
+  position: fixed;
+  width: 100%;
+  min-height: 80px;
+  z-index: 999;
+  top: 0;
+  padding: 0 !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.navbar {
+  background: #fff;
+  margin-top: 15px;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 10px 20px rgb(0 0 0 / 10%);
+  transition: all 0.2s linear;
+  animation: slidedown 0.1s linear;
+}
+
+@keyframes slidedown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.translate-y-full {
+  transform: translateY(100%);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* .translate-y-0 {
+  transform: translateY(0);
+} */
+
+@media screen and (max-width: 991px) {
+  .affix {
+    top: 20px;
+    padding: unset !important;
+    margin: auto;
+  }
+  .navbar {
+    background: #fff;
+    margin-top: 15px;
+    /* margin-left: 20px; */
+    margin-right: 20px;
   }
 }
