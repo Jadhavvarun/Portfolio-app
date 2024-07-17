@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 const Hero = () => {
   return (
     <section className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-20 min-h-screen flex items-center">
-      <div className="container mx-auto px-6 flex flex-col md:flex-row items-center">
+      <div className="container mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8 flex flex-col md:flex-row items-center">
         <div className="md:w-1/2 text-center md:text-left">
           <h1 className="text-5xl font-bold mb-4">
             Hi, I'm <span className="text-yellow-300">Varun Jadhav</span>
@@ -37,11 +37,11 @@ const Hero = () => {
         <div className="md:w-1/2 mt-10 md:mt-0">
           <div className="relative w-64 h-64 mx-auto md:w-96 md:h-96">
             <Image
-              src="/your-profile-picture.jpg"
-              alt="Your Name"
+              src="/hello-1.avif"
+              alt="hello"
               layout="fill"
-              objectFit="cover"
-              className="rounded-full shadow-2xl"
+              objectFit="contain"
+              className="rounded-full shadow-2xl bg-white"
             />
           </div>
         </div>

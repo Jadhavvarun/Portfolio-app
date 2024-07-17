@@ -7,7 +7,7 @@ export const Header: React.FC = () => {
 
   const handleScroll = () => {
     if (typeof window !== "undefined") {
-      setIsAffixed(window.scrollY > 0);
+      setIsAffixed(window.scrollY > 50);
     }
   };
 
@@ -19,119 +19,114 @@ export const Header: React.FC = () => {
   }, []);
 
   return (
-    <>
-      <div
-        className={`mx-3 md:fixed md:top-2 md:right-0 md:left-0 md:mx-0 ${
-          isAffixed ? "affix" : ""
-        }`}
-      >
-        <div className={`py-3  ${isAffixed ? "affix" : ""}`} id="main-header">
-          <div className="md:m-auto md:w-[1140px]">
-            <div>
-              <div className={`py-3 ${isAffixed ? "navbar" : ""}`}>
-                <div className="flex items-center justify-between">
-                  <div className="text-3xl font-bold text-[#4318FF] ">
-                    Varun
-                  </div>
-                  <nav className="hidden space-x-6 md:flex">
-                    <a
-                      href="#about"
-                      className="text-gray-600  hover:text-gray-800"
-                    >
-                      About
-                    </a>
-                    <a
-                      href="#service"
-                      className="text-gray-600 hover:text-gray-800"
-                    >
-                      Skills
-                    </a>
-                    <a
-                      href="#pricing"
-                      className="text-gray-600 hover:text-gray-800"
-                    >
-                      Projects
-                    </a>
-                    <a
-                      href="#resource"
-                      className="text-gray-600 hover:text-gray-800"
-                    >
-                      Contact
-                    </a>
-                  </nav>
-                  <div className="hidden  space-x-4 md:flex">
-                    <a
-                      href="mailto:jadhavvarun67@gmail.com"
-                      className="rounded border border-[#4318FF] px-4 py-2 text-[#4318FF] hover:bg-blue-50"
-                    >
-                      Email Me
-                    </a>
-                    <button className="rounded bg-[#4318FF] px-4 py-2 text-white hover:bg-blue-600">
-                      Resume
-                    </button>
-                  </div>
-                  <button
-                    className="text-gray-600 md:hidden"
-                    onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  >
-                    {isMenuOpen ? (
-                      <RiCloseLine className="mx-auto h-10 w-10 " />
-                    ) : (
-                      <RiMenu3Line className="mx-auto h-10 w-10" />
-                    )}
-                  </button>
-                </div>
-                {isMenuOpen && (
-                  <div className=" bg-white  md:hidden  ">
-                    <nav className="mt-4 space-y-4">
-                      <a
-                        href="#about"
-                        className="block text-gray-600 hover:text-gray-800"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        About
-                      </a>
-                      <a
-                        href="#service"
-                        className="block text-gray-600 hover:text-gray-800"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        Skills
-                      </a>
-                      <a
-                        href="#docs"
-                        className="block text-gray-600 hover:text-gray-800"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        Projects
-                      </a>
-                      <a
-                        href="#pricing"
-                        className="block text-gray-600 hover:text-gray-800"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        Contact
-                      </a>
-                    </nav>
-                    <div className="mt-6 flex w-full items-center justify-center gap-4 py-4">
-                      <a
-                        href="mailto:jadhavvarun67@gmail.com"
-                        className="w-full rounded border border-[#4318FF] px-4 py-2 text-[#4318FF] hover:bg-blue-50"
-                      >
-                        Email Me
-                      </a>
-                      <button className="w-full rounded bg-[#4318FF] px-4 py-2 text-white hover:bg-blue-600">
-                        Resume
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isAffixed ? "bg-white shadow-lg" : "bg-transparent"
+    }`}>
+      <div className="container mx-auto w-full max-w-screen-xl py-4 lg:py-6 px-4">
+        <div className="flex items-center justify-between">
+          <div className={`text-3xl font-bold ${isAffixed ? "text-blue-600" : "text-yellow-300"}`}>
+            Varun
+          </div>
+          <nav className="hidden space-x-6 md:flex">
+            {["About", "Skills", "Projects", "Contact"].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className={`font-medium transition duration-300 ${
+                  isAffixed 
+                    ? "text-gray-700 hover:text-blue-600" 
+                    : "text-white hover:text-yellow-300"
+                }`}
+              >
+                {item}
+              </a>
+            ))}
+          </nav>
+          <div className="hidden space-x-4 md:flex">
+            <a
+              href="mailto:jadhavvarun67@gmail.com"
+              className={`rounded-full px-4 py-2 font-medium transition duration-300 ${
+                isAffixed
+                  ? "border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
+                  : "border border-white text-white hover:bg-white hover:text-blue-600"
+              }`}
+            >
+              Email Me
+            </a>
+            <a
+              href="/VarunJ-Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`rounded-full px-4 py-2 font-medium transition duration-300 ${
+                isAffixed
+                  ? "bg-blue-600 text-white hover:bg-blue-700"
+                  : "bg-yellow-300 text-blue-600 hover:bg-yellow-400"
+              }`}
+            >
+              Resume
+            </a>
+          </div>
+          <button
+            className={`md:hidden ${isAffixed ? "text-blue-600" : "text-white"}`}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? (
+              <RiCloseLine className="h-8 w-8" />
+            ) : (
+              <RiMenu3Line className="h-8 w-8" />
+            )}
+          </button>
+        </div>
+
+        {/* Mobile menu */}
+        {isMenuOpen && (
+          <div className={`md:hidden mt-4 rounded-lg ${
+            isAffixed ? "bg-white shadow-lg" : "bg-blue-600 bg-opacity-90"
+          }`}>
+            <nav className="flex flex-col space-y-4 p-4">
+              {["About", "Skills", "Projects", "Contact"].map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className={`font-medium transition duration-300 ${
+                    isAffixed 
+                      ? "text-gray-700 hover:text-blue-600" 
+                      : "text-white hover:text-yellow-300"
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item}
+                </a>
+              ))}
+            </nav>
+            <div className="flex flex-col space-y-4 p-4">
+              <a
+                href="mailto:jadhavvarun67@gmail.com"
+                className={`rounded-full px-4 py-2 font-medium text-center transition duration-300 ${
+                  isAffixed
+                    ? "border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
+                    : "border border-white text-white hover:bg-white hover:text-blue-600"
+                }`}
+              >
+                Email Me
+              </a>
+              <a
+                href="/path-to-your-resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`rounded-full px-4 py-2 font-medium text-center transition duration-300 ${
+                  isAffixed
+                    ? "bg-blue-600 text-white hover:bg-blue-700"
+                    : "bg-yellow-300 text-blue-600 hover:bg-yellow-400"
+                }`}
+              >
+                Resume
+              </a>
             </div>
           </div>
-        </div>
+        )}
       </div>
-    </>
+    </header>
   );
 };
 
