@@ -1,51 +1,148 @@
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
+import React from "react";
+import { FaGithub, FaLinkedin, FaEnvelope, FaArrowUp, FaDownload } from "react-icons/fa";
+import { RiSparklingFill } from "react-icons/ri";
 
-const Footer = () => {
+export const Footer: React.FC = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className="bg-gray-900 text-gray-300">
-      <div className="max-w-6xl mx-auto px-4 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* About Section */}
-          <div>
-            <h3 className="text-2xl font-semibold text-white mb-4">Varun Jadhav</h3>
-            <p className="mb-4">Passionate frontend developer creating beautiful and functional web experiences.</p>
+    <footer className="bg-dark-950 border-t border-white/10 text-slate-400 py-16 relative">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/5">
+          {/* Brand & Summary */}
+          <div className="md:col-span-5 space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-indigo-600 to-cyan-500 p-[1px]">
+                <div className="flex h-full w-full items-center justify-center rounded-[11px] bg-dark-950 font-mono font-bold text-base text-white">
+                  VJ
+                </div>
+              </div>
+              <div>
+                <span className="font-bold text-lg text-white">Varun Jadhav</span>
+                <span className="block text-xs text-indigo-400 font-mono">
+                  Frontend Lead @ Invocreto • Full Stack Developer
+                </span>
+              </div>
+            </div>
+
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
+              Engineering enterprise design systems, high-throughput full-stack platforms, and microfrontends with an obsession for 60fps animations and sub-second load times.
+            </p>
+
+            <div className="flex items-center gap-2 pt-1">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span className="text-xs font-mono text-emerald-400">
+                Mumbai, India • Available for Impact
+              </span>
+            </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              <li><a href="#home" className="hover:text-blue-400 transition duration-300">Home</a></li>
-              <li><a href="#about" className="hover:text-blue-400 transition duration-300">About</a></li>
-              <li><a href="#projects" className="hover:text-blue-400 transition duration-300">Projects</a></li>
-              <li><a href="#contact" className="hover:text-blue-400 transition duration-300">Contact</a></li>
+          {/* Quick Navigation Links */}
+          <div className="md:col-span-4 space-y-3">
+            <h4 className="text-xs uppercase font-mono font-bold tracking-wider text-white">
+              Navigation
+            </h4>
+            <ul className="grid grid-cols-2 gap-2 text-xs sm:text-sm">
+              <li>
+                <a href="#about" className="hover:text-white transition-colors">
+                  About & Overview
+                </a>
+              </li>
+              <li>
+                <a href="#experience" className="hover:text-white transition-colors">
+                  Experience & Lead
+                </a>
+              </li>
+              <li>
+                <a href="#skills" className="hover:text-white transition-colors">
+                  Skills & Architecture
+                </a>
+              </li>
+              <li>
+                <a href="#projects" className="hover:text-white transition-colors">
+                  Featured Projects
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="hover:text-white transition-colors">
+                  Get In Touch
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/varun_resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-1"
+                >
+                  <FaDownload size={11} />
+                  <span>Resume (PDF)</span>
+                </a>
+              </li>
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div>
-            <h4 className="text-lg font-semibold text-white mb-4">Get in Touch</h4>
-            <p className="mb-2">Email: jadhavvarun67@gmail.com</p>
-            <p>Location: Mumbai, India</p>
-            <div className="flex space-x-4 mt-4">
-              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition duration-300">
-                <FaGithub className="text-2xl" />
+          {/* Social & Contact */}
+          <div className="md:col-span-3 space-y-3">
+            <h4 className="text-xs uppercase font-mono font-bold tracking-wider text-white">
+              Connect
+            </h4>
+            <div className="flex items-center gap-3">
+              <a
+                href="https://github.com/Jadhavvarun"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-9 w-9 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-indigo-400 transition-all"
+                title="GitHub"
+              >
+                <FaGithub size={16} />
               </a>
-              <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition duration-300">
-                <FaLinkedin className="text-2xl" />
+              <a
+                href="https://www.linkedin.com/in/varun-jadhav-620814152/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-9 w-9 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-cyan-400 transition-all"
+                title="LinkedIn"
+              >
+                <FaLinkedin size={16} />
               </a>
-              <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition duration-300">
-                <FaTwitter className="text-2xl" />
-              </a>
-              <a href="mailto:varun@example.com" className="text-gray-300 hover:text-white transition duration-300">
-                <FaEnvelope className="text-2xl" />
+              <a
+                href="mailto:jadhavvarun67@gmail.com"
+                className="flex h-9 w-9 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-indigo-400 transition-all"
+                title="Email"
+              >
+                <FaEnvelope size={15} />
               </a>
             </div>
+            <p className="text-xs text-slate-500 font-mono pt-2">
+              jadhavvarun67@gmail.com
+            </p>
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-8 pt-8 text-sm text-center">
-          <p>&copy; {new Date().getFullYear()} Varun Jadhav. All rights reserved.</p>
+        {/* Bottom Credits & Scroll to Top */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono">
+          <div>
+            &copy; {new Date().getFullYear()} Varun Jadhav. All rights reserved.
+          </div>
+
+          <div className="flex items-center gap-6">
+            <span>Next.js 14 • TypeScript • Tailwind</span>
+
+            <button
+              onClick={scrollToTop}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-indigo-400 transition-all"
+              title="Back to Top"
+            >
+              <span>Top</span>
+              <FaArrowUp size={11} />
+            </button>
+          </div>
         </div>
       </div>
     </footer>
