@@ -62,7 +62,7 @@ export const Header: React.FC = () => {
               </span>
               <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-400 border border-emerald-500/20">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                Lead @ Invocreto
+                Lead @ InvoCreto
               </span>
             </div>
             <span className="text-xs text-slate-400 hidden sm:inline-block font-mono">

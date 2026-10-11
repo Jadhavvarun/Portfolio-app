@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaBriefcase, 
   FaGraduationCap, 
   FaCalendarAlt, 
   FaMapMarkerAlt, 
   FaCheckCircle, 
-  FaCrown 
+  FaCrown,
+  FaUsers,
+  FaTachometerAlt
 } from "react-icons/fa";
-import { RiSparklingFill, RiBuildingLine } from "react-icons/ri";
+import { RiSparklingFill, RiBuildingLine, RiPulseLine } from "react-icons/ri";
 
 interface ExperienceItem {
   id: string;
@@ -18,6 +21,7 @@ interface ExperienceItem {
   isLead?: boolean;
   isCurrent?: boolean;
   type: "experience" | "education";
+  badgeText?: string;
   highlights: string[];
   skills: string[];
 }
@@ -26,92 +30,85 @@ const experiences: ExperienceItem[] = [
   {
     id: "invocreto-lead",
     role: "Frontend Lead",
-    company: "Invocreto",
+    company: "InvoCreto",
     period: "2024 - Present",
     location: "Mumbai, India",
     isLead: true,
     isCurrent: true,
     type: "experience",
+    badgeText: "Lead Role • Invoicing & Business Platform",
     highlights: [
-      "Head the frontend engineering team, directing architectural roadmap, design system standards, and technical governance.",
-      "Architected enterprise-level web applications utilizing Next.js 14, React, TypeScript, and high-performance state management.",
-      "Established standardized code reviews, TypeScript strict mode guidelines, and automated CI/CD checks across client repositories.",
-      "Pioneered web performance initiatives, slashing Largest Contentful Paint (LCP) and securing 95+ Core Web Vitals across production platforms.",
-      "Bridged engineering and product design teams to ship scalable, accessible, and delight-inducing user interfaces.",
+      "Led the frontend development of InvoCreto, an enterprise business management and invoicing platform, using Next.js and Angular.",
+      "Engineered a scalable frontend architecture with modular, reusable UI components and tokenized styling.",
+      "Collaborated on backend and distributed service ecosystem using Node.js, Express.js, MongoDB, Microservice Architecture, RPC, RabbitMQ, and Docker.",
+      "Implemented high-performance state handling and real-time invoicing workflows for high-frequency business transactions.",
     ],
-    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Architecture", "Design Systems", "Code Review", "Mentorship"],
+    skills: ["Next.js", "Angular", "React.js", "Node.js", "MongoDB", "PostgreSQL", "RabbitMQ", "Microservices", "Docker"],
   },
   {
     id: "syntags-dev",
-    role: "Frontend Developer",
-    company: "Syntags Consultancy & Services Pvt. Ltd.",
-    period: "June 2024 - Late 2024",
+    role: "Software Developer & Team Lead",
+    company: "Syntags Professional Services",
+    period: "June 2024 - Present",
     location: "Mumbai, India",
+    isCurrent: true,
     type: "experience",
+    badgeText: "Team Lead (4 Devs) • Full Stack",
     highlights: [
-      "Engineered high-velocity, responsive web portals using React, Next.js, and modern CSS frameworks.",
-      "Collaborated closely with UX designers to implement pixel-perfect, mobile-first layouts.",
-      "Integrated complex RESTful API payloads and improved state handling and client caching.",
+      "Developed and maintained scalable full-stack applications using Angular, React.js, Next.js, TypeScript, Node.js, and Express.js.",
+      "Improved Next.js performance by 40–50% through SSR, code splitting, and image optimization while enhancing SEO and achieving 90+ Lighthouse scores.",
+      "Optimized Angular applications using lazy loading and OnPush change detection, reducing bundle size by 35%.",
+      "Designed and integrated RESTful and GraphQL APIs; worked with Microservice Architecture, RPC-based communication, and RabbitMQ.",
+      "Led a team of 4 developers, establishing reusable development practices and Agile workflows that reduced delivery time by approximately 30%.",
+      "Worked with Docker, CI/CD pipelines, automated testing, staging, and production troubleshooting.",
     ],
-    skills: ["React", "Next.js", "Tailwind CSS", "REST APIs", "State Management"],
+    skills: ["Angular", "React.js", "Next.js", "TypeScript", "Node.js", "Express.js", "GraphQL", "RabbitMQ", "Docker", "CI/CD"],
   },
   {
     id: "unipolar-dev",
     role: "Frontend Developer",
-    company: "Unipolar Technologies Pvt. Ltd.",
-    period: "July 2023 - June 2024",
+    company: "Unipolar Technologies Pvt Ltd",
+    period: "Aug 2023 - May 2024",
     location: "Mumbai, India",
     type: "experience",
+    badgeText: "Frontend & Deployment",
     highlights: [
-      "Engineered, maintained, and delivered client-facing web applications with React and PHP.",
-      "Executed critical performance optimizations, boosting overall page load speed by 30%.",
-      "Built custom interactive components and solved cross-browser compatibility issues.",
+      "Developed and maintained scalable web applications using React.js and Next.js, improving application performance through reusable components and optimized rendering techniques.",
+      "Integrated and consumed RESTful APIs, enabling real-time data synchronization and efficient communication between frontend and backend systems.",
+      "Deployed and maintained production applications on Vercel, Plesk, and FileZilla, streamlining release processes with minimal operational overhead.",
     ],
-    skills: ["React", "JavaScript", "HTML5/CSS3", "PHP", "Performance Tuning"],
-  },
-  {
-    id: "unipolar-intern",
-    role: "Software Developer Intern",
-    company: "Unipolar Technologies Pvt. Ltd.",
-    period: "Feb 2023 - July 2023",
-    location: "Mumbai, India",
-    type: "experience",
-    highlights: [
-      "Collaborated on building reusable UI components and client layout templates.",
-      "Mastered version control workflows with Git & GitHub in real agile team sprints.",
-      "Assisted senior engineers in debugging frontend issues and writing maintainable code.",
-    ],
-    skills: ["JavaScript", "HTML/CSS", "Git", "Agile Sprints", "Debugging"],
+    skills: ["React.js", "Next.js", "RESTful APIs", "Vercel", "Plesk", "FileZilla", "Performance Optimization"],
   },
 ];
 
 const educations: ExperienceItem[] = [
   {
-    id: "mca-sterling",
-    role: "Masters in Computer Applications (MCA)",
-    company: "Sterling Institute of Management Studies",
+    id: "mca-mu",
+    role: "Masters in Computer Application (MCA)",
+    company: "Mumbai University",
     period: "Aug 2021 - July 2023",
-    location: "Navi Mumbai, India",
-    type: "education",
-    highlights: [
-      "Graduated with Distinction: CGPA 8.11 / 10.0",
-      "Specialized in Advanced Web Technologies, Software Engineering, Database Systems, and Algorithms.",
-      "Led final capstone project: Full-Stack E-Commerce & Inventory Management System.",
-    ],
-    skills: ["Data Structures", "Algorithms", "Software Engineering", "Full-Stack Web Dev", "Database Management"],
-  },
-  {
-    id: "bcom-sydenham",
-    role: "Bachelor of Commerce (B.Com)",
-    company: "Sydenham College of Commerce and Economics",
-    period: "June 2018 - Mar 2021",
     location: "Mumbai, India",
     type: "education",
+    badgeText: "Distinction • CGPA: 8.11 / 10.0",
     highlights: [
-      "Graduated with strong foundations in business logic, quantitative methods, and analytical thinking.",
-      "Simultaneously self-studied computer science fundamentals, web standards, and modern programming.",
+      "Completed Masters with a high CGPA of 8.11 / 10.0, specializing in advanced software architecture, data structures, and algorithms.",
+      "Specialized in full-stack web applications, distributed computing, database management systems, and microservices.",
     ],
-    skills: ["Business Logic", "Analytical Thinking", "Finance & Systems"],
+    skills: ["Data Structures", "Algorithms", "Software Architecture", "Database Systems", "Full-Stack Dev"],
+  },
+  {
+    id: "bcom-mu",
+    role: "Bachelors in Commerce (B.Com)",
+    company: "Mumbai University",
+    period: "Aug 2018 - Mar 2021",
+    location: "Mumbai, India",
+    type: "education",
+    badgeText: "CGPA: 6.60 / 10.0",
+    highlights: [
+      "Built rigorous foundations in financial systems, business logic, quantitative methods, and data analysis.",
+      "Self-directed mastery of modern web software engineering, JavaScript, and computer programming.",
+    ],
+    skills: ["Business Logic", "Financial Systems", "Quantitative Analysis"],
   },
 ];
 
@@ -127,22 +124,28 @@ export const Experience: React.FC = () => {
 
   return (
     <section id="experience" className="py-24 bg-dark-900/60 relative overflow-hidden">
-      {/* Background accents */}
+      {/* Background ambient lighting */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-10 right-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <div className="inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-950/40 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-indigo-300 mb-3">
             <RiBuildingLine size={13} />
-            <span>Career Progression & Leadership</span>
+            <span>Verified Career Progression</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-            Experience & <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-300">Leadership Journey</span>
+            Work Experience & <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-primary-300 to-cyan-300">Engineering Leadership</span>
           </h2>
           <p className="mt-4 text-slate-400 text-base sm:text-lg">
-            From hands-on frontend engineering to spearheading technical architecture and teams as Frontend Lead at Invocreto.
+            Proven leadership at InvoCreto and Syntags Professional Services — heading frontend architecture, leading a team of 4 developers, and shipping distributed full-stack systems.
           </p>
 
           {/* Filter Pills */}
@@ -180,7 +183,7 @@ export const Experience: React.FC = () => {
               <span>Education</span>
             </button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Timeline Container */}
         <div className="relative max-w-4xl mx-auto">
@@ -188,119 +191,125 @@ export const Experience: React.FC = () => {
           <div className="absolute left-4 sm:left-1/2 top-4 bottom-4 w-0.5 -translate-x-1/2 bg-gradient-to-b from-indigo-500 via-cyan-500/50 to-transparent" />
 
           <div className="space-y-12">
-            {displayList.map((item, index) => {
-              const isEven = index % 2 === 0;
+            <AnimatePresence mode="popLayout">
+              {displayList.map((item, index) => {
+                const isEven = index % 2 === 0;
 
-              return (
-                <div
-                  key={item.id}
-                  className={`relative flex flex-col ${
-                    item.isLead
-                      ? "sm:scale-[1.02] transition-transform duration-300"
-                      : ""
-                  }`}
-                >
-                  {/* Center Node Icon */}
-                  <div
-                    className={`absolute left-4 sm:left-1/2 -translate-x-1/2 z-20 flex h-9 w-9 items-center justify-center rounded-full border-2 ${
-                      item.isLead
-                        ? "border-amber-400 bg-dark-950 text-amber-300 shadow-[0_0_20px_rgba(251,191,36,0.6)]"
-                        : item.type === "education"
-                        ? "border-cyan-400 bg-dark-950 text-cyan-300"
-                        : "border-indigo-500 bg-dark-950 text-indigo-400"
-                    }`}
+                return (
+                  <motion.div
+                    key={item.id}
+                    layout
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="relative flex flex-col"
                   >
-                    {item.isLead ? (
-                      <FaCrown size={15} />
-                    ) : item.type === "education" ? (
-                      <FaGraduationCap size={15} />
-                    ) : (
-                      <FaBriefcase size={13} />
-                    )}
-                  </div>
-
-                  {/* Card Content - Full Width on Mobile, Alternating on Desktop */}
-                  <div
-                    className={`pl-12 sm:pl-0 sm:w-1/2 ${
-                      isEven ? "sm:pr-10 sm:text-right" : "sm:pl-10 sm:ml-auto sm:text-left"
-                    }`}
-                  >
+                    {/* Center Node Icon */}
                     <div
-                      className={`glass-panel p-6 sm:p-7 rounded-2xl border transition-all duration-300 ${
+                      className={`absolute left-4 sm:left-1/2 -translate-x-1/2 z-20 flex h-9 w-9 items-center justify-center rounded-full border-2 ${
                         item.isLead
-                          ? "border-amber-500/40 bg-gradient-to-br from-indigo-950/40 via-dark-900 to-amber-950/20 shadow-[0_10px_35px_-5px_rgba(251,191,36,0.15)] ring-1 ring-amber-500/30"
-                          : "border-white/10 hover:border-indigo-500/30 hover:bg-dark-850/80"
+                          ? "border-amber-400 bg-dark-950 text-amber-300 shadow-[0_0_20px_rgba(251,191,36,0.6)]"
+                          : item.type === "education"
+                          ? "border-cyan-400 bg-dark-950 text-cyan-300"
+                          : "border-indigo-500 bg-dark-950 text-indigo-400"
                       }`}
                     >
-                      {/* Top Badges */}
-                      <div
-                        className={`flex flex-wrap items-center gap-2 mb-3 ${
-                          isEven ? "sm:justify-end" : "sm:justify-start"
-                        }`}
-                      >
-                        {item.isLead && (
-                          <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/40 px-3 py-1 text-xs font-bold text-amber-300">
-                            <RiSparklingFill size={12} />
-                            LEAD ROLE • CURRENT
-                          </span>
-                        )}
-                        {item.isCurrent && !item.isLead && (
-                          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-0.5 text-xs font-medium text-emerald-400">
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                            Current
-                          </span>
-                        )}
-                        <span className="inline-flex items-center gap-1 text-xs text-slate-400 font-mono">
-                          <FaCalendarAlt size={10} />
-                          {item.period}
-                        </span>
-                      </div>
-
-                      {/* Role & Company */}
-                      <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                        {item.role}
-                      </h3>
-                      <div className="text-sm sm:text-base font-semibold text-cyan-400 mt-1 flex items-center gap-2">
-                        <span>{item.company}</span>
-                        <span className="text-slate-600">•</span>
-                        <span className="text-xs text-slate-400 font-normal flex items-center gap-1">
-                          <FaMapMarkerAlt size={10} />
-                          {item.location}
-                        </span>
-                      </div>
-
-                      {/* Highlights */}
-                      <ul className="mt-4 space-y-2 text-xs sm:text-sm text-slate-300 text-left">
-                        {item.highlights.map((h, i) => (
-                          <li key={i} className="flex items-start gap-2.5">
-                            <span className="text-indigo-400 mt-1 shrink-0">
-                              <FaCheckCircle size={12} />
-                            </span>
-                            <span className="leading-relaxed">{h}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      {/* Tech Chips */}
-                      <div
-                        className={`mt-5 flex flex-wrap gap-1.5 pt-4 border-t border-white/5 ${
-                          isEven ? "sm:justify-end" : "sm:justify-start"
-                        }`}
-                      >
-                        {item.skills.map((skill) => (
-                          <span
-                            key={skill}
-                            className="px-2.5 py-1 text-[11px] font-mono rounded-md bg-dark-950/80 border border-white/10 text-slate-300"
-                          >
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
+                      {item.isLead ? (
+                        <FaCrown size={15} />
+                      ) : item.type === "education" ? (
+                        <FaGraduationCap size={15} />
+                      ) : (
+                        <FaBriefcase size={13} />
+                      )}
                     </div>
-                  </div>
-                </div>
-              );
-            })}
+
+                    {/* Card Content */}
+                    <div
+                      className={`pl-12 sm:pl-0 sm:w-1/2 ${
+                        isEven ? "sm:pr-10 sm:text-right" : "sm:pl-10 sm:ml-auto sm:text-left"
+                      }`}
+                    >
+                      <motion.div
+                        whileHover={{ scale: 1.015 }}
+                        className={`glass-panel p-6 sm:p-7 rounded-2xl border transition-all duration-300 ${
+                          item.isLead
+                            ? "border-amber-500/40 bg-gradient-to-br from-indigo-950/40 via-dark-900 to-amber-950/20 shadow-[0_10px_35px_-5px_rgba(251,191,36,0.15)] ring-1 ring-amber-500/30"
+                            : "border-white/10 hover:border-indigo-500/30 hover:bg-dark-850/80"
+                        }`}
+                      >
+                        {/* Top Badges */}
+                        <div
+                          className={`flex flex-wrap items-center gap-2 mb-3 ${
+                            isEven ? "sm:justify-end" : "sm:justify-start"
+                          }`}
+                        >
+                          {item.badgeText && (
+                            <span
+                              className={`inline-flex items-center gap-1.5 rounded-full px-3 py-0.5 text-xs font-bold border ${
+                                item.isLead
+                                  ? "bg-amber-500/20 border-amber-500/40 text-amber-300"
+                                  : item.type === "education"
+                                  ? "bg-cyan-500/20 border-cyan-500/40 text-cyan-300"
+                                  : "bg-indigo-500/20 border-indigo-500/40 text-indigo-300"
+                              }`}
+                            >
+                              {item.isLead && <RiSparklingFill size={11} />}
+                              {item.badgeText}
+                            </span>
+                          )}
+                          <span className="inline-flex items-center gap-1 text-xs text-slate-400 font-mono">
+                            <FaCalendarAlt size={10} />
+                            {item.period}
+                          </span>
+                        </div>
+
+                        {/* Role & Company */}
+                        <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                          {item.role}
+                        </h3>
+                        <div className="text-sm sm:text-base font-semibold text-cyan-400 mt-1 flex items-center gap-2">
+                          <span>{item.company}</span>
+                          <span className="text-slate-600">•</span>
+                          <span className="text-xs text-slate-400 font-normal flex items-center gap-1">
+                            <FaMapMarkerAlt size={10} />
+                            {item.location}
+                          </span>
+                        </div>
+
+                        {/* Highlights */}
+                        <ul className="mt-4 space-y-2 text-xs sm:text-sm text-slate-300 text-left">
+                          {item.highlights.map((h, i) => (
+                            <li key={i} className="flex items-start gap-2.5">
+                              <span className="text-indigo-400 mt-1 shrink-0">
+                                <FaCheckCircle size={12} />
+                              </span>
+                              <span className="leading-relaxed">{h}</span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        {/* Tech Chips */}
+                        <div
+                          className={`mt-5 flex flex-wrap gap-1.5 pt-4 border-t border-white/5 ${
+                            isEven ? "sm:justify-end" : "sm:justify-start"
+                          }`}
+                        >
+                          {item.skills.map((skill) => (
+                            <span
+                              key={skill}
+                              className="px-2.5 py-1 text-[11px] font-mono rounded-md bg-dark-950/80 border border-white/10 text-slate-300"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
           </div>
         </div>
       </div>

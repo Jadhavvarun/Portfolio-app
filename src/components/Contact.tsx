@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
-import {
-  FaEnvelope,
-  FaLinkedin,
-  FaGithub,
-  FaMapMarkerAlt,
-  FaClock,
-  FaCopy,
-  FaCheck,
-  FaPaperPlane,
-  FaDownload
+import { 
+  FaEnvelope, 
+  FaPhoneAlt,
+  FaLinkedin, 
+  FaGithub, 
+  FaMapMarkerAlt, 
+  FaClock, 
+  FaCopy, 
+  FaCheck, 
+  FaPaperPlane, 
+  FaDownload 
 } from "react-icons/fa";
-import { RiSparklingFill, RiSendPlaneFill, RiCheckDoubleLine } from "react-icons/ri";
+import { RiSendPlaneFill, RiCheckDoubleLine } from "react-icons/ri";
 
 export const Contact: React.FC = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
   const [currentTime, setCurrentTime] = useState("");
   const [formState, setFormState] = useState<{
     name: string;
@@ -52,11 +55,10 @@ export const Contact: React.FC = () => {
   const copyEmail = () => {
     navigator.clipboard.writeText("jadhavvarun67@gmail.com");
     setCopiedEmail(true);
-
-    // Confetti burst on copy
+    
     try {
       confetti({
-        particleCount: 40,
+        particleCount: 50,
         spread: 60,
         origin: { y: 0.8 },
       });
@@ -67,20 +69,35 @@ export const Contact: React.FC = () => {
     setTimeout(() => setCopiedEmail(false), 2500);
   };
 
+  const copyPhone = () => {
+    navigator.clipboard.writeText("7738412722");
+    setCopiedPhone(true);
+    
+    try {
+      confetti({
+        particleCount: 50,
+        spread: 60,
+        origin: { y: 0.8 },
+      });
+    } catch (e) {
+      // ignore
+    }
+
+    setTimeout(() => setCopiedPhone(false), 2500);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate submission delay
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
 
-      // Trigger celebration confetti
       try {
         confetti({
-          particleCount: 100,
-          spread: 70,
+          particleCount: 120,
+          spread: 80,
           origin: { y: 0.6 },
         });
       } catch (err) {
@@ -97,35 +114,47 @@ export const Contact: React.FC = () => {
 
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <div className="inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-950/40 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-indigo-300 mb-3">
             <RiSendPlaneFill size={13} />
-            <span>Initiate Collaboration</span>
+            <span>Initiate Direct Conversation</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             Let&apos;s Build Something{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-primary-300 to-cyan-300">
-              Extraordinary Together
+              High-Impact Together
             </span>
           </h2>
           <p className="mt-4 text-slate-400 text-base sm:text-lg">
-            Whether you are looking for architectural guidance, high-scale full-stack development, or a dedicated Frontend Lead — let&apos;s talk.
+            Whether for frontend leadership, high-scale full-stack architecture, or agile engineering advisory — reach out anytime.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-12 gap-10 items-start">
           {/* Left Column: Direct Coordinates Card */}
-          <div className="lg:col-span-5 space-y-6">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-5 space-y-6"
+          >
             <div className="glass-panel p-7 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl" />
 
-              <h3 className="text-xl font-bold text-white mb-2">Direct Coordinates</h3>
+              <h3 className="text-xl font-bold text-white mb-2">Direct Contact Coordinates</h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
-                Feel free to email me directly or connect through LinkedIn. I respond promptly to engineering inquiries and advisory opportunities.
+                Reach out by email or direct call/WhatsApp. All messages receive prompt attention.
               </p>
 
               {/* Email Copier Card */}
-              <div className="p-4 rounded-xl bg-dark-950/80 border border-white/10 mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+              <div className="p-4 rounded-xl bg-dark-950/80 border border-white/10 mb-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
                   <div className="p-2.5 rounded-lg bg-indigo-500/15 text-indigo-400">
                     <FaEnvelope size={16} />
@@ -157,6 +186,49 @@ export const Contact: React.FC = () => {
                     </>
                   )}
                 </button>
+              </div>
+
+              {/* Phone Copier Card */}
+              <div className="p-4 rounded-xl bg-dark-950/80 border border-white/10 mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="p-2.5 rounded-lg bg-emerald-500/15 text-emerald-400">
+                    <FaPhoneAlt size={15} />
+                  </div>
+                  <div>
+                    <div className="text-[11px] text-slate-400 uppercase font-mono">
+                      Phone / WhatsApp
+                    </div>
+                    <div className="text-sm font-semibold text-white font-mono">
+                      +91 7738412722
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <a
+                    href="tel:7738412722"
+                    className="px-2.5 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-xs font-medium text-slate-300 hover:text-white transition-all"
+                  >
+                    Call
+                  </a>
+                  <button
+                    onClick={copyPhone}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-xs font-medium text-slate-300 hover:text-white hover:border-emerald-400 transition-all shrink-0"
+                    title="Copy phone to clipboard"
+                  >
+                    {copiedPhone ? (
+                      <>
+                        <FaCheck size={12} className="text-emerald-400" />
+                        <span className="text-emerald-300">Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <FaCopy size={12} className="text-emerald-400" />
+                        <span>Copy</span>
+                      </>
+                    )}
+                  </button>
+                </div>
               </div>
 
               {/* Location & Live Clock */}
@@ -211,7 +283,7 @@ export const Contact: React.FC = () => {
                   className="flex items-center gap-1.5 text-xs font-semibold text-indigo-400 hover:text-indigo-300 transition-colors"
                 >
                   <FaDownload size={12} />
-                  <span>Download Resume</span>
+                  <span>Resume (PDF)</span>
                 </a>
               </div>
             </div>
@@ -223,17 +295,23 @@ export const Contact: React.FC = () => {
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
               </span>
               <div className="text-xs text-slate-300">
-                <strong className="text-white">Active Frontend Lead @ Invocreto</strong> — Available for selective advisory, high-impact leadership roles, and full-stack consulting.
+                <strong className="text-white">Active Frontend Lead @ InvoCreto</strong> — Available for select advisory roles, technical leadership, and full-stack architecture initiatives.
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Interactive Form */}
-          <div className="lg:col-span-7">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7"
+          >
             <div className="glass-panel p-7 sm:p-9 rounded-2xl border border-white/10 shadow-2xl relative">
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Send a Direct Message</h3>
               <p className="text-xs sm:text-sm text-slate-400 mb-6">
-                Fill in the details below, or send an email directly to{" "}
+                Send a note below or reach directly via{" "}
                 <a
                   href="mailto:jadhavvarun67@gmail.com"
                   className="text-indigo-400 hover:underline font-mono"
@@ -247,9 +325,9 @@ export const Contact: React.FC = () => {
                   <div className="w-14 h-14 bg-indigo-600/30 rounded-full flex items-center justify-center text-indigo-300 mx-auto border border-indigo-500/40 shadow-lg shadow-indigo-500/20">
                     <RiCheckDoubleLine size={28} />
                   </div>
-                  <h4 className="text-xl font-bold text-white">Message Received!</h4>
+                  <h4 className="text-xl font-bold text-white">Message Transmitted!</h4>
                   <p className="text-sm text-slate-300 max-w-md mx-auto">
-                    Thank you for reaching out. I have received your note and will review it and get back to you within 24 hours.
+                    Thank you for reaching out. I have received your message and will respond within 24 hours.
                   </p>
                   <div className="pt-2">
                     <button
@@ -321,7 +399,7 @@ export const Contact: React.FC = () => {
                       onChange={(e) =>
                         setFormState({ ...formState, subject: e.target.value })
                       }
-                      placeholder="e.g. Frontend Architecture / Full Stack Development"
+                      placeholder="e.g. Full-Stack Development / Frontend Architecture"
                       className="w-full px-4 py-3 rounded-xl bg-dark-950/80 border border-white/10 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all font-sans"
                     />
                   </div>
@@ -341,15 +419,17 @@ export const Contact: React.FC = () => {
                       onChange={(e) =>
                         setFormState({ ...formState, message: e.target.value })
                       }
-                      placeholder="Share details about your project, timeline, or engineering goals..."
+                      placeholder="Share details regarding your technical requirements, goals, or timeline..."
                       className="w-full px-4 py-3 rounded-xl bg-dark-950/80 border border-white/10 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all font-sans resize-none"
                     ></textarea>
                   </div>
 
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.01 }}
+                    whileTap={{ scale: 0.99 }}
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 via-primary-600 to-cyan-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-indigo-600/30 hover:shadow-indigo-600/50 hover:scale-[1.01] active:scale-[0.99] transition-all disabled:opacity-60"
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 via-primary-600 to-cyan-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-indigo-600/30 hover:shadow-indigo-600/50 transition-all disabled:opacity-60"
                   >
                     {isSubmitting ? (
                       <span className="flex items-center gap-2">
@@ -362,11 +442,11 @@ export const Contact: React.FC = () => {
                         <span>Send Message to Varun</span>
                       </>
                     )}
-                  </button>
+                  </motion.button>
                 </form>
               )}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

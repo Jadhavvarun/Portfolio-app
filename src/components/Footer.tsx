@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
               <div>
                 <span className="font-bold text-lg text-white">Varun Jadhav</span>
                 <span className="block text-xs text-indigo-400 font-mono">
-                  Frontend Lead @ Invocreto • Full Stack Developer
+                  Frontend Lead @ InvoCreto • Full Stack Developer
                 </span>
               </div>
             </div>
@@ -119,9 +119,14 @@ export const Footer: React.FC = () => {
                 <FaEnvelope size={15} />
               </a>
             </div>
-            <p className="text-xs text-slate-500 font-mono pt-2">
-              jadhavvarun67@gmail.com
-            </p>
+            <div className="flex flex-col space-y-1 text-xs text-slate-400 font-mono pt-2">
+              <a href="mailto:jadhavvarun67@gmail.com" className="hover:text-white transition-colors">
+                jadhavvarun67@gmail.com
+              </a>
+              <a href="tel:7738412722" className="hover:text-emerald-400 transition-colors">
+                +91 7738412722
+              </a>
+            </div>
           </div>
         </div>
 
