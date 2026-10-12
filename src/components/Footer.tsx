@@ -1,6 +1,5 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaEnvelope, FaArrowUp, FaDownload } from "react-icons/fa";
-import { RiSparklingFill } from "react-icons/ri";
+import { FaGithub, FaLinkedin, FaEnvelope, FaArrowUp, FaDownload, FaPhoneAlt } from "react-icons/fa";
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -8,20 +7,20 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-dark-950 border-t border-white/10 text-slate-400 py-16 relative">
+    <footer className="bg-dark-950 border-t border-white/10 text-slate-400 py-12 sm:py-16 relative">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/5">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-10 pb-8 sm:pb-12 border-b border-white/5">
           {/* Brand & Summary */}
-          <div className="md:col-span-5 space-y-4">
+          <div className="md:col-span-5 space-y-3.5 sm:space-y-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-indigo-600 to-cyan-500 p-[1px]">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-indigo-600 to-cyan-500 p-[1px] shrink-0">
                 <div className="flex h-full w-full items-center justify-center rounded-[11px] bg-dark-950 font-mono font-bold text-base text-white">
                   VJ
                 </div>
               </div>
-              <div>
-                <span className="font-bold text-lg text-white">Varun Jadhav</span>
-                <span className="block text-xs text-indigo-400 font-mono">
+              <div className="min-w-0">
+                <span className="font-bold text-base sm:text-lg text-white block truncate">Varun Jadhav</span>
+                <span className="block text-xs text-indigo-400 font-mono truncate">
                   Frontend Lead @ InvoCreto • Full Stack Developer
                 </span>
               </div>
@@ -32,11 +31,11 @@ export const Footer: React.FC = () => {
             </p>
 
             <div className="flex items-center gap-2 pt-1">
-              <span className="relative flex h-2 w-2">
+              <span className="relative flex h-2 w-2 shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              <span className="text-xs font-mono text-emerald-400">
+              <span className="text-xs font-mono text-emerald-400 truncate">
                 Mumbai, India • Available for Impact
               </span>
             </div>
@@ -92,12 +91,12 @@ export const Footer: React.FC = () => {
             <h4 className="text-xs uppercase font-mono font-bold tracking-wider text-white">
               Connect
             </h4>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2.5">
               <a
                 href="https://github.com/Jadhavvarun"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-indigo-400 transition-all"
+                className="flex h-9 w-9 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-indigo-400 transition-all shrink-0"
                 title="GitHub"
               >
                 <FaGithub size={16} />
@@ -106,21 +105,28 @@ export const Footer: React.FC = () => {
                 href="https://www.linkedin.com/in/varun-jadhav-620814152/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-cyan-400 transition-all"
+                className="flex h-9 w-9 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-cyan-400 transition-all shrink-0"
                 title="LinkedIn"
               >
                 <FaLinkedin size={16} />
               </a>
               <a
                 href="mailto:jadhavvarun67@gmail.com"
-                className="flex h-9 w-9 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-indigo-400 transition-all"
+                className="flex h-9 w-9 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-indigo-400 transition-all shrink-0"
                 title="Email"
               >
                 <FaEnvelope size={15} />
               </a>
+              <a
+                href="tel:7738412722"
+                className="flex h-9 w-9 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-emerald-400 transition-all shrink-0"
+                title="Call"
+              >
+                <FaPhoneAlt size={13} />
+              </a>
             </div>
-            <div className="flex flex-col space-y-1 text-xs text-slate-400 font-mono pt-2">
-              <a href="mailto:jadhavvarun67@gmail.com" className="hover:text-white transition-colors">
+            <div className="flex flex-col space-y-1 text-xs text-slate-400 font-mono pt-1">
+              <a href="mailto:jadhavvarun67@gmail.com" className="hover:text-white transition-colors truncate">
                 jadhavvarun67@gmail.com
               </a>
               <a href="tel:7738412722" className="hover:text-emerald-400 transition-colors">
@@ -131,13 +137,13 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Credits & Scroll to Top */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono">
+        <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono text-center sm:text-left">
           <div>
             &copy; {new Date().getFullYear()} Varun Jadhav. All rights reserved.
           </div>
 
-          <div className="flex items-center gap-6">
-            <span>Next.js 14 • TypeScript • Tailwind</span>
+          <div className="flex items-center gap-4 sm:gap-6">
+            <span className="hidden xs:inline">Next.js 14 • TypeScript • Tailwind</span>
 
             <button
               onClick={scrollToTop}

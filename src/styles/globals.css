@@ -12,6 +12,8 @@
 html {
   scroll-behavior: smooth;
   color-scheme: dark;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {
@@ -19,6 +21,8 @@ body {
   background-color: #06070a;
   color: #f1f5f9;
   overflow-x: hidden;
+  max-width: 100vw;
+  -webkit-tap-highlight-color: transparent;
   selection-background-color: #6366f1;
   selection-color: #ffffff;
 }

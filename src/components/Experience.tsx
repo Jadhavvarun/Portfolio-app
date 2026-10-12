@@ -6,11 +6,9 @@ import {
   FaCalendarAlt, 
   FaMapMarkerAlt, 
   FaCheckCircle, 
-  FaCrown,
-  FaUsers,
-  FaTachometerAlt
+  FaCrown 
 } from "react-icons/fa";
-import { RiSparklingFill, RiBuildingLine, RiPulseLine } from "react-icons/ri";
+import { RiSparklingFill, RiBuildingLine } from "react-icons/ri";
 
 interface ExperienceItem {
   id: string;
@@ -123,10 +121,10 @@ export const Experience: React.FC = () => {
       : [...experiences, ...educations];
 
   return (
-    <section id="experience" className="py-24 bg-dark-900/60 relative overflow-hidden">
+    <section id="experience" className="py-16 sm:py-24 bg-dark-900/60 relative overflow-hidden">
       {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 right-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-72 sm:w-96 h-72 sm:h-96 bg-indigo-600/10 rounded-full blur-[100px] sm:blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 right-0 w-60 sm:w-80 h-60 sm:h-80 bg-cyan-500/10 rounded-full blur-[90px] sm:blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -134,25 +132,25 @@ export const Experience: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-950/40 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-indigo-300 mb-3">
             <RiBuildingLine size={13} />
             <span>Verified Career Progression</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             Work Experience & <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-primary-300 to-cyan-300">Engineering Leadership</span>
           </h2>
-          <p className="mt-4 text-slate-400 text-base sm:text-lg">
+          <p className="mt-3 sm:mt-4 text-slate-400 text-sm sm:text-base md:text-lg">
             Proven leadership at InvoCreto and Syntags Professional Services — heading frontend architecture, leading a team of 4 developers, and shipping distributed full-stack systems.
           </p>
 
-          {/* Filter Pills */}
-          <div className="flex items-center justify-center gap-2 mt-8">
+          {/* Filter Pills: Wrap cleanly on small screens */}
+          <div className="flex flex-wrap items-center justify-center gap-2 mt-6 sm:mt-8">
             <button
               onClick={() => setActiveTab("all")}
-              className={`px-4 py-2 text-xs sm:text-sm font-medium rounded-full transition-all ${
+              className={`px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-full transition-all ${
                 activeTab === "all"
                   ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/30"
                   : "bg-dark-800/80 text-slate-400 hover:text-white border border-white/5"
@@ -162,7 +160,7 @@ export const Experience: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveTab("experience")}
-              className={`flex items-center gap-1.5 px-4 py-2 text-xs sm:text-sm font-medium rounded-full transition-all ${
+              className={`flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-full transition-all ${
                 activeTab === "experience"
                   ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/30"
                   : "bg-dark-800/80 text-slate-400 hover:text-white border border-white/5"
@@ -173,7 +171,7 @@ export const Experience: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveTab("education")}
-              className={`flex items-center gap-1.5 px-4 py-2 text-xs sm:text-sm font-medium rounded-full transition-all ${
+              className={`flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-full transition-all ${
                 activeTab === "education"
                   ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/30"
                   : "bg-dark-800/80 text-slate-400 hover:text-white border border-white/5"
@@ -185,12 +183,12 @@ export const Experience: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Timeline Container */}
+        {/* Timeline Container: Left-aligned on mobile/tablet (< lg), Alternating on desktop (lg+) */}
         <div className="relative max-w-4xl mx-auto">
           {/* Vertical Connecting Line */}
-          <div className="absolute left-4 sm:left-1/2 top-4 bottom-4 w-0.5 -translate-x-1/2 bg-gradient-to-b from-indigo-500 via-cyan-500/50 to-transparent" />
+          <div className="absolute left-3.5 sm:left-6 lg:left-1/2 top-4 bottom-4 w-0.5 -translate-x-1/2 bg-gradient-to-b from-indigo-500 via-cyan-500/50 to-transparent" />
 
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-12">
             <AnimatePresence mode="popLayout">
               {displayList.map((item, index) => {
                 const isEven = index % 2 === 0;
@@ -199,15 +197,15 @@ export const Experience: React.FC = () => {
                   <motion.div
                     key={item.id}
                     layout
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 25 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.45, delay: index * 0.08 }}
                     className="relative flex flex-col"
                   >
-                    {/* Center Node Icon */}
+                    {/* Node Icon */}
                     <div
-                      className={`absolute left-4 sm:left-1/2 -translate-x-1/2 z-20 flex h-9 w-9 items-center justify-center rounded-full border-2 ${
+                      className={`absolute left-3.5 sm:left-6 lg:left-1/2 -translate-x-1/2 z-20 flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full border-2 ${
                         item.isLead
                           ? "border-amber-400 bg-dark-950 text-amber-300 shadow-[0_0_20px_rgba(251,191,36,0.6)]"
                           : item.type === "education"
@@ -216,23 +214,23 @@ export const Experience: React.FC = () => {
                       }`}
                     >
                       {item.isLead ? (
-                        <FaCrown size={15} />
+                        <FaCrown className="text-xs sm:text-sm" />
                       ) : item.type === "education" ? (
-                        <FaGraduationCap size={15} />
+                        <FaGraduationCap className="text-xs sm:text-sm" />
                       ) : (
-                        <FaBriefcase size={13} />
+                        <FaBriefcase className="text-[11px] sm:text-xs" />
                       )}
                     </div>
 
-                    {/* Card Content */}
+                    {/* Card Content: Full-width on mobile & tablet, alternating on desktop */}
                     <div
-                      className={`pl-12 sm:pl-0 sm:w-1/2 ${
-                        isEven ? "sm:pr-10 sm:text-right" : "sm:pl-10 sm:ml-auto sm:text-left"
+                      className={`pl-9 sm:pl-16 lg:pl-0 lg:w-1/2 w-full ${
+                        isEven ? "lg:pr-10 lg:text-right" : "lg:pl-10 lg:ml-auto lg:text-left"
                       }`}
                     >
                       <motion.div
-                        whileHover={{ scale: 1.015 }}
-                        className={`glass-panel p-6 sm:p-7 rounded-2xl border transition-all duration-300 ${
+                        whileHover={{ scale: 1.012 }}
+                        className={`glass-panel p-5 sm:p-7 rounded-2xl border transition-all duration-300 ${
                           item.isLead
                             ? "border-amber-500/40 bg-gradient-to-br from-indigo-950/40 via-dark-900 to-amber-950/20 shadow-[0_10px_35px_-5px_rgba(251,191,36,0.15)] ring-1 ring-amber-500/30"
                             : "border-white/10 hover:border-indigo-500/30 hover:bg-dark-850/80"
@@ -240,13 +238,13 @@ export const Experience: React.FC = () => {
                       >
                         {/* Top Badges */}
                         <div
-                          className={`flex flex-wrap items-center gap-2 mb-3 ${
-                            isEven ? "sm:justify-end" : "sm:justify-start"
+                          className={`flex flex-wrap items-center gap-2 mb-2.5 sm:mb-3 ${
+                            isEven ? "lg:justify-end" : "lg:justify-start"
                           }`}
                         >
                           {item.badgeText && (
                             <span
-                              className={`inline-flex items-center gap-1.5 rounded-full px-3 py-0.5 text-xs font-bold border ${
+                              className={`inline-flex items-center gap-1.5 rounded-full px-2.5 sm:px-3 py-0.5 text-[11px] sm:text-xs font-bold border ${
                                 item.isLead
                                   ? "bg-amber-500/20 border-amber-500/40 text-amber-300"
                                   : item.type === "education"
@@ -258,31 +256,35 @@ export const Experience: React.FC = () => {
                               {item.badgeText}
                             </span>
                           )}
-                          <span className="inline-flex items-center gap-1 text-xs text-slate-400 font-mono">
+                          <span className="inline-flex items-center gap-1 text-[11px] sm:text-xs text-slate-400 font-mono">
                             <FaCalendarAlt size={10} />
                             {item.period}
                           </span>
                         </div>
 
                         {/* Role & Company */}
-                        <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                        <h3 className="text-lg sm:text-2xl font-bold text-white tracking-tight">
                           {item.role}
                         </h3>
-                        <div className="text-sm sm:text-base font-semibold text-cyan-400 mt-1 flex items-center gap-2">
+                        <div
+                          className={`text-xs sm:text-base font-semibold text-cyan-400 mt-1 flex flex-wrap items-center gap-1.5 sm:gap-2 ${
+                            isEven ? "lg:justify-end" : "lg:justify-start"
+                          }`}
+                        >
                           <span>{item.company}</span>
-                          <span className="text-slate-600">•</span>
-                          <span className="text-xs text-slate-400 font-normal flex items-center gap-1">
+                          <span className="text-slate-600 hidden xs:inline">•</span>
+                          <span className="text-[11px] sm:text-xs text-slate-400 font-normal flex items-center gap-1">
                             <FaMapMarkerAlt size={10} />
                             {item.location}
                           </span>
                         </div>
 
-                        {/* Highlights */}
-                        <ul className="mt-4 space-y-2 text-xs sm:text-sm text-slate-300 text-left">
+                        {/* Highlights (Always left-aligned with nice indentation for readability) */}
+                        <ul className="mt-3.5 sm:mt-4 space-y-2 text-xs sm:text-sm text-slate-300 text-left">
                           {item.highlights.map((h, i) => (
-                            <li key={i} className="flex items-start gap-2.5">
-                              <span className="text-indigo-400 mt-1 shrink-0">
-                                <FaCheckCircle size={12} />
+                            <li key={i} className="flex items-start gap-2 sm:gap-2.5">
+                              <span className="text-indigo-400 mt-0.5 sm:mt-1 shrink-0">
+                                <FaCheckCircle className="text-[11px] sm:text-xs" />
                               </span>
                               <span className="leading-relaxed">{h}</span>
                             </li>
@@ -291,14 +293,14 @@ export const Experience: React.FC = () => {
 
                         {/* Tech Chips */}
                         <div
-                          className={`mt-5 flex flex-wrap gap-1.5 pt-4 border-t border-white/5 ${
-                            isEven ? "sm:justify-end" : "sm:justify-start"
+                          className={`mt-4 sm:mt-5 flex flex-wrap gap-1.5 pt-3.5 sm:pt-4 border-t border-white/5 ${
+                            isEven ? "lg:justify-end" : "lg:justify-start"
                           }`}
                         >
                           {item.skills.map((skill) => (
                             <span
                               key={skill}
-                              className="px-2.5 py-1 text-[11px] font-mono rounded-md bg-dark-950/80 border border-white/10 text-slate-300"
+                              className="px-2 sm:px-2.5 py-0.5 sm:py-1 text-[10px] sm:text-[11px] font-mono rounded-md bg-dark-950/80 border border-white/10 text-slate-300"
                             >
                               {skill}
                             </span>

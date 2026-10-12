@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
+import JsonLd from "@/components/JsonLd";
+import InitialLoader from "@/components/InitialLoader";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Experience from "@/components/Experience";
@@ -9,6 +11,8 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export default function Home() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   return (
     <>
       <Head>
@@ -17,7 +21,7 @@ export default function Home() {
           name="description"
           content="Portfolio of Varun Jadhav — Full Stack Developer & Frontend Lead at InvoCreto. Crafting scalable architectures, enterprise design systems, and high-performance React & Next.js applications."
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta property="og:title" content="Varun Jadhav | Full Stack Developer & Frontend Lead at InvoCreto" />
         <meta
           property="og:description"
@@ -31,6 +35,12 @@ export default function Home() {
           content="Frontend Lead at InvoCreto & Full Stack Engineer specializing in Next.js, React, TypeScript, and Node.js."
         />
       </Head>
+
+      {/* JSON-LD Structured Data for Enhanced Search Engine Ranking */}
+      <JsonLd />
+
+      {/* Initializing Entrance Loader */}
+      <InitialLoader onComplete={() => setIsLoaded(true)} />
 
       <div className="min-h-screen bg-dark-950 text-slate-100 selection:bg-indigo-500/40 selection:text-white">
         <Header />
