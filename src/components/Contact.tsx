@@ -86,24 +86,41 @@ export const Contact: React.FC = () => {
     setTimeout(() => setCopiedPhone(false), 2500);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage("");
 
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formState),
+      });
 
-      try {
-        confetti({
-          particleCount: 120,
-          spread: 80,
-          origin: { y: 0.6 },
-        });
-      } catch (err) {
-        // ignore
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        setIsSubmitted(true);
+        try {
+          confetti({
+            particleCount: 120,
+            spread: 80,
+            origin: { y: 0.6 },
+          });
+        } catch (err) {
+          // ignore
+        }
+      } else {
+        setErrorMessage(data.error || "Failed to submit message. Please try again.");
       }
-    }, 1000);
+    } catch (err) {
+      setErrorMessage("Could not connect to API server. You can email jadhavvarun67@gmail.com directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -423,6 +440,13 @@ export const Contact: React.FC = () => {
                       className="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl bg-dark-950/80 border border-white/10 text-white placeholder-slate-600 text-base sm:text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all font-sans resize-none"
                     ></textarea>
                   </div>
+
+                  {errorMessage && (
+                    <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-start gap-2.5">
+                      <span className="shrink-0 mt-0.5 text-rose-400">⚠️</span>
+                      <span className="leading-relaxed">{errorMessage}</span>
+                    </div>
+                  )}
 
                   <motion.button
                     whileHover={{ scale: 1.01 }}
