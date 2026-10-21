@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  FaGithub, 
-  FaCode, 
+import {
+  FaGithub,
+  FaCode,
   FaCheckCircle,
   FaFileInvoiceDollar,
   FaBuilding,
   FaGlobe
 } from "react-icons/fa";
-import { 
+import {
   RiShareBoxLine
 } from "react-icons/ri";
 
@@ -31,7 +31,7 @@ const projects: Project[] = [
     id: "invocreto-platform",
     title: "invocreto — Business & Invoicing Platform",
     subtitle: "Frontend Lead & Distributed Services",
-    badge: "Live Production • Lead Role",
+    badge: "Live Production",
     category: "lead",
     description:
       "Enterprise business management and invoicing platform. Spearheaded the frontend development with Next.js and Angular focusing on scalable architecture, reusable UI components, and integrated backend microservices.",
@@ -59,7 +59,7 @@ const projects: Project[] = [
     id: "indiacorporates",
     title: "IndiaCorporates — Business Intelligence",
     subtitle: "End-to-End Lead Developer",
-    badge: "Live Production • Full-Stack Lead",
+    badge: "Live Production",
     category: "lead",
     description:
       "Led end-to-end development of IndiaCorporates, translating complex business requirements into seamless application workflows and technical solutions across frontend, backend, and API integrations.",
@@ -85,7 +85,7 @@ const projects: Project[] = [
     id: "varun-portfolio",
     title: "Varun Jadhav — Engineering Portfolio & Admin Portal",
     subtitle: "Full-Stack Architecture & Live Admin Console",
-    badge: "Live Production • Portfolio",
+    badge: "Live Production",
     category: "fullstack",
     description:
       "Modern, state-of-the-art engineering portfolio with a built-in secured Admin Dashboard. Powered by Next.js 14, Tailwind CSS, Google OAuth authentication, and real-time Firebase Firestore lead tracking.",
@@ -265,11 +265,10 @@ export const Projects: React.FC = () => {
               <button
                 key={tab.id}
                 onClick={() => setFilter(tab.id as any)}
-                className={`px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-full transition-all ${
-                  filter === tab.id
-                    ? "bg-gradient-to-r from-indigo-600 to-cyan-600 text-white shadow-lg shadow-indigo-600/25"
-                    : "bg-dark-900 border border-white/10 text-slate-400 hover:text-white hover:bg-dark-850"
-                }`}
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-full transition-all ${filter === tab.id
+                  ? "bg-gradient-to-r from-indigo-600 to-cyan-600 text-white shadow-lg shadow-indigo-600/25"
+                  : "bg-dark-900 border border-white/10 text-slate-400 hover:text-white hover:bg-dark-850"
+                  }`}
               >
                 {tab.label}
               </button>
