@@ -1,5 +1,6 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaEnvelope, FaArrowUp, FaDownload, FaPhoneAlt } from "react-icons/fa";
+import Link from "next/link";
+import { FaGithub, FaLinkedin, FaEnvelope, FaArrowUp, FaDownload, FaPhoneAlt, FaLock } from "react-icons/fa";
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -142,8 +143,17 @@ export const Footer: React.FC = () => {
             &copy; {new Date().getFullYear()} Varun Jadhav. All rights reserved.
           </div>
 
-          <div className="flex items-center gap-4 sm:gap-6">
+          <div className="flex items-center gap-3 sm:gap-5">
             <span className="hidden xs:inline">Next.js 14 • TypeScript • Tailwind</span>
+
+            <Link
+              href="/dashboard"
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-dark-900 border border-white/5 text-slate-400 hover:text-indigo-300 hover:border-indigo-500/30 transition-all text-xs"
+              title="Admin Portal"
+            >
+              <FaLock size={10} />
+              <span>Admin</span>
+            </Link>
 
             <button
               onClick={scrollToTop}

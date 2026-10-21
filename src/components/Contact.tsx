@@ -100,7 +100,7 @@ export const Contact: React.FC = () => {
         body: JSON.stringify(formState),
       });
 
-      const data = await res.json();
+      const data = await res.json().catch(() => ({}));
 
       if (res.ok && data.success) {
         setIsSubmitted(true);
