@@ -7,21 +7,8 @@ type ContactResponse = {
   id?: string;
 };
 
-// Helper to sanitize environment variables (stripping accidental quotes, trailing commas, or whitespace)
-const cleanEnv = (val: string | undefined, fallback: string): string => {
-  if (!val) return fallback;
-  const cleaned = val.replace(/["',;]/g, "").trim();
-  return cleaned || fallback;
-};
-
-const FIREBASE_API_KEY = cleanEnv(
-  process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  "AIzaSyCYKlK3AO2UBgPSPnCeE8nZCDsl0_y9tG4"
-);
-const FIREBASE_PROJECT_ID = cleanEnv(
-  process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  "varun-portfolio-f7909"
-);
+const FIREBASE_API_KEY = process.env.NEXT_PUBLIC_FIREBASE_API_KEY
+const FIREBASE_PROJECT_ID = process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID
 
 export default async function handler(
   req: NextApiRequest,

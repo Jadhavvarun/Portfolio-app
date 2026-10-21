@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
               <div className="min-w-0">
                 <span className="font-bold text-base sm:text-lg text-white block truncate">Varun Jadhav</span>
                 <span className="block text-xs text-indigo-400 font-mono truncate">
-                  Frontend Lead @ InvoCreto • Full Stack Developer
+                  Frontend Lead @ invocreto • Full Stack Developer
                 </span>
               </div>
             </div>
@@ -145,15 +145,6 @@ export const Footer: React.FC = () => {
 
           <div className="flex items-center gap-3 sm:gap-5">
             <span className="hidden xs:inline">Next.js 14 • TypeScript • Tailwind</span>
-
-            <Link
-              href="/dashboard"
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-dark-900 border border-white/5 text-slate-400 hover:text-indigo-300 hover:border-indigo-500/30 transition-all text-xs"
-              title="Admin Portal"
-            >
-              <FaLock size={10} />
-              <span>Admin</span>
-            </Link>
 
             <button
               onClick={scrollToTop}

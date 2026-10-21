@@ -312,7 +312,7 @@ export const Contact: React.FC = () => {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3 sm:w-3 bg-emerald-500"></span>
               </span>
               <div className="text-xs sm:text-xs text-slate-300 leading-relaxed">
-                <strong className="text-white">Active Frontend Lead @ InvoCreto</strong> — Available for select advisory roles, technical leadership, and full-stack architecture initiatives.
+                <strong className="text-white">Active Frontend Lead @ invocreto</strong> — Available for select advisory roles, technical leadership, and full-stack architecture initiatives.
               </div>
             </div>
           </motion.div>

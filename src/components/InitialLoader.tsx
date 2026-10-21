@@ -110,7 +110,7 @@ export const InitialLoader: React.FC<InitialLoaderProps> = ({ onComplete }) => {
               transition={{ delay: 0.2 }}
               className="text-xs sm:text-sm text-indigo-400 font-mono mb-8"
             >
-              Frontend Lead @ InvoCreto
+              Frontend Lead @ invocreto
             </motion.p>
 
             {/* Progress Bar Container */}

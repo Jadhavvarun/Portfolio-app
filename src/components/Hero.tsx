@@ -15,7 +15,7 @@ import {
 import { RiSparklingFill, RiShieldCheckLine, RiCompassDiscoverLine } from "react-icons/ri";
 
 const ROLES = [
-  "Frontend Lead @ InvoCreto",
+  "Frontend Lead @ invocreto",
   "Full-Stack Software Developer",
   "Next.js & React Architect",
   "Angular & TypeScript Specialist",
@@ -78,9 +78,9 @@ export const Hero: React.FC = () => {
       case "help":
         response = [
           "Available commands:",
-          "  • lead       - Frontend Lead @ InvoCreto & Team Leadership details",
+          "  • lead       - Frontend Lead @ invocreto & Team Leadership details",
           "  • stack      - View full-stack technologies & microservices",
-          "  • projects   - View InvoCreto & IndiaCorporates highlights",
+          "  • projects   - View invocreto & IndiaCorporates highlights",
           "  • contact    - Get email, phone, and coordinates",
           "  • clear      - Clear terminal history",
         ];
@@ -88,7 +88,7 @@ export const Hero: React.FC = () => {
       case "lead":
         response = [
           "👑 FRONTEND LEAD & TEAM LEADERSHIP:",
-          "  - InvoCreto: Spearheaded frontend architecture of invoicing & business management platform",
+          "  - invocreto: Spearheaded frontend architecture of invoicing & business management platform",
           "  - Syntags: Led a high-performing team of 4 developers, cutting delivery cycles by 30%",
           "  - Performance: 40-50% speed uplift in Next.js, 90+ Lighthouse, 35% bundle reduction in Angular",
         ];
@@ -105,7 +105,7 @@ export const Hero: React.FC = () => {
       case "projects":
         response = [
           "🚀 FEATURED LIVE PROJECTS:",
-          "  - InvoCreto: Next.js, Angular, Node.js, MongoDB, RabbitMQ, Microservices",
+          "  - invocreto: Next.js, Angular, Node.js, MongoDB, RabbitMQ, Microservices",
           "  - IndiaCorporates: End-to-end full stack corporate workflows & interactive dashboards",
         ];
         break;
@@ -181,23 +181,23 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.1, duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-950/50 px-3 sm:px-3.5 py-1.5 backdrop-blur-md mb-4 sm:mb-6 shadow-sm shadow-indigo-500/10 max-w-full text-xs"
+              className="inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-950/50 px-3 sm:px-3.5 py-1.5 backdrop-blur-md mb-3 sm:mb-4 lg:mb-5 shadow-sm shadow-indigo-500/10 max-w-full text-xs"
             >
               <span className="relative flex h-2 w-2 shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              <span className="font-semibold uppercase tracking-wider text-indigo-300 text-[11px] sm:text-xs truncate">
-                Frontend Lead @ InvoCreto
+              <span className="font-semibold uppercase tracking-wider text-indigo-300 text-[10px] xs:text-[11px] sm:text-xs truncate">
+                Frontend Lead @ invocreto
               </span>
               <span className="text-slate-600 hidden xs:inline">•</span>
-              <span className="text-cyan-300 font-medium text-[11px] sm:text-xs hidden xs:inline truncate">
+              <span className="text-cyan-300 font-medium text-[10px] xs:text-[11px] sm:text-xs hidden xs:inline truncate">
                 Team Lead (4 Devs)
               </span>
             </motion.div>
 
-            {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.14] mb-4 sm:mb-5 break-words w-full">
+            {/* Main Headline with generous vertical spacing for desktop */}
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.2] sm:leading-[1.15] lg:leading-[1.18] my-3 sm:my-5 lg:my-8 break-words w-full">
               Architecting Enterprise Systems &{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-primary-300 to-cyan-300">
                 High-Performance
@@ -206,8 +206,8 @@ export const Hero: React.FC = () => {
             </h1>
 
             {/* Rotating Role Pill */}
-            <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 mb-5 sm:mb-6 min-h-[36px] w-full">
-              <span className="text-slate-400 font-mono text-sm sm:text-base shrink-0">
+            <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 mb-4 sm:mb-5 lg:mb-6 min-h-[32px] sm:min-h-[36px] w-full">
+              <span className="text-slate-400 font-mono text-xs sm:text-sm md:text-base shrink-0">
                 I am a
               </span>
               <div className="inline-flex items-center px-2.5 sm:px-3 py-1 rounded-md bg-indigo-950/60 border border-indigo-500/30 font-mono text-xs sm:text-sm md:text-base font-semibold text-cyan-300 shadow-inner max-w-full truncate">
@@ -217,51 +217,53 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Narrative Summary */}
-            <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mb-7 sm:mb-8">
-              Full-Stack Software Developer & Frontend Lead at <strong className="text-white">InvoCreto</strong>. Experienced in building scalable applications with <strong className="text-cyan-300">Next.js</strong>, <strong className="text-indigo-300">React.js</strong>, <strong className="text-rose-300">Angular</strong>, and <strong className="text-emerald-300">Node.js</strong>. Proven track record leading a team of 4 developers, boosting web performance by 40–50% (90+ Lighthouse), and designing microservices with RabbitMQ and Docker.
+            <p className="text-slate-300 text-xs xs:text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mb-6 sm:mb-8">
+              Full-Stack Software Developer & Frontend Lead at <strong className="text-white">invocreto</strong>. Experienced in building scalable applications with <strong className="text-cyan-300">Next.js</strong>, <strong className="text-indigo-300">React.js</strong>, <strong className="text-rose-300">Angular</strong>, and <strong className="text-emerald-300">Node.js</strong>. Proven track record leading a team of 4 developers, boosting web performance by 40–50% (90+ Lighthouse), and designing microservices with RabbitMQ and Docker.
             </p>
 
-            {/* CTAs: Full-width stacked on phone, row on tablet/desktop */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-8 sm:mb-10 w-full sm:w-auto">
+            {/* CTAs: Responsive layout for mobile (stacked primary + 2-col secondary) and row on desktop */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-4 mb-6 sm:mb-8 lg:mb-10 w-full sm:w-auto">
               <motion.a
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 href="#projects"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 via-primary-600 to-cyan-600 px-5 sm:px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-indigo-600/30 hover:shadow-indigo-600/50 transition-all text-center"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 via-primary-600 to-cyan-600 px-4 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold text-white shadow-lg shadow-indigo-600/30 hover:shadow-indigo-600/50 transition-all text-center w-full sm:w-auto"
               >
-                <span>Explore InvoCreto & Projects</span>
-                <FaArrowRight size={13} />
+                <span>Explore invocreto & Projects</span>
+                <FaArrowRight size={12} />
               </motion.a>
 
-              <motion.a
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                href="#experience"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-dark-900/80 px-4 sm:px-5 py-3.5 text-sm font-medium text-slate-200 hover:border-indigo-500/40 hover:bg-dark-850 hover:text-white transition-all backdrop-blur-md text-center"
-              >
-                <RiCompassDiscoverLine size={16} className="text-indigo-400" />
-                <span>Experience & Leadership</span>
-              </motion.a>
+              <div className="grid grid-cols-2 sm:flex sm:items-center gap-2.5 sm:gap-4 w-full sm:w-auto">
+                <motion.a
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  href="#experience"
+                  className="inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl border border-white/10 bg-dark-900/80 px-3 sm:px-5 py-3 sm:py-3.5 text-xs sm:text-sm font-medium text-slate-200 hover:border-indigo-500/40 hover:bg-dark-850 hover:text-white transition-all backdrop-blur-md text-center"
+                >
+                  <RiCompassDiscoverLine size={15} className="text-indigo-400 shrink-0" />
+                  <span className="truncate">Experience</span>
+                </motion.a>
 
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={copyEmail}
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-dark-900/60 px-4 py-3.5 text-sm font-medium text-slate-300 hover:text-white hover:border-cyan-500/40 transition-all"
-                title="Copy Varun's Email"
-              >
-                {copiedEmail ? (
-                  <>
-                    <FaCheck size={14} className="text-emerald-400" />
-                    <span className="text-emerald-300 text-xs">Email Copied!</span>
-                  </>
-                ) : (
-                  <>
-                    <FaCopy size={13} className="text-cyan-400" />
-                    <span className="text-xs">Copy Email</span>
-                  </>
-                )}
-              </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={copyEmail}
+                  className="inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl border border-white/10 bg-dark-900/60 px-3 sm:px-4 py-3 sm:py-3.5 text-xs sm:text-sm font-medium text-slate-300 hover:text-white hover:border-cyan-500/40 transition-all"
+                  title="Copy Varun's Email"
+                >
+                  {copiedEmail ? (
+                    <>
+                      <FaCheck size={12} className="text-emerald-400 shrink-0" />
+                      <span className="text-emerald-300 text-xs truncate">Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <FaCopy size={12} className="text-cyan-400 shrink-0" />
+                      <span className="text-xs truncate">Copy Email</span>
+                    </>
+                  )}
+                </motion.button>
+              </div>
             </div>
 
             {/* Social & Contact Strip */}
@@ -372,7 +374,7 @@ export const Hero: React.FC = () => {
               </div>
 
               {/* Window Body */}
-              <div className="p-4 sm:p-5 font-mono text-xs sm:text-sm bg-dark-950/90 min-h-[340px] sm:min-h-[380px] flex flex-col justify-between">
+              <div className="p-3.5 sm:p-5 font-mono text-xs sm:text-sm bg-dark-950/90 min-h-[300px] xs:min-h-[330px] sm:min-h-[380px] flex flex-col justify-between">
                 {activeTab === "code" && (
                   <div className="space-y-1 sm:space-y-1.5 text-slate-300 select-text overflow-x-auto text-[11px] sm:text-xs md:text-sm">
                     <p className="text-slate-500">{"// Varun Jadhav - Lead Profile"}</p>
@@ -387,7 +389,7 @@ export const Hero: React.FC = () => {
                     </p>
                     <p className="pl-3 sm:pl-4">
                       <span className="text-slate-400">roles:</span> [
-                      <span className="text-emerald-300">&quot;Frontend Lead @ InvoCreto&quot;</span>,{" "}
+                      <span className="text-emerald-300">&quot;Frontend Lead @ invocreto&quot;</span>,{" "}
                       <span className="text-emerald-300">&quot;Syntags Lead&quot;</span>
                       ],
                     </p>
@@ -440,7 +442,7 @@ export const Hero: React.FC = () => {
                       <li className="flex items-start gap-2">
                         <span className="text-amber-400 font-bold shrink-0">▸</span>
                         <span>
-                          <strong className="text-white">Frontend Lead @ InvoCreto:</strong> Architected invoicing and business platform with Next.js & Angular.
+                          <strong className="text-white">Frontend Lead @ invocreto:</strong> Architected invoicing and business platform with Next.js & Angular.
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
@@ -542,7 +544,7 @@ export const Hero: React.FC = () => {
               Frontend Lead
             </div>
             <div className="text-[11px] sm:text-xs md:text-sm text-slate-400 mt-1">
-              InvoCreto Platform
+              invocreto Platform
             </div>
           </motion.div>
 

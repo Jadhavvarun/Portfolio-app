@@ -28,7 +28,7 @@ const experiences: ExperienceItem[] = [
   {
     id: "invocreto-lead",
     role: "Frontend Lead",
-    company: "InvoCreto",
+    company: "invocreto",
     period: "2024 - Present",
     location: "Mumbai, India",
     isLead: true,
@@ -36,7 +36,7 @@ const experiences: ExperienceItem[] = [
     type: "experience",
     badgeText: "Lead Role • Invoicing & Business Platform",
     highlights: [
-      "Led the frontend development of InvoCreto, an enterprise business management and invoicing platform, using Next.js and Angular.",
+      "Led the frontend development of invocreto, an enterprise business management and invoicing platform, using Next.js and Angular.",
       "Engineered a scalable frontend architecture with modular, reusable UI components and tokenized styling.",
       "Collaborated on backend and distributed service ecosystem using Node.js, Express.js, MongoDB, Microservice Architecture, RPC, RabbitMQ, and Docker.",
       "Implemented high-performance state handling and real-time invoicing workflows for high-frequency business transactions.",
@@ -143,7 +143,7 @@ export const Experience: React.FC = () => {
             Work Experience & <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-primary-300 to-cyan-300">Engineering Leadership</span>
           </h2>
           <p className="mt-3 sm:mt-4 text-slate-400 text-sm sm:text-base md:text-lg">
-            Proven leadership at InvoCreto and Syntags Professional Services — heading frontend architecture, leading a team of 4 developers, and shipping distributed full-stack systems.
+            Proven leadership at invocreto and Syntags Professional Services — heading frontend architecture, leading a team of 4 developers, and shipping distributed full-stack systems.
           </p>
 
           {/* Filter Pills: Wrap cleanly on small screens */}

@@ -16,23 +16,23 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Varun Jadhav | Full Stack Developer & Frontend Lead at InvoCreto</title>
+        <title>Varun Jadhav | Full Stack Developer & Frontend Lead at invocreto</title>
         <meta
           name="description"
-          content="Portfolio of Varun Jadhav — Full Stack Developer & Frontend Lead at InvoCreto. Crafting scalable architectures, enterprise design systems, and high-performance React & Next.js applications."
+          content="Portfolio of Varun Jadhav — Full Stack Developer & Frontend Lead at invocreto. Crafting scalable architectures, enterprise design systems, and high-performance React & Next.js applications."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <meta property="og:title" content="Varun Jadhav | Full Stack Developer & Frontend Lead at InvoCreto" />
+        <meta property="og:title" content="Varun Jadhav | Full Stack Developer & Frontend Lead at invocreto" />
         <meta
           property="og:description"
           content="Explore the engineering portfolio, leadership milestones, tech stack, and production works of Varun Jadhav."
         />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Varun Jadhav | Full Stack Developer & Frontend Lead at InvoCreto" />
+        <meta name="twitter:title" content="Varun Jadhav | Full Stack Developer & Frontend Lead at invocreto" />
         <meta
           name="twitter:description"
-          content="Frontend Lead at InvoCreto & Full Stack Engineer specializing in Next.js, React, TypeScript, and Node.js."
+          content="Frontend Lead at invocreto & Full Stack Engineer specializing in Next.js, React, TypeScript, and Node.js."
         />
       </Head>
 

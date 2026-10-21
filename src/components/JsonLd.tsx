@@ -10,7 +10,7 @@ export const JsonLd: React.FC = () => {
     "jobTitle": "Full Stack Developer & Frontend Lead",
     "worksFor": {
       "@type": "Organization",
-      "name": "InvoCreto",
+      "name": "invocreto",
       "url": "https://invocreto.com"
     },
     "email": "jadhavvarun67@gmail.com",
@@ -56,20 +56,20 @@ export const JsonLd: React.FC = () => {
       "Frontend Architecture",
       "Design Systems"
     ],
-    "description": "Portfolio of Varun Jadhav — Full Stack Developer & Frontend Lead at InvoCreto. Crafting scalable full-stack architectures, enterprise design systems, and high-performance React & Next.js applications."
+    "description": "Portfolio of Varun Jadhav — Full Stack Developer & Frontend Lead at invocreto. Crafting scalable full-stack architectures, enterprise design systems, and high-performance React & Next.js applications."
   };
 
   const websiteStructuredData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Varun Jadhav Portfolio",
-    "alternateName": "Varun Jadhav - Frontend Lead @ InvoCreto",
+    "alternateName": "Varun Jadhav - Frontend Lead @ invocreto",
     "url": "https://varunjadhav.dev",
     "author": {
       "@type": "Person",
       "name": "Varun Jadhav"
     },
-    "description": "Official engineering portfolio of Varun Jadhav, Frontend Lead at InvoCreto and Full Stack Developer."
+    "description": "Official engineering portfolio of Varun Jadhav, Frontend Lead at invocreto and Full Stack Developer."
   };
 
   return (

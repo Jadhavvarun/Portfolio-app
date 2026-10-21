@@ -2,16 +2,14 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaGithub, 
-  FaChartLine, 
   FaCode, 
   FaCheckCircle,
-  FaBolt,
   FaFileInvoiceDollar,
-  FaBuilding
+  FaBuilding,
+  FaGlobe
 } from "react-icons/fa";
 import { 
-  RiShareBoxLine,
-  RiDashboardLine
+  RiShareBoxLine
 } from "react-icons/ri";
 
 interface Project {
@@ -19,24 +17,24 @@ interface Project {
   title: string;
   subtitle: string;
   badge: string;
-  category: "all" | "lead" | "fullstack" | "frontend";
+  category: "all" | "lead" | "fullstack";
   description: string;
   impact: string[];
   technologies: string[];
   githubLink: string;
-  liveLink?: string;
-  mockupType: "invocreto" | "indiacorporates" | "analytics" | "pos" | "news";
+  liveLink: string;
+  mockupType: "invocreto" | "indiacorporates" | "portfolio";
 }
 
 const projects: Project[] = [
   {
     id: "invocreto-platform",
-    title: "InvoCreto — Business & Invoicing Platform",
+    title: "invocreto — Business & Invoicing Platform",
     subtitle: "Frontend Lead & Distributed Services",
-    badge: "Live Project • Lead Role",
+    badge: "Live Production • Lead Role",
     category: "lead",
     description:
-      "Enterprise business management and invoicing platform. Led the frontend development with Next.js and Angular focusing on scalable architecture, reusable UI components, and integrated backend microservices.",
+      "Enterprise business management and invoicing platform. Spearheaded the frontend development with Next.js and Angular focusing on scalable architecture, reusable UI components, and integrated backend microservices.",
     impact: [
       "Architected modular component suite with Next.js & Angular",
       "Integrated with distributed backend using RPC, RabbitMQ, and Docker",
@@ -54,14 +52,14 @@ const projects: Project[] = [
       "Docker",
     ],
     githubLink: "https://github.com/Jadhavvarun",
-    liveLink: "https://github.com/Jadhavvarun",
+    liveLink: "https://invocreto.com",
     mockupType: "invocreto",
   },
   {
     id: "indiacorporates",
     title: "IndiaCorporates — Business Intelligence",
     subtitle: "End-to-End Lead Developer",
-    badge: "Live Project • Full-Stack Lead",
+    badge: "Live Production • Full-Stack Lead",
     category: "lead",
     description:
       "Led end-to-end development of IndiaCorporates, translating complex business requirements into seamless application workflows and technical solutions across frontend, backend, and API integrations.",
@@ -70,69 +68,50 @@ const projects: Project[] = [
       "Built end-to-end application workflows and API data aggregation pipelines",
       "Handled database architecture, indexing, security, and cloud deployment",
     ],
-    technologies: ["React.js", "Next.js", "Node.js", "Express.js", "REST APIs", "MongoDB", "Tailwind CSS"],
+    technologies: [
+      "React.js",
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "MongoDB",
+      "Tailwind CSS",
+    ],
     githubLink: "https://github.com/Jadhavvarun",
-    liveLink: "https://github.com/Jadhavvarun",
+    liveLink: "https://indiacorporates.com",
     mockupType: "indiacorporates",
   },
   {
-    id: "news-app",
-    title: "NewsPulse Live Media Aggregator",
-    subtitle: "Fast Curated News Experience",
-    badge: "Live Production",
-    category: "frontend",
-    description:
-      "A fast, responsive news curation platform powered by Next.js and deployed on Netlify. Offers category filtering, keyword search, dark/light reading modes, and instantaneous article loading.",
-    impact: [
-      "Deployed to production with fast Netlify edge CDN caching",
-      "Mobile-first fluid responsive grid and card transitions",
-      "Real-time category switching without full page reloads",
-    ],
-    technologies: ["Next.js", "React.js", "REST API", "Tailwind CSS", "Netlify"],
-    githubLink: "https://github.com/Jadhavvarun",
-    liveLink: "https://news-app-gsp.netlify.app",
-    mockupType: "news",
-  },
-  {
-    id: "pos-system",
-    title: "OmniPoint Retail POS & Inventory",
-    subtitle: "Offline-First Enterprise Point of Sale",
-    badge: "Full Stack Enterprise",
+    id: "varun-portfolio",
+    title: "Varun Jadhav — Engineering Portfolio & Admin Portal",
+    subtitle: "Full-Stack Architecture & Live Admin Console",
+    badge: "Live Production • Portfolio",
     category: "fullstack",
     description:
-      "Full-stack point-of-sale and inventory control software engineered for retail chains. Includes live barcode scanning, printable receipts, multi-store stock ledger, and offline support.",
+      "Modern, state-of-the-art engineering portfolio with a built-in secured Admin Dashboard. Powered by Next.js 14, Tailwind CSS, Google OAuth authentication, and real-time Firebase Firestore lead tracking.",
     impact: [
-      "Real-time inventory deduction & low-stock alerts",
-      "Keyboard-accelerated cashier billing workflow",
-      "Relational schema for orders, tax slabs, and vendor invoices",
+      "Protected Admin Dashboard with Google OAuth and verified admin privileges",
+      "Real-time Firestore synchronization for inquiries with zero-latency updates",
+      "Optimized for high-speed delivery with Netlify Edge and 95+ Lighthouse score",
     ],
-    technologies: ["React.js", "Node.js", "MySQL", "Electron", "Tailwind CSS", "Express.js"],
-    githubLink: "https://github.com/Jadhavvarun",
-    liveLink: "https://github.com/Jadhavvarun",
-    mockupType: "pos",
-  },
-  {
-    id: "getshortlink",
-    title: "GetShortLink Analytics Engine",
-    subtitle: "High-Throughput URL Shortener & Metrics",
-    badge: "Full Stack System",
-    category: "fullstack",
-    description:
-      "A scalable full-stack URL shortener and click-analytics platform. Provides real-time referrers, device breakdown, QR code generation, and low-latency redirect pipelines.",
-    impact: [
-      "Sub-50ms redirect response times with in-memory caching",
-      "Interactive analytics dashboard visualizing hourly click volume",
-      "Custom vanity URLs with collision-free hash generation",
+    technologies: [
+      "Next.js 14",
+      "TypeScript",
+      "Tailwind CSS",
+      "Firebase",
+      "Firestore",
+      "Google Auth",
+      "Framer Motion",
+      "Netlify",
     ],
-    technologies: ["Node.js", "Express.js", "MongoDB", "React.js", "Tailwind CSS", "Chart.js"],
-    githubLink: "https://github.com/Jadhavvarun",
-    liveLink: "https://github.com/Jadhavvarun",
-    mockupType: "analytics",
+    githubLink: "https://github.com/Jadhavvarun/Portfolio-app",
+    liveLink: "https://varun-jadhav.netlify.app",
+    mockupType: "portfolio",
   },
 ];
 
 export const Projects: React.FC = () => {
-  const [filter, setFilter] = useState<"all" | "lead" | "fullstack" | "frontend">("all");
+  const [filter, setFilter] = useState<"all" | "lead" | "fullstack">("all");
 
   const filteredProjects =
     filter === "all" ? projects : projects.filter((p) => p.category === filter);
@@ -147,7 +126,7 @@ export const Projects: React.FC = () => {
             <div className="flex items-center justify-between text-xs font-mono text-slate-400">
               <span className="flex items-center gap-1.5 text-amber-300 font-semibold truncate text-[11px] sm:text-xs">
                 <FaFileInvoiceDollar size={13} className="shrink-0" />
-                <span className="truncate">InvoCreto Core Suite</span>
+                <span className="truncate">invocreto Core Suite</span>
               </span>
               <span className="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded border border-amber-500/30 shrink-0">
                 Next.js + Angular
@@ -156,7 +135,7 @@ export const Projects: React.FC = () => {
             {/* Invoice & Distributed Service Mockup */}
             <div className="bg-dark-950/85 p-2.5 sm:p-3 rounded-lg border border-white/10 space-y-1.5 sm:space-y-2">
               <div className="flex justify-between items-center text-xs">
-                <span className="text-white font-semibold truncate">Invoice #INV-2024-884</span>
+                <span className="text-white font-semibold truncate">invocreto.com</span>
                 <span className="text-emerald-400 font-mono font-bold shrink-0">$14,850 PAID</span>
               </div>
               <div className="flex flex-wrap items-center gap-1.5 text-[10px] text-slate-400 font-mono">
@@ -166,7 +145,7 @@ export const Projects: React.FC = () => {
             </div>
             <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-slate-500 font-mono pt-1.5 sm:pt-2 border-t border-white/5">
               <span className="truncate">Microservices & Docker</span>
-              <span className="text-emerald-400 shrink-0">Frontend Lead</span>
+              <span className="text-emerald-400 shrink-0 font-medium">invocreto.com</span>
             </div>
           </div>
         );
@@ -187,7 +166,7 @@ export const Projects: React.FC = () => {
             {/* Dashboard Mockup */}
             <div className="bg-dark-950/80 p-2.5 sm:p-3 rounded-lg border border-white/10 space-y-1 sm:space-y-1.5 text-xs">
               <div className="flex justify-between text-slate-300 text-[10px] sm:text-[11px] font-mono">
-                <span className="truncate">Intelligence Feed</span>
+                <span className="truncate">indiacorporates.com</span>
                 <span className="text-cyan-400 shrink-0">99.8% Uptime</span>
               </div>
               <div className="grid grid-cols-2 gap-2 pt-1">
@@ -202,102 +181,45 @@ export const Projects: React.FC = () => {
               </div>
             </div>
             <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-slate-500 font-mono pt-1.5 sm:pt-2 border-t border-white/5">
-              <span className="truncate">Dashboards</span>
-              <span className="text-cyan-400 shrink-0">Full-Stack Delivery</span>
+              <span className="truncate">Intelligence Feed</span>
+              <span className="text-cyan-400 shrink-0 font-medium">indiacorporates.com</span>
             </div>
           </div>
         );
 
-      case "news":
+      case "portfolio":
         return (
-          <div className="relative h-44 sm:h-52 w-full bg-gradient-to-br from-amber-950/60 via-dark-900 to-slate-950 p-3.5 sm:p-4 flex flex-col justify-between overflow-hidden border-b border-white/10 group-hover:scale-[1.01] transition-transform duration-500">
-            <div className="absolute bottom-0 right-0 w-32 h-32 bg-amber-500/20 rounded-full blur-2xl" />
-            <div className="flex items-center justify-between text-xs font-mono text-slate-400">
-              <span className="flex items-center gap-1.5 text-amber-300 font-semibold truncate text-[11px] sm:text-xs">
-                <FaBolt size={12} className="shrink-0" />
-                <span className="truncate">NewsPulse Network</span>
-              </span>
-              <span className="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded border border-amber-500/30 shrink-0">
-                Live
-              </span>
-            </div>
-            <div className="bg-dark-950/80 p-2.5 sm:p-3 rounded-lg border border-white/10 space-y-1 sm:space-y-1.5 text-xs">
-              <div className="inline-block bg-amber-500/20 text-amber-300 text-[10px] px-1.5 py-0.5 rounded font-mono">
-                Technology • Live Feed
-              </div>
-              <div className="font-semibold text-white truncate text-xs sm:text-sm">
-                Next.js High Performance Architecture
-              </div>
-              <div className="text-[10px] sm:text-[11px] text-slate-400 truncate">
-                Instant article hydration and global Netlify edge CDN...
-              </div>
-            </div>
-            <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-slate-500 font-mono pt-1.5 sm:pt-2 border-t border-white/5">
-              <span>ISR & Edge</span>
-              <span className="text-amber-400 truncate">news-app-gsp.netlify.app</span>
-            </div>
-          </div>
-        );
-
-      case "pos":
-        return (
-          <div className="relative h-44 sm:h-52 w-full bg-gradient-to-br from-emerald-950/60 via-dark-900 to-slate-950 p-3.5 sm:p-4 flex flex-col justify-between overflow-hidden border-b border-white/10 group-hover:scale-[1.01] transition-transform duration-500">
-            <div className="absolute top-0 left-0 w-32 h-32 bg-emerald-500/20 rounded-full blur-2xl" />
-            <div className="flex items-center justify-between text-xs font-mono text-slate-400">
-              <span className="flex items-center gap-1.5 text-emerald-300 font-semibold truncate text-[11px] sm:text-xs">
-                <RiDashboardLine size={13} className="shrink-0" />
-                <span className="truncate">OmniPoint POS</span>
-              </span>
-              <span className="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded border border-emerald-500/30 shrink-0">
-                Ready
-              </span>
-            </div>
-            <div className="bg-dark-950/80 p-2.5 sm:p-3 rounded-lg border border-white/10 space-y-1 sm:space-y-1.5 font-mono text-xs">
-              <div className="flex justify-between text-slate-300 text-[11px] sm:text-xs">
-                <span>SKU #4891 Barcode</span>
-                <span className="text-emerald-400 font-bold">$124.50</span>
-              </div>
-              <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-                <div className="h-full bg-emerald-400 w-3/4 rounded-full" />
-              </div>
-              <div className="text-[10px] text-slate-500 flex justify-between">
-                <span>Offline Sync: Active</span>
-                <span>Thermal Print</span>
-              </div>
-            </div>
-            <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-slate-500 font-mono pt-1.5 sm:pt-2 border-t border-white/5">
-              <span>Multi-store sync</span>
-              <span className="text-emerald-400 shrink-0">Zero downtime</span>
-            </div>
-          </div>
-        );
-
-      case "analytics":
-        return (
-          <div className="relative h-44 sm:h-52 w-full bg-gradient-to-br from-cyan-950/70 via-dark-900 to-slate-950 p-3.5 sm:p-4 flex flex-col justify-between overflow-hidden border-b border-white/10 group-hover:scale-[1.01] transition-transform duration-500">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/20 rounded-full blur-2xl" />
+          <div className="relative h-44 sm:h-52 w-full bg-gradient-to-br from-indigo-950 via-dark-900 to-cyan-950/70 p-3.5 sm:p-4 flex flex-col justify-between overflow-hidden border-b border-white/10 group-hover:scale-[1.01] transition-transform duration-500">
+            <div className="absolute top-0 right-0 w-36 h-36 bg-indigo-500/20 rounded-full blur-2xl" />
             <div className="flex items-center justify-between text-xs font-mono text-slate-400">
               <span className="flex items-center gap-1.5 text-cyan-300 font-semibold truncate text-[11px] sm:text-xs">
-                <FaChartLine size={12} className="shrink-0" />
-                <span className="truncate">GetShortLink Analytics</span>
+                <FaGlobe size={12} className="shrink-0" />
+                <span className="truncate">Engineering Portfolio & Portal</span>
               </span>
-              <span className="text-[10px] bg-cyan-500/20 text-cyan-300 px-2 py-0.5 rounded border border-cyan-500/30 shrink-0">
-                Real-Time
+              <span className="text-[10px] bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded border border-indigo-500/30 shrink-0">
+                Next.js 14 + Netlify
               </span>
             </div>
-            <div className="flex items-end justify-between gap-1.5 sm:gap-2 h-16 sm:h-20 px-2.5 sm:px-3 py-2 bg-dark-950/70 rounded-lg border border-white/10">
-              {[40, 65, 30, 85, 95, 70, 100, 80].map((val, idx) => (
-                <div key={idx} className="flex-1 flex flex-col items-center gap-1">
-                  <div
-                    className="w-full rounded-t bg-gradient-to-t from-cyan-500 to-indigo-500 transition-all duration-300"
-                    style={{ height: `${val}%` }}
-                  />
+            {/* Live Address & Metrics */}
+            <div className="bg-dark-950/85 p-2.5 sm:p-3 rounded-lg border border-white/10 space-y-1.5 font-mono text-xs">
+              <div className="flex items-center gap-1.5 text-[11px] text-slate-300 truncate">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 inline-block shrink-0 animate-pulse" />
+                <span className="text-cyan-300 truncate">varun-jadhav.netlify.app</span>
+              </div>
+              <div className="grid grid-cols-2 gap-2 pt-1 text-[10px]">
+                <div className="p-1.5 rounded bg-white/5">
+                  <span className="text-slate-400 block text-[9px]">Auth & DB</span>
+                  <span className="text-emerald-400 font-bold">Firebase & Google</span>
                 </div>
-              ))}
+                <div className="p-1.5 rounded bg-white/5">
+                  <span className="text-slate-400 block text-[9px]">Lighthouse</span>
+                  <span className="text-amber-300 font-bold">95+ Performance</span>
+                </div>
+              </div>
             </div>
             <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-slate-500 font-mono pt-1.5 sm:pt-2 border-t border-white/5">
-              <span>Latency: &lt;50ms</span>
-              <span className="text-cyan-400 shrink-0">Redis & Mongo</span>
+              <span className="truncate">Tailwind & Framer Motion</span>
+              <span className="text-emerald-400 shrink-0 font-medium">Live Production</span>
             </div>
           </div>
         );
@@ -321,25 +243,24 @@ export const Projects: React.FC = () => {
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-950/40 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-indigo-300 mb-3">
             <FaCode size={13} />
-            <span>Live Projects & Architecture</span>
+            <span>Featured Live Works</span>
           </div>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             Production Software &{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-primary-300 to-cyan-300">
-              Live Applications
+              Live Platforms
             </span>
           </h2>
           <p className="mt-3 sm:mt-4 text-slate-400 text-sm sm:text-base md:text-lg">
-            Directly showcasing InvoCreto, IndiaCorporates, and high-performance production web systems.
+            Directly showcasing invocreto, IndiaCorporates, and official portfolio platform.
           </p>
 
-          {/* Filter Tabs: Wraps smoothly on mobile and tablet */}
+          {/* Filter Tabs */}
           <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mt-6 sm:mt-8">
             {[
-              { id: "all", label: "All Projects" },
-              { id: "lead", label: "InvoCreto & IndiaCorporates" },
-              { id: "fullstack", label: "Full Stack Systems" },
-              { id: "frontend", label: "Live Web Apps" },
+              { id: "all", label: "Featured Three" },
+              { id: "lead", label: "invocreto & IndiaCorporates" },
+              { id: "fullstack", label: "Portfolio & Admin Portal" },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -356,7 +277,7 @@ export const Projects: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Projects Grid: 1 col on mobile, 2 cols on tablet (md), 3 cols on desktop (lg) */}
+        {/* Projects Grid: 1 col on mobile, 2 cols on tablet, 3 cols on desktop */}
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (
@@ -368,83 +289,83 @@ export const Projects: React.FC = () => {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
                 whileHover={{ y: -4, transition: { duration: 0.15 } }}
-                className="glass-panel rounded-2xl border border-white/10 hover:border-indigo-500/40 hover:bg-dark-850/80 transition-colors group flex flex-col justify-between overflow-hidden shadow-xl"
+                className="group flex flex-col rounded-2xl glass-panel border border-white/10 overflow-hidden hover:border-indigo-500/40 transition-all duration-300 shadow-lg shadow-black/40"
               >
-                <div>
-                  {/* Visual Mockup Header */}
-                  {renderMockup(project.mockupType)}
+                {/* Visual Header Mockup */}
+                {renderMockup(project.mockupType)}
 
-                  {/* Card Body */}
-                  <div className="p-4 sm:p-6">
-                    {/* Badge & Subtitle */}
-                    <div className="flex flex-wrap items-center justify-between gap-1.5 mb-2">
-                      <span className="text-xs font-mono text-cyan-400 font-medium truncate">
-                        {project.subtitle}
-                      </span>
-                      <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded-full bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 shrink-0">
+                {/* Card Content */}
+                <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    {/* Badge and Role */}
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <span className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-cyan-300 bg-cyan-950/60 border border-cyan-500/30 px-2.5 py-0.5 rounded-full">
+                        <span className="h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
                         {project.badge}
+                      </span>
+                      <span className="text-xs font-mono text-slate-400 truncate">
+                        {project.subtitle}
                       </span>
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-indigo-300 transition-colors">
+                    <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-primary-300 transition-colors leading-snug mb-2.5">
                       {project.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-xs sm:text-sm text-slate-300 mt-2 sm:mt-2.5 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
                       {project.description}
                     </p>
 
-                    {/* Key Impact Bullets */}
-                    <div className="mt-3.5 sm:mt-4 pt-3 border-t border-white/5 space-y-1.5">
-                      {project.impact.map((bullet, idx) => (
+                    {/* Key Engineering Impact Points */}
+                    <div className="space-y-1.5 mb-5 pt-3 border-t border-white/5">
+                      <p className="text-[11px] font-mono uppercase text-slate-400 tracking-wider font-semibold">
+                        Technical Achievements:
+                      </p>
+                      {project.impact.map((item, idx) => (
                         <div key={idx} className="flex items-start gap-2 text-xs text-slate-300">
-                          <span className="text-indigo-400 mt-0.5 shrink-0">
-                            <FaCheckCircle size={10} />
-                          </span>
-                          <span>{bullet}</span>
+                          <FaCheckCircle className="text-emerald-400 shrink-0 mt-0.5 text-[11px]" />
+                          <span>{item}</span>
                         </div>
                       ))}
                     </div>
 
                     {/* Tech Badges */}
-                    <div className="mt-4 sm:mt-5 flex flex-wrap gap-1.5">
+                    <div className="flex flex-wrap gap-1.5 mb-6">
                       {project.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="px-2 py-0.5 text-[10px] sm:text-[11px] font-mono rounded bg-dark-950/90 text-slate-300 border border-white/10"
+                          className="px-2 py-0.5 text-[10px] sm:text-[11px] font-mono rounded bg-dark-900 border border-white/10 text-slate-300"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
                   </div>
-                </div>
 
-                {/* Action Buttons: Responsive row */}
-                <div className="p-4 sm:p-6 pt-0 flex flex-wrap items-center justify-between gap-2.5 border-t border-white/5 mt-3 sm:mt-4">
-                  <a
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 hover:text-white transition-colors"
-                  >
-                    <FaGithub size={14} />
-                    <span>Source Code</span>
-                  </a>
+                  {/* Actions / Live Links */}
+                  <div className="flex items-center justify-between gap-3 pt-4 border-t border-white/10">
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-white transition-colors"
+                    >
+                      <FaGithub size={14} />
+                      <span>Repository</span>
+                    </a>
 
-                  {project.liveLink && (
                     <a
                       href={project.liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-lg bg-indigo-600/20 border border-indigo-500/30 px-3 py-1.5 text-xs font-semibold text-indigo-300 hover:bg-indigo-600 hover:text-white transition-all shadow-sm"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-indigo-600/30 border border-indigo-500/40 text-xs font-medium text-indigo-200 hover:bg-indigo-600 hover:text-white hover:border-indigo-400 transition-all shadow-sm"
                     >
-                      <span>Live Preview</span>
+                      <span>Visit Live</span>
                       <RiShareBoxLine size={13} />
                     </a>
-                  )}
+                  </div>
                 </div>
               </motion.div>
             ))}

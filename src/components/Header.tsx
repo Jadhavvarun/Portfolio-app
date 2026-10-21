@@ -75,7 +75,7 @@ export const Header: React.FC = () => {
               </span>
               <span className="hidden xs:inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-400 border border-emerald-500/20 shrink-0">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                Lead @ InvoCreto
+                Lead @ invocreto
               </span>
             </div>
             <span className="text-[11px] sm:text-xs text-slate-400 font-mono truncate">
@@ -192,7 +192,7 @@ export const Header: React.FC = () => {
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                   </span>
                   <span className="text-xs font-mono text-emerald-400">
-                    Lead @ InvoCreto • Open for Impact
+                    Lead @ invocreto • Open for Impact
                   </span>
                 </div>
                 <span className="text-xs text-slate-400 font-mono">Mumbai (IST)</span>
