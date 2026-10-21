@@ -5,13 +5,13 @@ import { getAnalytics, isSupported, Analytics } from "firebase/analytics";
 
 // Firebase web configuration
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "AIzaSyCYKlK3AO2UBgPSPnCeE8nZCDsl0_y9tG4",
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "varun-portfolio-f7909.firebaseapp.com",
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "varun-portfolio-f7909",
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "varun-portfolio-f7909.firebasestorage.app",
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "12600215732",
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "1:12600215732:web:7dcb2f7787ad2e1cd9afe1",
-  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "G-S7QY13F39R",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
 // Singleton Firebase App instance (safely handles Next.js SSR and client hot reloads)
@@ -42,13 +42,9 @@ if (typeof window !== "undefined") {
 }
 
 // Configurable Admin Emails list
-export const ADMIN_EMAILS: string[] = (
-  process.env.NEXT_PUBLIC_ADMIN_EMAILS ||
-  "jadhavvarun67@gmail.com"
-)
-  .split(",")
-  .map((email) => email.trim().toLowerCase())
-  .filter(Boolean);
+export const ADMIN_EMAILS: string[] = [
+  process.env.NEXT_PUBLIC_ADMIN_EMAILS as string
+]
 
 /**
  * Check if the given user email is an authorized administrator
