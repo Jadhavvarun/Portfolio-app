@@ -10,30 +10,46 @@ import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
+const SITE_URL = "https://varun-jadhav.netlify.app";
+const TITLE = "Varun Jadhav | Full Stack Developer & Frontend Lead at invocreto";
+const DESCRIPTION =
+  "Portfolio of Varun Jadhav — Full Stack Developer & Frontend Lead at invocreto. Crafting scalable architectures, enterprise design systems, and high-performance React & Next.js applications.";
+const OG_DESCRIPTION =
+  "Explore the engineering portfolio, leadership milestones, tech stack, and production works of Varun Jadhav.";
+const TWITTER_DESCRIPTION =
+  "Frontend Lead at invocreto & Full Stack Engineer specializing in Next.js, React, TypeScript, and Node.js.";
+const OG_IMAGE = `${SITE_URL}/og-image.png`;
+const OG_IMAGE_ALT = "Varun Jadhav — Frontend Lead at invocreto, Full Stack Developer";
+
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <>
       <Head>
-        <title>Varun Jadhav | Full Stack Developer & Frontend Lead at invocreto</title>
-        <meta
-          name="description"
-          content="Portfolio of Varun Jadhav — Full Stack Developer & Frontend Lead at invocreto. Crafting scalable architectures, enterprise design systems, and high-performance React & Next.js applications."
-        />
+        {/* Primary */}
+        <title>{TITLE}</title>
+        <meta name="description" content={DESCRIPTION} />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <meta property="og:title" content="Varun Jadhav | Full Stack Developer & Frontend Lead at invocreto" />
-        <meta
-          property="og:description"
-          content="Explore the engineering portfolio, leadership milestones, tech stack, and production works of Varun Jadhav."
-        />
+        <link rel="canonical" href={SITE_URL} />
+
+        {/* Open Graph */}
         <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Varun Jadhav" />
+        <meta property="og:url" content={SITE_URL} />
+        <meta property="og:title" content={TITLE} />
+        <meta property="og:description" content={OG_DESCRIPTION} />
+        <meta property="og:image" content={OG_IMAGE} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={OG_IMAGE_ALT} />
+
+        {/* Twitter / X */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Varun Jadhav | Full Stack Developer & Frontend Lead at invocreto" />
-        <meta
-          name="twitter:description"
-          content="Frontend Lead at invocreto & Full Stack Engineer specializing in Next.js, React, TypeScript, and Node.js."
-        />
+        <meta name="twitter:title" content={TITLE} />
+        <meta name="twitter:description" content={TWITTER_DESCRIPTION} />
+        <meta name="twitter:image" content={OG_IMAGE} />
+        <meta name="twitter:image:alt" content={OG_IMAGE_ALT} />
       </Head>
 
       {/* JSON-LD Structured Data for Enhanced Search Engine Ranking */}
