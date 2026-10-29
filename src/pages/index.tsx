@@ -10,7 +10,7 @@ import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
-const SITE_URL = "https://varun-jadhav.netlify.app";
+const SITE_URL = "https://varunjadhav.in/";
 const TITLE = "Varun Jadhav | Full Stack Developer & Frontend Lead at invocreto";
 const DESCRIPTION =
   "Portfolio of Varun Jadhav — Full Stack Developer & Frontend Lead at invocreto. Crafting scalable architectures, enterprise design systems, and high-performance React & Next.js applications.";

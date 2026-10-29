@@ -105,7 +105,7 @@ const projects: Project[] = [
       "Netlify",
     ],
     githubLink: "https://github.com/Jadhavvarun/Portfolio-app",
-    liveLink: "https://varun-jadhav.netlify.app",
+    liveLink: "https://varunjadhav.in/",
     mockupType: "portfolio",
   },
 ];
@@ -204,7 +204,7 @@ export const Projects: React.FC = () => {
             <div className="bg-dark-950/85 p-2.5 sm:p-3 rounded-lg border border-white/10 space-y-1.5 font-mono text-xs">
               <div className="flex items-center gap-1.5 text-[11px] text-slate-300 truncate">
                 <span className="h-2 w-2 rounded-full bg-emerald-400 inline-block shrink-0 animate-pulse" />
-                <span className="text-cyan-300 truncate">varun-jadhav.netlify.app</span>
+                <span className="text-cyan-300 truncate">varunjadhav.in</span>
               </div>
               <div className="grid grid-cols-2 gap-2 pt-1 text-[10px]">
                 <div className="p-1.5 rounded bg-white/5">
