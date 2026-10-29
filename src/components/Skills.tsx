@@ -247,10 +247,10 @@ export const Skills: React.FC = () => {
       : skillsList.filter((s) => s.category === activeCategory);
 
   return (
-    <section id="skills" className="py-16 sm:py-24 bg-dark-950 relative overflow-hidden">
+    <section id="skills" aria-label="Skills & Modern Tooling" className="py-16 sm:py-24 bg-dark-950 relative overflow-hidden">
       {/* Background ambient lighting */}
-      <div className="absolute top-1/3 right-1/4 w-[350px] sm:w-[600px] h-[300px] sm:h-[400px] bg-primary-600/10 rounded-full blur-[100px] sm:blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-[300px] sm:w-[450px] h-[250px] sm:h-[350px] bg-cyan-600/10 rounded-full blur-[100px] sm:blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 right-1/4 w-[350px] sm:w-[600px] h-[300px] sm:h-[400px] bg-primary-600/10 rounded-full blur-[60px] sm:blur-[140px] transform-gpu pointer-events-none" />
+      <div className="absolute bottom-10 left-10 w-[300px] sm:w-[450px] h-[250px] sm:h-[350px] bg-cyan-600/10 rounded-full blur-[60px] sm:blur-[130px] transform-gpu pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -301,18 +301,16 @@ export const Skills: React.FC = () => {
         </motion.div>
 
         {/* Skills Grid: 1 col on small phone, 2 cols on xs (480px+), 3 on tablet (md: 768px+), 4 on desktop (lg: 1024px+) */}
-        <motion.div layout className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-5">
-          <AnimatePresence mode="popLayout">
+        <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-5">
+          <AnimatePresence>
             {filteredSkills.map((skill) => (
               <motion.div
                 key={skill.name}
-                layout
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.25 }}
-                whileHover={{ y: -4, transition: { duration: 0.15 } }}
-                className="glass-panel p-4 sm:p-5 rounded-xl border border-white/10 hover:border-indigo-500/40 hover:bg-dark-850/80 transition-colors group flex flex-col justify-between shadow-lg"
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.2 }}
+                className="glass-panel p-4 sm:p-5 rounded-xl border border-white/10 hover:border-indigo-500/40 hover:bg-dark-850/80 hover:-translate-y-1 transition-all duration-200 group flex flex-col justify-between shadow-lg"
               >
                 <div>
                   <div className="flex items-center justify-between mb-2.5 sm:mb-3">
@@ -351,7 +349,7 @@ export const Skills: React.FC = () => {
               </motion.div>
             ))}
           </AnimatePresence>
-        </motion.div>
+        </div>
 
         {/* Engineering Highlights Banner */}
         <motion.div
@@ -371,10 +369,7 @@ export const Skills: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-            <motion.div
-              whileHover={{ y: -3 }}
-              className="glass-panel p-5 sm:p-6 rounded-2xl border border-white/10 relative overflow-hidden group"
-            >
+            <div className="glass-panel p-5 sm:p-6 rounded-2xl border border-white/10 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-200">
               <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/10 rounded-full blur-2xl group-hover:bg-indigo-500/20 transition-all" />
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-indigo-500/20 flex items-center justify-center text-indigo-400 mb-3.5 sm:mb-4">
                 <RiSpeedLine size={20} />
@@ -383,12 +378,9 @@ export const Skills: React.FC = () => {
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                 Next.js SSR, code splitting, and image optimization achieving 90+ Lighthouse; 35% Angular bundle reduction via lazy loading and OnPush.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              whileHover={{ y: -3 }}
-              className="glass-panel p-5 sm:p-6 rounded-2xl border border-white/10 relative overflow-hidden group"
-            >
+            <div className="glass-panel p-5 sm:p-6 rounded-2xl border border-white/10 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-200">
               <div className="absolute top-0 right-0 w-24 h-24 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-all" />
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 mb-3.5 sm:mb-4">
                 <RiTeamLine size={20} />
@@ -397,12 +389,9 @@ export const Skills: React.FC = () => {
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                 Led a team of 4 developers, established reusable development practices and Agile workflows, reducing delivery cycle times by approximately 30%.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              whileHover={{ y: -3 }}
-              className="glass-panel p-5 sm:p-6 rounded-2xl border border-white/10 relative overflow-hidden group"
-            >
+            <div className="glass-panel p-5 sm:p-6 rounded-2xl border border-white/10 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-200">
               <div className="absolute top-0 right-0 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-all" />
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-purple-500/20 flex items-center justify-center text-purple-400 mb-3.5 sm:mb-4">
                 <RiServerLine size={20} />
@@ -411,7 +400,7 @@ export const Skills: React.FC = () => {
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                 Asynchronous communication pipelines with RabbitMQ, RPC protocols, RESTful & GraphQL APIs, and Docker containerization.
               </p>
-            </motion.div>
+            </div>
           </div>
         </motion.div>
       </div>

@@ -23,6 +23,14 @@ const triggerConfetti = async (options: { particleCount: number; spread: number;
   }
 };
 
+const istTimeFormatter = new Intl.DateTimeFormat("en-US", {
+  timeZone: "Asia/Kolkata",
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+  hour12: true,
+});
+
 export const Contact: React.FC = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
@@ -44,15 +52,7 @@ export const Contact: React.FC = () => {
   // Live IST Clock
   useEffect(() => {
     const updateTime = () => {
-      const now = new Date();
-      const options: Intl.DateTimeFormatOptions = {
-        timeZone: "Asia/Kolkata",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: true,
-      };
-      setCurrentTime(new Intl.DateTimeFormat("en-US", options).format(now));
+      setCurrentTime(istTimeFormatter.format(new Date()));
     };
 
     updateTime();
@@ -120,10 +120,10 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-24 bg-dark-950 relative overflow-hidden">
+    <section id="contact" aria-label="Contact Varun Jadhav" className="py-16 sm:py-24 bg-dark-950 relative overflow-hidden">
       {/* Background ambient gradient lights */}
-      <div className="absolute top-1/3 left-10 w-[350px] sm:w-[500px] h-[300px] sm:h-[400px] bg-indigo-600/10 rounded-full blur-[100px] sm:blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-[300px] sm:w-[450px] h-[250px] sm:h-[350px] bg-cyan-500/10 rounded-full blur-[100px] sm:blur-[130px] pointer-events-none" />
+      <div className="absolute top-1/3 left-10 w-[350px] sm:w-[500px] h-[300px] sm:h-[400px] bg-indigo-600/10 rounded-full blur-[60px] sm:blur-[140px] transform-gpu pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-[300px] sm:w-[450px] h-[250px] sm:h-[350px] bg-cyan-500/10 rounded-full blur-[60px] sm:blur-[130px] transform-gpu pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}

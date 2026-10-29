@@ -17,35 +17,44 @@ export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
   useEffect(() => {
-    let ticking = false;
-
+    // Passive scroll check for header styling (no forced reflow)
     const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 25);
-
-          const sections = ["about", "experience", "skills", "projects", "contact"];
-          const scrollPosition = window.scrollY + 220;
-
-          for (const section of sections) {
-            const el = document.getElementById(section);
-            if (el) {
-              const top = el.offsetTop;
-              const height = el.offsetHeight;
-              if (scrollPosition >= top && scrollPosition < top + height) {
-                setActiveSection(section);
-                break;
-              }
-            }
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
+      const scrolled = window.scrollY > 25;
+      setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    handleScroll();
+
+    // IntersectionObserver for active section tracking (zero DOM layout thrashing)
+    const sections = ["about", "experience", "skills", "projects", "contact"];
+    const sectionElements = sections
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((e) => e.isIntersecting);
+        if (visible.length > 0) {
+          // Choose entry with highest ratio
+          const current = visible.reduce((max, entry) =>
+            entry.intersectionRatio > max.intersectionRatio ? entry : max
+          );
+          setActiveSection(current.target.id);
+        }
+      },
+      {
+        rootMargin: "-20% 0px -50% 0px",
+        threshold: [0.1, 0.25, 0.5],
+      }
+    );
+
+    sectionElements.forEach((el) => observer.observe(el));
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   // Prevent background scroll when mobile menu is open
@@ -93,7 +102,7 @@ export const Header: React.FC = () => {
         </a>
 
         {/* Desktop Navigation Links (Visible on Large Tablet / Desktop: lg+) */}
-        <nav className="hidden lg:flex items-center gap-1 rounded-full bg-dark-900/80 px-4 py-1.5 border border-white/10 backdrop-blur-md shadow-inner">
+        <nav aria-label="Primary Navigation" className="hidden lg:flex items-center gap-1 rounded-full bg-dark-900/80 px-4 py-1.5 border border-white/10 backdrop-blur-md shadow-inner">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.substring(1);
             return (
@@ -190,6 +199,7 @@ export const Header: React.FC = () => {
             {/* Slide-Down Menu Content */}
             <motion.div
               id="mobile-navigation"
+              aria-label="Mobile Navigation Menu"
               initial={{ opacity: 0, y: -15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}

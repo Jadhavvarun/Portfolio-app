@@ -137,14 +137,15 @@ export const Hero: React.FC = () => {
   return (
     <section
       id="about"
+      aria-label="About Varun Jadhav"
       className="relative min-h-screen pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 flex items-center overflow-hidden bg-dark-950"
     >
       {/* Animated Floating Gradient Mesh Background (GPU-composited CSS) */}
       <div
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] lg:w-[700px] h-[350px] sm:h-[450px] bg-indigo-600/15 rounded-full blur-[100px] sm:blur-[140px] pointer-events-none animate-pulse-slow will-change-transform"
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] lg:w-[700px] h-[350px] sm:h-[450px] bg-indigo-600/15 rounded-full blur-[60px] sm:blur-[140px] pointer-events-none animate-pulse-slow will-change-transform transform-gpu"
       />
       <div
-        className="absolute top-1/3 -left-32 w-[300px] sm:w-[450px] h-[300px] sm:h-[400px] bg-cyan-500/12 rounded-full blur-[90px] sm:blur-[130px] pointer-events-none animate-float will-change-transform"
+        className="absolute top-1/3 -left-32 w-[300px] sm:w-[450px] h-[300px] sm:h-[400px] bg-cyan-500/12 rounded-full blur-[60px] sm:blur-[130px] pointer-events-none animate-float will-change-transform transform-gpu"
       />
       <div className="absolute inset-0 bg-grid pointer-events-none opacity-40" />
 
@@ -312,7 +313,7 @@ export const Hero: React.FC = () => {
               {/* Window Header */}
               <div className="flex items-center justify-between px-3 sm:px-4 py-2.5 sm:py-3 border-b border-white/10 bg-dark-950/70 gap-2">
                 {/* Traffic Lights */}
-                <div className="flex items-center gap-1.5 shrink-0">
+                <div className="flex items-center gap-1.5 shrink-0" aria-hidden="true">
                   <span className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-rose-500/80 inline-block shadow-sm"></span>
                   <span className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-amber-500/80 inline-block shadow-sm"></span>
                   <span className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-emerald-500/80 inline-block shadow-sm"></span>
@@ -520,53 +521,41 @@ export const Hero: React.FC = () => {
 
         {/* Impact Numbers / Stats Strip: 2 columns on mobile, 4 on tablet/desktop */}
         <div className="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 pt-8 sm:pt-10 border-t border-white/10">
-          <motion.div
-            whileHover={{ y: -3 }}
-            className="glass-panel p-3.5 sm:p-5 rounded-xl border border-white/10"
-          >
+          <div className="glass-panel p-3.5 sm:p-5 rounded-xl border border-white/10 hover:-translate-y-1 transition-transform duration-200">
             <div className="text-xl sm:text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-300 leading-tight">
               Frontend Lead
             </div>
-            <div className="text-[11px] sm:text-xs md:text-sm text-slate-400 mt-1">
+            <div className="text-[11px] sm:text-xs md:text-sm text-slate-300 mt-1">
               invocreto Platform
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            whileHover={{ y: -3 }}
-            className="glass-panel p-3.5 sm:p-5 rounded-xl border border-white/10"
-          >
+          <div className="glass-panel p-3.5 sm:p-5 rounded-xl border border-white/10 hover:-translate-y-1 transition-transform duration-200">
             <div className="text-xl sm:text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-300 leading-tight">
               4 Devs Led
             </div>
-            <div className="text-[11px] sm:text-xs md:text-sm text-slate-400 mt-1">
+            <div className="text-[11px] sm:text-xs md:text-sm text-slate-300 mt-1">
               -30% Delivery Time
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            whileHover={{ y: -3 }}
-            className="glass-panel p-3.5 sm:p-5 rounded-xl border border-white/10"
-          >
+          <div className="glass-panel p-3.5 sm:p-5 rounded-xl border border-white/10 hover:-translate-y-1 transition-transform duration-200">
             <div className="text-xl sm:text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400 leading-tight">
               40–50% Uplift
             </div>
-            <div className="text-[11px] sm:text-xs md:text-sm text-slate-400 mt-1">
+            <div className="text-[11px] sm:text-xs md:text-sm text-slate-300 mt-1">
               SSR & 90+ Lighthouse
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            whileHover={{ y: -3 }}
-            className="glass-panel p-3.5 sm:p-5 rounded-xl border border-white/10"
-          >
+          <div className="glass-panel p-3.5 sm:p-5 rounded-xl border border-white/10 hover:-translate-y-1 transition-transform duration-200">
             <div className="text-xl sm:text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 leading-tight">
               Full-Stack
             </div>
-            <div className="text-[11px] sm:text-xs md:text-sm text-slate-400 mt-1">
+            <div className="text-[11px] sm:text-xs md:text-sm text-slate-300 mt-1">
               Microservices & RabbitMQ
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

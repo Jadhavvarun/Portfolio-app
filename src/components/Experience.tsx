@@ -121,10 +121,10 @@ export const Experience: React.FC = () => {
       : [...experiences, ...educations];
 
   return (
-    <section id="experience" className="py-16 sm:py-24 bg-dark-900/60 relative overflow-hidden">
+    <section id="experience" aria-label="Experience & Engineering Leadership" className="py-16 sm:py-24 bg-dark-900/60 relative overflow-hidden">
       {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-0 w-72 sm:w-96 h-72 sm:h-96 bg-indigo-600/10 rounded-full blur-[100px] sm:blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 right-0 w-60 sm:w-80 h-60 sm:h-80 bg-cyan-500/10 rounded-full blur-[90px] sm:blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-72 sm:w-96 h-72 sm:h-96 bg-indigo-600/10 rounded-full blur-[60px] sm:blur-[130px] transform-gpu pointer-events-none" />
+      <div className="absolute bottom-10 right-0 w-60 sm:w-80 h-60 sm:h-80 bg-cyan-500/10 rounded-full blur-[60px] sm:blur-[110px] transform-gpu pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -232,9 +232,8 @@ export const Experience: React.FC = () => {
                         isEven ? "lg:pr-10 lg:text-right" : "lg:pl-10 lg:ml-auto lg:text-left"
                       }`}
                     >
-                      <motion.div
-                        whileHover={{ scale: 1.012 }}
-                        className={`glass-panel p-5 sm:p-7 rounded-2xl border transition-all duration-300 ${
+                      <div
+                        className={`glass-panel p-5 sm:p-7 rounded-2xl border transition-all duration-300 hover:scale-[1.01] ${
                           item.isLead
                             ? "border-amber-500/40 bg-gradient-to-br from-indigo-950/40 via-dark-900 to-amber-950/20 shadow-[0_10px_35px_-5px_rgba(251,191,36,0.15)] ring-1 ring-amber-500/30"
                             : "border-white/10 hover:border-indigo-500/30 hover:bg-dark-850/80"
@@ -310,7 +309,7 @@ export const Experience: React.FC = () => {
                             </span>
                           ))}
                         </div>
-                      </motion.div>
+                      </div>
                     </div>
                   </motion.div>
                 );

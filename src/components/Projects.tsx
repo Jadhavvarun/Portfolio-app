@@ -121,7 +121,7 @@ export const Projects: React.FC = () => {
     switch (type) {
       case "invocreto":
         return (
-          <div className="relative h-44 sm:h-52 w-full bg-gradient-to-br from-indigo-950 via-dark-900 to-amber-950/60 p-3.5 sm:p-4 flex flex-col justify-between overflow-hidden border-b border-white/10 group-hover:scale-[1.01] transition-transform duration-500">
+          <div aria-hidden="true" className="relative h-44 sm:h-52 w-full bg-gradient-to-br from-indigo-950 via-dark-900 to-amber-950/60 p-3.5 sm:p-4 flex flex-col justify-between overflow-hidden border-b border-white/10 group-hover:scale-[1.01] transition-transform duration-500">
             <div className="absolute -top-10 -right-10 w-36 h-36 bg-amber-500/20 rounded-full blur-2xl" />
             <div className="flex items-center justify-between text-xs font-mono text-slate-400">
               <span className="flex items-center gap-1.5 text-amber-300 font-semibold truncate text-[11px] sm:text-xs">
@@ -152,7 +152,7 @@ export const Projects: React.FC = () => {
 
       case "indiacorporates":
         return (
-          <div className="relative h-44 sm:h-52 w-full bg-gradient-to-br from-blue-950 via-dark-900 to-cyan-950/60 p-3.5 sm:p-4 flex flex-col justify-between overflow-hidden border-b border-white/10 group-hover:scale-[1.01] transition-transform duration-500">
+          <div aria-hidden="true" className="relative h-44 sm:h-52 w-full bg-gradient-to-br from-blue-950 via-dark-900 to-cyan-950/60 p-3.5 sm:p-4 flex flex-col justify-between overflow-hidden border-b border-white/10 group-hover:scale-[1.01] transition-transform duration-500">
             <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/20 rounded-full blur-2xl" />
             <div className="flex items-center justify-between text-xs font-mono text-slate-400">
               <span className="flex items-center gap-1.5 text-cyan-300 font-semibold truncate text-[11px] sm:text-xs">
@@ -189,7 +189,7 @@ export const Projects: React.FC = () => {
 
       case "portfolio":
         return (
-          <div className="relative h-44 sm:h-52 w-full bg-gradient-to-br from-indigo-950 via-dark-900 to-cyan-950/70 p-3.5 sm:p-4 flex flex-col justify-between overflow-hidden border-b border-white/10 group-hover:scale-[1.01] transition-transform duration-500">
+          <div aria-hidden="true" className="relative h-44 sm:h-52 w-full bg-gradient-to-br from-indigo-950 via-dark-900 to-cyan-950/70 p-3.5 sm:p-4 flex flex-col justify-between overflow-hidden border-b border-white/10 group-hover:scale-[1.01] transition-transform duration-500">
             <div className="absolute top-0 right-0 w-36 h-36 bg-indigo-500/20 rounded-full blur-2xl" />
             <div className="flex items-center justify-between text-xs font-mono text-slate-400">
               <span className="flex items-center gap-1.5 text-cyan-300 font-semibold truncate text-[11px] sm:text-xs">
@@ -227,10 +227,10 @@ export const Projects: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="py-16 sm:py-24 bg-dark-900/40 relative overflow-hidden">
+    <section id="projects" aria-label="Featured Projects" className="py-16 sm:py-24 bg-dark-900/40 relative overflow-hidden">
       {/* Background radial ambient lights */}
-      <div className="absolute top-1/4 left-1/4 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-indigo-600/10 rounded-full blur-[100px] sm:blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-cyan-600/10 rounded-full blur-[100px] sm:blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-indigo-600/10 rounded-full blur-[60px] sm:blur-[140px] transform-gpu pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-cyan-600/10 rounded-full blur-[60px] sm:blur-[140px] transform-gpu pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -277,18 +277,16 @@ export const Projects: React.FC = () => {
         </motion.div>
 
         {/* Projects Grid: 1 col on mobile, 2 cols on tablet, 3 cols on desktop */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7">
-          <AnimatePresence mode="popLayout">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7">
+          <AnimatePresence>
             {filteredProjects.map((project) => (
               <motion.div
                 key={project.id}
-                layout
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.3 }}
-                whileHover={{ y: -4, transition: { duration: 0.15 } }}
-                className="group flex flex-col rounded-2xl glass-panel border border-white/10 overflow-hidden hover:border-indigo-500/40 transition-all duration-300 shadow-lg shadow-black/40"
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.25 }}
+                className="group flex flex-col rounded-2xl glass-panel border border-white/10 overflow-hidden hover:border-indigo-500/40 hover:-translate-y-1 transition-all duration-200 shadow-lg shadow-black/40"
               >
                 {/* Visual Header Mockup */}
                 {renderMockup(project.mockupType)}
@@ -371,7 +369,7 @@ export const Projects: React.FC = () => {
               </motion.div>
             ))}
           </AnimatePresence>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
