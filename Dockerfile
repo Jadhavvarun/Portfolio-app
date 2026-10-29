@@ -1,15 +1,15 @@
 # Multi-stage production Dockerfile for Full-Stack Next.js (UI + API routes)
 # Stage 1: Dependencies cache
-FROM node:20-alpine AS deps
+FROM node:22-alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 COPY package.json package-lock.json* ./
 RUN --mount=type=cache,target=/root/.npm \
-    npm ci --legacy-peer-deps --no-audit --no-fund --prefer-offline
+    npm ci --no-audit --no-fund --prefer-offline
 
 # Stage 2: Application build
-FROM node:20-alpine AS builder
+FROM node:22-alpine AS builder
 WORKDIR /app
 
 COPY --from=deps /app/node_modules ./node_modules
@@ -22,7 +22,7 @@ RUN --mount=type=cache,target=/app/.next/cache \
     npm run build
 
 # Stage 3: Production runtime runner
-FROM node:20-alpine AS runner
+FROM node:22-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production

@@ -1,6 +1,6 @@
 import { initializeApp, getApps, getApp, FirebaseApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, Auth } from "firebase/auth";
-import { getFirestore, Firestore } from "firebase/firestore";
+import { getAuth, GoogleAuthProvider, Auth, connectAuthEmulator } from "firebase/auth";
+import { getFirestore, Firestore, connectFirestoreEmulator } from "firebase/firestore";
 import { getAnalytics, isSupported, Analytics } from "firebase/analytics";
 
 // Firebase web configuration
@@ -26,6 +26,42 @@ googleProvider.setCustomParameters({
 
 // Firestore Database instance
 export const db: Firestore = getFirestore(app);
+
+// Connect to Firebase Emulator Suite in local development
+if (process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATOR === "true") {
+  const authHost = process.env.NEXT_PUBLIC_FIREBASE_AUTH_EMULATOR_HOST || "http://127.0.0.1:9099";
+  const firestoreHost = process.env.NEXT_PUBLIC_FIRESTORE_EMULATOR_HOST || "127.0.0.1";
+  const firestorePort = Number(process.env.NEXT_PUBLIC_FIRESTORE_EMULATOR_PORT) || 8080;
+
+  try {
+    if (typeof window !== "undefined") {
+      // Client-side emulator connections (prevent re-connecting on Next.js HMR)
+      // @ts-ignore
+      if (!auth._emulatorConfig) {
+        connectAuthEmulator(auth, authHost, { disableWarnings: true });
+      }
+      // @ts-ignore
+      if (!db._settingsFrozen) {
+        connectFirestoreEmulator(db, firestoreHost, firestorePort);
+      }
+    } else {
+      // Server-side (Node/SSR/API routes)
+      const serverFirestoreHost = process.env.FIRESTORE_EMULATOR_HOST
+        ? process.env.FIRESTORE_EMULATOR_HOST.split(":")[0]
+        : firestoreHost;
+      const serverFirestorePort = process.env.FIRESTORE_EMULATOR_HOST
+        ? Number(process.env.FIRESTORE_EMULATOR_HOST.split(":")[1])
+        : firestorePort;
+
+      // @ts-ignore
+      if (!db._settingsFrozen) {
+        connectFirestoreEmulator(db, serverFirestoreHost, serverFirestorePort);
+      }
+    }
+  } catch (err) {
+    console.warn("Firebase emulator connection notice:", err);
+  }
+}
 
 // Safe Client-side Analytics initialization
 let analytics: Analytics | null = null;

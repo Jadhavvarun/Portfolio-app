@@ -1,0 +1,45 @@
+services:
+  # Firebase Local Emulator Suite (Slim Alpine Image)
+  firebase-emulator:
+    build:
+      context: .
+      dockerfile: Dockerfile.emulator
+    container_name: portfolio-firebase-emulator
+    restart: unless-stopped
+    ports:
+      - "4000:4000" # Firebase Emulator UI
+      - "8080:8080" # Firestore Emulator
+      - "9099:9099" # Authentication Emulator
+    volumes:
+      - ./firebase.json:/app/firebase.json:ro
+
+  # Local Next.js App with hot reload
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: portfolio-dev-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+      - NEXT_PUBLIC_USE_FIREBASE_EMULATOR=true
+      - NEXT_PUBLIC_FIREBASE_AUTH_EMULATOR_HOST=http://localhost:9099
+      - NEXT_PUBLIC_FIRESTORE_EMULATOR_HOST=localhost
+      - NEXT_PUBLIC_FIRESTORE_EMULATOR_PORT=8080
+      - FIRESTORE_EMULATOR_HOST=firebase-emulator:8080
+      - FIREBASE_AUTH_EMULATOR_HOST=firebase-emulator:9099
+      - NEXT_PUBLIC_FIREBASE_PROJECT_ID=demo-portfolio
+      - NEXT_PUBLIC_FIREBASE_API_KEY=fake-api-key
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+      - ./package.json:/app/package.json
+      - ./tsconfig.json:/app/tsconfig.json
+      - ./tailwind.config.ts:/app/tailwind.config.ts
+      - ./next.config.mjs:/app/next.config.mjs
+    depends_on:
+      - firebase-emulator
