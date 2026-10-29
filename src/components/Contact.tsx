@@ -1,16 +1,17 @@
+//contact component
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { 
-  FaEnvelope, 
+import {
+  FaEnvelope,
   FaPhoneAlt,
-  FaLinkedin, 
-  FaGithub, 
-  FaMapMarkerAlt, 
-  FaClock, 
-  FaCopy, 
-  FaCheck, 
-  FaPaperPlane, 
-  FaDownload 
+  FaLinkedin,
+  FaGithub,
+  FaMapMarkerAlt,
+  FaClock,
+  FaCopy,
+  FaCheck,
+  FaPaperPlane,
+  FaDownload
 } from "react-icons/fa";
 import { RiSendPlaneFill, RiCheckDoubleLine } from "react-icons/ri";
 
@@ -63,7 +64,7 @@ export const Contact: React.FC = () => {
   const copyEmail = () => {
     navigator.clipboard.writeText("jadhavvarun67@gmail.com");
     setCopiedEmail(true);
-    
+
     triggerConfetti({
       particleCount: 50,
       spread: 60,
@@ -76,7 +77,7 @@ export const Contact: React.FC = () => {
   const copyPhone = () => {
     navigator.clipboard.writeText("7738412722");
     setCopiedPhone(true);
-    
+
     triggerConfetti({
       particleCount: 50,
       spread: 60,
