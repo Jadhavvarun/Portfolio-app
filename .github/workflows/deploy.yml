@@ -27,9 +27,11 @@ jobs:
       - name: Install Dependencies
         run: npm ci --no-audit --no-fund
 
-      - name: Build Next.js Application
-        run: npm run build
+      - name: Build and Deploy to Netlify
+        run: npx netlify-cli deploy --build --prod --message "Deploy from GitHub Actions ${{ github.sha }}"
         env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID || 'b17eb069-9e2c-4b97-81d8-e78422cb682d' }}
           NEXT_PUBLIC_FIREBASE_API_KEY: ${{ secrets.NEXT_PUBLIC_FIREBASE_API_KEY || 'AIzaSyCYKlK3AO2UBgPSPnCeE8nZCDsl0_y9tG4' }}
           NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: ${{ secrets.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || 'varun-portfolio-f7909.firebaseapp.com' }}
           NEXT_PUBLIC_FIREBASE_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_PROJECT_ID || 'varun-portfolio-f7909' }}
@@ -39,19 +41,4 @@ jobs:
           NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || 'G-S7QY13F39R' }}
           NEXT_PUBLIC_ADMIN_EMAILS: ${{ secrets.NEXT_PUBLIC_ADMIN_EMAILS || 'jadhavvarun67@gmail.com' }}
           NEXT_PUBLIC_USE_FIREBASE_EMULATOR: "false"
-
-      - name: Deploy to Netlify Production
-        uses: nwtgck/actions-netlify@v3.0
-        with:
-          publish-dir: "./.next"
-          production-branch: main
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "Deploy from GitHub Actions: ${{ github.sha }}"
-          enable-pull-request-comment: false
-          enable-commit-comment: true
-          overwrites-pull-request-comment: true
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID || 'b17eb069-9e2c-4b97-81d8-e78422cb682d' }}
-        timeout-minutes: 5
 
