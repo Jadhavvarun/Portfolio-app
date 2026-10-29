@@ -3,12 +3,12 @@ services:
   firebase-emulator:
     build:
       context: .
-      dockerfile: Dockerfile.emulator
+      dockerfile: docker/Dockerfile.emulator
     container_name: portfolio-firebase-emulator
     restart: unless-stopped
     ports:
-      - "4000:4000" # Firebase Emulator UI
-      - "8080:8080" # Firestore Emulator
+      - "4000:4000" # Firebase Emulator UI Dashboard
+      - "8080:8080" # Firestore Database Emulator
       - "9099:9099" # Authentication Emulator
     volumes:
       - ./firebase.json:/app/firebase.json:ro
@@ -17,7 +17,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: docker/Dockerfile.dev
     container_name: portfolio-dev-app
     restart: unless-stopped
     ports:

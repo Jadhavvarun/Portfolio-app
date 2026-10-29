@@ -2,7 +2,7 @@ services:
   portfolio:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: docker/Dockerfile
     container_name: portfolio-app
     restart: unless-stopped
     ports:
@@ -28,4 +28,3 @@ services:
         reservations:
           cpus: "0.25"
           memory: 128M
-
