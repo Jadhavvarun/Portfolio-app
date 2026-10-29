@@ -13,15 +13,15 @@ const Contact = dynamic(() => import("@/components/Contact"), { ssr: true });
 const Footer = dynamic(() => import("@/components/Footer"), { ssr: true });
 
 const SITE_URL = "https://varunjadhav.in/";
-const TITLE = "Varun Jadhav | Full Stack Developer & Frontend Lead at invocreto";
+const TITLE = "Varun Jadhav | Full Stack Developer & Frontend Lead";
 const DESCRIPTION =
-  "Portfolio of Varun Jadhav — Full Stack Developer & Frontend Lead at invocreto. Crafting scalable architectures, enterprise design systems, and high-performance React & Next.js applications.";
+  "Portfolio of Varun Jadhav — Full Stack Developer & Frontend Lead. Crafting scalable architectures, enterprise design systems, and high-performance Angular & Node.js applications.";
 const OG_DESCRIPTION =
   "Explore the engineering portfolio, leadership milestones, tech stack, and production works of Varun Jadhav.";
 const TWITTER_DESCRIPTION =
-  "Frontend Lead at invocreto & Full Stack Engineer specializing in Next.js, React, TypeScript, and Node.js.";
+  "Frontend Lead & Full Stack Engineer specializing in Angular, Next.js, TypeScript, and Node.js.";
 const OG_IMAGE = `${SITE_URL}/og-image.png`;
-const OG_IMAGE_ALT = "Varun Jadhav — Frontend Lead at invocreto, Full Stack Developer";
+const OG_IMAGE_ALT = "Varun Jadhav — Frontend Lead, Full Stack Developer";
 
 export default function Home() {
 
