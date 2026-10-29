@@ -71,11 +71,10 @@ export const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "glass-nav py-2.5 sm:py-3 shadow-[0_8px_30px_rgb(0,0,0,0.6)]"
-          : "bg-transparent py-3.5 sm:py-5"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        ? "glass-nav py-2.5 sm:py-3 shadow-[0_8px_30px_rgb(0,0,0,0.6)]"
+        : "bg-transparent py-3.5 sm:py-5"
+        }`}
     >
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand / Logo */}
@@ -92,11 +91,11 @@ export const Header: React.FC = () => {
               </span>
               <span className="hidden xs:inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-400 border border-emerald-500/20 shrink-0">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                Lead @ invocreto
+                Frontend Lead
               </span>
             </div>
             <span className="text-[11px] sm:text-xs text-slate-400 font-mono truncate">
-              Full Stack • Frontend Lead
+              Fullstack Developer
             </span>
           </div>
         </a>
@@ -109,11 +108,10 @@ export const Header: React.FC = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className={`relative px-3.5 py-1.5 text-sm font-medium transition-all duration-200 rounded-full ${
-                  isActive
-                    ? "text-white bg-indigo-600/30 text-indigo-300 shadow-sm shadow-indigo-500/20"
-                    : "text-slate-300 hover:text-white hover:bg-white/5"
-                }`}
+                className={`relative px-3.5 py-1.5 text-sm font-medium transition-all duration-200 rounded-full ${isActive
+                  ? "text-white bg-indigo-600/30 text-indigo-300 shadow-sm shadow-indigo-500/20"
+                  : "text-slate-300 hover:text-white hover:bg-white/5"
+                  }`}
               >
                 {link.name}
                 {isActive && (
@@ -229,11 +227,10 @@ export const Header: React.FC = () => {
                       key={link.name}
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className={`flex items-center justify-between rounded-xl px-4 py-3 text-base font-medium transition-all ${
-                        isActive
-                          ? "bg-indigo-600/25 text-indigo-300 border border-indigo-500/40 shadow-sm"
-                          : "text-slate-300 hover:bg-white/5 hover:text-white"
-                      }`}
+                      className={`flex items-center justify-between rounded-xl px-4 py-3 text-base font-medium transition-all ${isActive
+                        ? "bg-indigo-600/25 text-indigo-300 border border-indigo-500/40 shadow-sm"
+                        : "text-slate-300 hover:bg-white/5 hover:text-white"
+                        }`}
                     >
                       <span className="tracking-tight">{link.name}</span>
                       {isActive ? (

@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  FaGithub, 
-  FaLinkedin, 
-  FaEnvelope, 
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
   FaPhoneAlt,
-  FaDownload, 
-  FaArrowRight, 
-  FaTerminal, 
-  FaCode, 
-  FaCheck, 
-  FaCopy 
+  FaDownload,
+  FaArrowRight,
+  FaTerminal,
+  FaCode,
+  FaCheck,
+  FaCopy
 } from "react-icons/fa";
 import { RiSparklingFill, RiShieldCheckLine, RiCompassDiscoverLine } from "react-icons/ri";
 
@@ -158,26 +158,6 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="lg:col-span-7 flex flex-col items-start text-left w-full"
           >
-            {/* Lead Status Pill */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1, duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-950/50 px-3 sm:px-3.5 py-1.5 backdrop-blur-md mb-3 sm:mb-4 lg:mb-5 shadow-sm shadow-indigo-500/10 max-w-full text-xs"
-            >
-              <span className="relative flex h-2 w-2 shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span className="font-semibold uppercase tracking-wider text-indigo-300 text-[10px] xs:text-[11px] sm:text-xs truncate">
-                Frontend Lead @ invocreto
-              </span>
-              <span className="text-slate-600 hidden xs:inline">•</span>
-              <span className="text-cyan-300 font-medium text-[10px] xs:text-[11px] sm:text-xs hidden xs:inline truncate">
-                Team Lead (4 Devs)
-              </span>
-            </motion.div>
-
             {/* Main Headline with generous vertical spacing for desktop */}
             <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.2] sm:leading-[1.15] lg:leading-[1.18] my-3 sm:my-5 lg:my-8 break-words w-full">
               Architecting Enterprise Systems &{" "}
@@ -323,33 +303,30 @@ export const Hero: React.FC = () => {
                 <div className="flex items-center gap-1 bg-dark-900/90 rounded-lg p-0.5 border border-white/5 overflow-x-auto max-w-full">
                   <button
                     onClick={() => setActiveTab("code")}
-                    className={`flex items-center gap-1 px-2 sm:px-2.5 py-1 text-[11px] sm:text-xs font-mono rounded-md transition-colors shrink-0 ${
-                      activeTab === "code"
-                        ? "bg-indigo-600/30 text-indigo-300 font-semibold"
-                        : "text-slate-400 hover:text-white"
-                    }`}
+                    className={`flex items-center gap-1 px-2 sm:px-2.5 py-1 text-[11px] sm:text-xs font-mono rounded-md transition-colors shrink-0 ${activeTab === "code"
+                      ? "bg-indigo-600/30 text-indigo-300 font-semibold"
+                      : "text-slate-400 hover:text-white"
+                      }`}
                   >
                     <FaCode size={10} />
                     <span>profile.ts</span>
                   </button>
                   <button
                     onClick={() => setActiveTab("leadership")}
-                    className={`flex items-center gap-1 px-2 sm:px-2.5 py-1 text-[11px] sm:text-xs font-mono rounded-md transition-colors shrink-0 ${
-                      activeTab === "leadership"
-                        ? "bg-indigo-600/30 text-indigo-300 font-semibold"
-                        : "text-slate-400 hover:text-white"
-                    }`}
+                    className={`flex items-center gap-1 px-2 sm:px-2.5 py-1 text-[11px] sm:text-xs font-mono rounded-md transition-colors shrink-0 ${activeTab === "leadership"
+                      ? "bg-indigo-600/30 text-indigo-300 font-semibold"
+                      : "text-slate-400 hover:text-white"
+                      }`}
                   >
                     <RiShieldCheckLine size={11} />
                     <span>lead.md</span>
                   </button>
                   <button
                     onClick={() => setActiveTab("terminal")}
-                    className={`flex items-center gap-1 px-2 sm:px-2.5 py-1 text-[11px] sm:text-xs font-mono rounded-md transition-colors shrink-0 ${
-                      activeTab === "terminal"
-                        ? "bg-indigo-600/30 text-indigo-300 font-semibold"
-                        : "text-slate-400 hover:text-white"
-                    }`}
+                    className={`flex items-center gap-1 px-2 sm:px-2.5 py-1 text-[11px] sm:text-xs font-mono rounded-md transition-colors shrink-0 ${activeTab === "terminal"
+                      ? "bg-indigo-600/30 text-indigo-300 font-semibold"
+                      : "text-slate-400 hover:text-white"
+                      }`}
                   >
                     <FaTerminal size={9} />
                     <span>terminal</span>
@@ -457,13 +434,12 @@ export const Hero: React.FC = () => {
                       {cliOutput.map((line, idx) => (
                         <p
                           key={idx}
-                          className={`${
-                            line.startsWith("$")
-                              ? "text-cyan-400 font-semibold"
-                              : line.includes("👑") || line.includes("⚡") || line.includes("🚀") || line.includes("📫")
+                          className={`${line.startsWith("$")
+                            ? "text-cyan-400 font-semibold"
+                            : line.includes("👑") || line.includes("⚡") || line.includes("🚀") || line.includes("📫")
                               ? "text-indigo-300 font-bold"
                               : "text-slate-300"
-                          }`}
+                            }`}
                         >
                           {line}
                         </p>
