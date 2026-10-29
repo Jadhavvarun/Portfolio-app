@@ -47,7 +47,7 @@ const skillsList: SkillItem[] = [
   {
     name: "Next.js (App & Pages)",
     category: "frontend",
-    icon: <SiNextdotjs size={24} />,
+    icon: <SiNextdotjs size={24} aria-label="Next.js" role="img" />,
     proficiency: "Lead / Expert",
     highlight: "SSR, SSG, 40–50% performance uplift, 90+ Lighthouse",
     color: "#ffffff",
@@ -55,7 +55,7 @@ const skillsList: SkillItem[] = [
   {
     name: "React.js",
     category: "frontend",
-    icon: <FaReact size={24} />,
+    icon: <FaReact size={24} aria-label="React.js" role="img" />,
     proficiency: "Lead / Expert",
     highlight: "Custom hooks, state architectures, reusable UI modules",
     color: "#38bdf8",
@@ -63,7 +63,7 @@ const skillsList: SkillItem[] = [
   {
     name: "Angular",
     category: "frontend",
-    icon: <FaAngular size={24} />,
+    icon: <FaAngular size={24} aria-label="Angular" role="img" />,
     proficiency: "Advanced",
     highlight: "Lazy loading, OnPush change detection, 35% bundle reduction",
     color: "#ef4444",
@@ -71,7 +71,7 @@ const skillsList: SkillItem[] = [
   {
     name: "TypeScript",
     category: "frontend",
-    icon: <SiTypescript size={22} />,
+    icon: <SiTypescript size={22} aria-label="TypeScript" role="img" />,
     proficiency: "Lead / Expert",
     highlight: "Strict type systems, generics, interface contracts",
     color: "#60a5fa",
@@ -79,7 +79,7 @@ const skillsList: SkillItem[] = [
   {
     name: "Tailwind CSS",
     category: "frontend",
-    icon: <SiTailwindcss size={24} />,
+    icon: <SiTailwindcss size={24} aria-label="Tailwind CSS" role="img" />,
     proficiency: "Lead / Expert",
     highlight: "Design tokens, utility-first design, fluid responsive layouts",
     color: "#38bdf8",
@@ -87,7 +87,7 @@ const skillsList: SkillItem[] = [
   {
     name: "Framer Motion",
     category: "frontend",
-    icon: <SiFramer size={22} />,
+    icon: <SiFramer size={22} aria-label="Framer Motion" role="img" />,
     proficiency: "Lead / Expert",
     highlight: "Physics-based micro-interactions, layout transitions, keyframes",
     color: "#e879f9",
@@ -95,7 +95,7 @@ const skillsList: SkillItem[] = [
   {
     name: "JavaScript (ES6+)",
     category: "frontend",
-    icon: <FaJsSquare size={24} />,
+    icon: <FaJsSquare size={24} aria-label="JavaScript" role="img" />,
     proficiency: "Lead / Expert",
     highlight: "Async/await, closures, DOM manipulation, event loop",
     color: "#facc15",
@@ -103,7 +103,7 @@ const skillsList: SkillItem[] = [
   {
     name: "HTML5 & CSS3",
     category: "frontend",
-    icon: <FaHtml5 size={24} />,
+    icon: <FaHtml5 size={24} aria-label="HTML5 and CSS3" role="img" />,
     proficiency: "Lead / Expert",
     highlight: "Semantic markup, accessibility, modern Flexbox & Grid",
     color: "#f97316",
@@ -113,7 +113,7 @@ const skillsList: SkillItem[] = [
   {
     name: "Node.js & Express.js",
     category: "backend",
-    icon: <FaNodeJs size={24} />,
+    icon: <FaNodeJs size={24} aria-label="Node.js and Express.js" role="img" />,
     proficiency: "Lead / Expert",
     highlight: "RESTful APIs, middleware pipelines, distributed backends",
     color: "#4ade80",
@@ -121,7 +121,7 @@ const skillsList: SkillItem[] = [
   {
     name: "RabbitMQ",
     category: "backend",
-    icon: <RiFlowChart size={24} />,
+    icon: <RiFlowChart size={24} aria-label="RabbitMQ" role="img" />,
     proficiency: "Advanced",
     highlight: "Asynchronous messaging & distributed queue processing",
     color: "#fb923c",
@@ -129,7 +129,7 @@ const skillsList: SkillItem[] = [
   {
     name: "Microservices & RPC",
     category: "backend",
-    icon: <RiServerLine size={24} />,
+    icon: <RiServerLine size={24} aria-label="Microservices & RPC" role="img" />,
     proficiency: "Advanced",
     highlight: "Decoupled microservices & RPC communication protocols",
     color: "#818cf8",
@@ -137,7 +137,7 @@ const skillsList: SkillItem[] = [
   {
     name: "GraphQL & REST APIs",
     category: "backend",
-    icon: <SiGraphql size={24} />,
+    icon: <SiGraphql size={24} aria-label="GraphQL & REST APIs" role="img" />,
     proficiency: "Advanced",
     highlight: "Schema design, queries, mutations, API integration",
     color: "#f43f5e",
@@ -145,7 +145,7 @@ const skillsList: SkillItem[] = [
   {
     name: "MongoDB",
     category: "backend",
-    icon: <SiMongodb size={24} />,
+    icon: <SiMongodb size={24} aria-label="MongoDB" role="img" />,
     proficiency: "Advanced",
     highlight: "Document schemas, indexing, aggregation pipelines",
     color: "#22c55e",
@@ -153,7 +153,7 @@ const skillsList: SkillItem[] = [
   {
     name: "PostgreSQL & MySQL",
     category: "backend",
-    icon: <SiPostgresql size={24} />,
+    icon: <SiPostgresql size={24} aria-label="PostgreSQL & MySQL" role="img" />,
     proficiency: "Advanced",
     highlight: "Relational queries, transactions, schema integrity",
     color: "#38bdf8",
@@ -163,7 +163,7 @@ const skillsList: SkillItem[] = [
   {
     name: "Team Leadership (4 Devs)",
     category: "architecture",
-    icon: <RiTeamLine size={24} />,
+    icon: <RiTeamLine size={24} aria-label="Team Leadership" role="img" />,
     proficiency: "Lead / Expert",
     highlight: "Led team of 4, reduced delivery time by ~30% with Agile",
     color: "#6366f1",
@@ -171,7 +171,7 @@ const skillsList: SkillItem[] = [
   {
     name: "Performance & SEO (90+)",
     category: "architecture",
-    icon: <RiSpeedLine size={24} />,
+    icon: <RiSpeedLine size={24} aria-label="Performance & SEO" role="img" />,
     proficiency: "Lead / Expert",
     highlight: "40–50% Next.js speedup, 90+ Lighthouse, bundle optimization",
     color: "#10b981",
@@ -179,7 +179,7 @@ const skillsList: SkillItem[] = [
   {
     name: "Modular Architecture",
     category: "architecture",
-    icon: <RiLayoutMasonryLine size={24} />,
+    icon: <RiLayoutMasonryLine size={24} aria-label="Modular Architecture" role="img" />,
     proficiency: "Lead / Expert",
     highlight: "Reusable UI component libraries, scalable frontend patterns",
     color: "#c084fc",
@@ -189,7 +189,7 @@ const skillsList: SkillItem[] = [
   {
     name: "Docker & CI/CD",
     category: "tools",
-    icon: <FaDocker size={24} />,
+    icon: <FaDocker size={24} aria-label="Docker and CI/CD" role="img" />,
     proficiency: "Advanced",
     highlight: "Containerization, automated build/test/deployment lifecycle",
     color: "#0284c7",
@@ -197,7 +197,7 @@ const skillsList: SkillItem[] = [
   {
     name: "Git & Version Control",
     category: "tools",
-    icon: <FaGithub size={24} />,
+    icon: <FaGithub size={24} aria-label="Git & Version Control" role="img" />,
     proficiency: "Lead / Expert",
     highlight: "Branch strategies, collaborative Agile PR reviews, releases",
     color: "#f1f5f9",
@@ -205,7 +205,7 @@ const skillsList: SkillItem[] = [
   {
     name: "Figma",
     category: "tools",
-    icon: <FaFigma size={22} />,
+    icon: <FaFigma size={22} aria-label="Figma" role="img" />,
     proficiency: "Advanced",
     highlight: "Design-to-code translation, wireframing, UX collaboration",
     color: "#a855f7",
@@ -213,7 +213,7 @@ const skillsList: SkillItem[] = [
   {
     name: "Postman & API Testing",
     category: "tools",
-    icon: <SiPostman size={24} />,
+    icon: <SiPostman size={24} aria-label="Postman & API Testing" role="img" />,
     proficiency: "Advanced",
     highlight: "API contract testing, environment mocks, automation",
     color: "#f97316",
@@ -221,7 +221,7 @@ const skillsList: SkillItem[] = [
   {
     name: "Vercel & Plesk",
     category: "tools",
-    icon: <SiVercel size={22} />,
+    icon: <SiVercel size={22} aria-label="Vercel & Plesk" role="img" />,
     proficiency: "Lead / Expert",
     highlight: "Production deployments, server management, edge optimizations",
     color: "#ffffff",
@@ -229,7 +229,7 @@ const skillsList: SkillItem[] = [
   {
     name: "Firebase",
     category: "tools",
-    icon: <SiFirebase size={24} />,
+    icon: <SiFirebase size={24} aria-label="Firebase" role="img" />,
     proficiency: "Proficient",
     highlight: "Realtime databases, authentication, cloud storage",
     color: "#f59e0b",
@@ -271,7 +271,7 @@ export const Skills: React.FC = () => {
               Modern Tooling
             </span>
           </h2>
-          <p className="mt-3 sm:mt-4 text-slate-400 text-sm sm:text-base md:text-lg">
+          <p className="mt-3 sm:mt-4 text-slate-300 text-sm sm:text-base md:text-lg">
             Directly mapped from production experience — Next.js, Angular, React, TypeScript, Node.js, RabbitMQ, Docker, and distributed microservices.
           </p>
 
@@ -287,10 +287,11 @@ export const Skills: React.FC = () => {
               <button
                 key={tab.id}
                 onClick={() => setActiveCategory(tab.id as any)}
-                className={`px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-full transition-all ${
+                aria-pressed={activeCategory === tab.id}
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-full transition-all min-h-[38px] ${
                   activeCategory === tab.id
                     ? "bg-gradient-to-r from-indigo-600 to-cyan-600 text-white shadow-lg shadow-indigo-600/25"
-                    : "bg-dark-900 border border-white/10 text-slate-400 hover:text-white hover:bg-dark-850"
+                    : "bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:bg-dark-850"
                 }`}
               >
                 {tab.label}
@@ -327,7 +328,7 @@ export const Skills: React.FC = () => {
                           ? "bg-indigo-500/15 text-indigo-300 border-indigo-500/30"
                           : skill.proficiency === "Advanced"
                           ? "bg-cyan-500/15 text-cyan-300 border-cyan-500/30"
-                          : "bg-slate-700/20 text-slate-300 border-white/10"
+                          : "bg-slate-700/20 text-slate-200 border-white/15"
                       }`}
                     >
                       {skill.proficiency}
@@ -337,15 +338,15 @@ export const Skills: React.FC = () => {
                   <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-indigo-300 transition-colors">
                     {skill.name}
                   </h3>
-                  <p className="text-[11px] sm:text-xs text-slate-400 mt-1 leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-slate-300 mt-1 leading-relaxed">
                     {skill.highlight}
                   </p>
                 </div>
 
                 {/* Category indicator line */}
-                <div className="mt-3.5 sm:mt-4 pt-2.5 sm:pt-3 border-t border-white/5 flex items-center justify-between text-[10px] sm:text-[11px] text-slate-500">
+                <div className="mt-3.5 sm:mt-4 pt-2.5 sm:pt-3 border-t border-white/5 flex items-center justify-between text-[10px] sm:text-[11px] text-slate-300">
                   <span className="capitalize">{skill.category}</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-slate-600 group-hover:bg-indigo-400 transition-colors"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-slate-500 group-hover:bg-indigo-400 transition-colors"></span>
                 </div>
               </motion.div>
             ))}
@@ -364,7 +365,7 @@ export const Skills: React.FC = () => {
             <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
               Engineering Leadership in Action
             </h3>
-            <p className="text-xs sm:text-sm text-slate-400 mt-1.5 sm:mt-2">
+            <p className="text-xs sm:text-sm text-slate-300 mt-1.5 sm:mt-2">
               Metrics and real-world outcomes delivered across production codebases.
             </p>
           </div>

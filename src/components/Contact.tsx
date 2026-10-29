@@ -170,7 +170,7 @@ export const Contact: React.FC = () => {
               <div className="p-3.5 sm:p-4 rounded-xl bg-dark-950/80 border border-white/10 mb-3.5 sm:mb-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                 <div className="flex items-center gap-3 min-w-0">
                   <div className="p-2 sm:p-2.5 rounded-lg bg-indigo-500/15 text-indigo-400 shrink-0">
-                    <FaEnvelope size={15} />
+                    <FaEnvelope size={15} aria-hidden="true" />
                   </div>
                   <div className="min-w-0">
                     <div className="text-[10px] sm:text-[11px] text-slate-400 uppercase font-mono">
@@ -184,17 +184,18 @@ export const Contact: React.FC = () => {
 
                 <button
                   onClick={copyEmail}
-                  className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-dark-900 border border-white/10 text-xs font-medium text-slate-300 hover:text-white hover:border-cyan-400 transition-all shrink-0 w-full sm:w-auto"
+                  className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-dark-900 border border-white/10 text-xs font-medium text-slate-300 hover:text-white hover:border-cyan-400 transition-all shrink-0 w-full sm:w-auto min-h-[40px] focus:outline-none focus:ring-2 focus:ring-cyan-400"
                   title="Copy email to clipboard"
+                  aria-label="Copy email address to clipboard"
                 >
                   {copiedEmail ? (
                     <>
-                      <FaCheck size={12} className="text-emerald-400" />
+                      <FaCheck size={12} className="text-emerald-400" aria-hidden="true" />
                       <span className="text-emerald-300">Copied!</span>
                     </>
                   ) : (
                     <>
-                      <FaCopy size={12} className="text-cyan-400" />
+                      <FaCopy size={12} className="text-cyan-400" aria-hidden="true" />
                       <span>Copy Email</span>
                     </>
                   )}
@@ -205,7 +206,7 @@ export const Contact: React.FC = () => {
               <div className="p-3.5 sm:p-4 rounded-xl bg-dark-950/80 border border-white/10 mb-5 sm:mb-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                 <div className="flex items-center gap-3 min-w-0">
                   <div className="p-2 sm:p-2.5 rounded-lg bg-emerald-500/15 text-emerald-400 shrink-0">
-                    <FaPhoneAlt size={14} />
+                    <FaPhoneAlt size={14} aria-hidden="true" />
                   </div>
                   <div className="min-w-0">
                     <div className="text-[10px] sm:text-[11px] text-slate-400 uppercase font-mono">
@@ -220,23 +221,25 @@ export const Contact: React.FC = () => {
                 <div className="flex items-center gap-2 w-full sm:w-auto">
                   <a
                     href="tel:7738412722"
-                    className="flex-1 sm:flex-initial text-center px-3 py-2 rounded-lg bg-dark-900 border border-white/10 text-xs font-medium text-slate-300 hover:text-white transition-all"
+                    className="flex-1 sm:flex-initial text-center px-3.5 py-2 rounded-lg bg-dark-900 border border-white/10 text-xs font-medium text-slate-300 hover:text-white transition-all min-h-[40px] flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                    aria-label="Call Varun Jadhav at +91 7738412722"
                   >
                     Call
                   </a>
                   <button
                     onClick={copyPhone}
-                    className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-dark-900 border border-white/10 text-xs font-medium text-slate-300 hover:text-white hover:border-emerald-400 transition-all shrink-0"
+                    className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-dark-900 border border-white/10 text-xs font-medium text-slate-300 hover:text-white hover:border-emerald-400 transition-all shrink-0 min-h-[40px] focus:outline-none focus:ring-2 focus:ring-emerald-400"
                     title="Copy phone to clipboard"
+                    aria-label="Copy phone number +91 7738412722 to clipboard"
                   >
                     {copiedPhone ? (
                       <>
-                        <FaCheck size={12} className="text-emerald-400" />
+                        <FaCheck size={12} className="text-emerald-400" aria-hidden="true" />
                         <span className="text-emerald-300">Copied!</span>
                       </>
                     ) : (
                       <>
-                        <FaCopy size={12} className="text-emerald-400" />
+                        <FaCopy size={12} className="text-emerald-400" aria-hidden="true" />
                         <span>Copy</span>
                       </>
                     )}
@@ -273,9 +276,10 @@ export const Contact: React.FC = () => {
                   href="https://www.linkedin.com/in/varun-jadhav-620814152/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 font-semibold text-slate-300 hover:text-cyan-400 transition-colors"
+                  className="flex items-center gap-1.5 font-semibold text-slate-300 hover:text-cyan-400 transition-colors min-h-[40px] py-1.5 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded"
+                  aria-label="Varun Jadhav LinkedIn Profile"
                 >
-                  <FaLinkedin size={15} />
+                  <FaLinkedin size={15} aria-hidden="true" />
                   <span>LinkedIn</span>
                 </a>
 
@@ -283,9 +287,10 @@ export const Contact: React.FC = () => {
                   href="https://github.com/Jadhavvarun"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 font-semibold text-slate-300 hover:text-white transition-colors"
+                  className="flex items-center gap-1.5 font-semibold text-slate-300 hover:text-white transition-colors min-h-[40px] py-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                  aria-label="Varun Jadhav GitHub Profile"
                 >
-                  <FaGithub size={15} />
+                  <FaGithub size={15} aria-hidden="true" />
                   <span>GitHub</span>
                 </a>
 
@@ -293,9 +298,10 @@ export const Contact: React.FC = () => {
                   href="/varun_resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 font-semibold text-indigo-400 hover:text-indigo-300 transition-colors"
+                  className="flex items-center gap-1.5 font-semibold text-indigo-400 hover:text-indigo-300 transition-colors min-h-[40px] py-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                  aria-label="Download Varun Jadhav's Resume PDF"
                 >
-                  <FaDownload size={11} />
+                  <FaDownload size={11} aria-hidden="true" />
                   <span>Resume</span>
                 </a>
               </div>

@@ -121,27 +121,28 @@ export const Header: React.FC = () => {
             href="https://github.com/Jadhavvarun"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-dark-900/60 text-slate-300 transition-all hover:border-indigo-500/50 hover:bg-indigo-500/10 hover:text-white"
-            title="GitHub Profile"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-dark-900/60 text-slate-300 transition-all hover:border-indigo-500/50 hover:bg-indigo-500/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            aria-label="Varun Jadhav GitHub Profile"
           >
-            <FaGithub size={16} />
+            <FaGithub size={16} aria-hidden="true" />
           </a>
           <a
             href="https://www.linkedin.com/in/varun-jadhav-620814152/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-dark-900/60 text-slate-300 transition-all hover:border-cyan-500/50 hover:bg-cyan-500/10 hover:text-white"
-            title="LinkedIn Profile"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-dark-900/60 text-slate-300 transition-all hover:border-cyan-500/50 hover:bg-cyan-500/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            aria-label="Varun Jadhav LinkedIn Profile"
           >
-            <FaLinkedin size={16} />
+            <FaLinkedin size={16} aria-hidden="true" />
           </a>
           <a
             href="/varun_resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-indigo-600 to-primary-600 px-3.5 py-2 text-xs font-semibold text-white shadow-md shadow-indigo-600/25 transition-all duration-200 hover:from-indigo-500 hover:to-primary-500 hover:shadow-indigo-600/40 hover:-translate-y-0.5"
+            className="flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-indigo-600 to-primary-600 px-3.5 py-2 text-xs font-semibold text-white shadow-md shadow-indigo-600/25 transition-all duration-200 hover:from-indigo-500 hover:to-primary-500 hover:shadow-indigo-600/40 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            aria-label="Download Varun Jadhav's Resume PDF"
           >
-            <FaDownload size={11} />
+            <FaDownload size={11} aria-hidden="true" />
             <span>Resume</span>
           </a>
         </div>
@@ -153,20 +154,22 @@ export const Header: React.FC = () => {
             href="/varun_resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:flex items-center gap-1.5 rounded-lg bg-indigo-600/20 border border-indigo-500/30 px-3 py-1.5 text-xs font-semibold text-indigo-300 hover:bg-indigo-600 hover:text-white transition-all"
+            className="hidden sm:flex items-center gap-1.5 rounded-lg bg-indigo-600/20 border border-indigo-500/30 px-3 py-1.5 text-xs font-semibold text-indigo-300 hover:bg-indigo-600 hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            aria-label="Download Varun Jadhav's Resume PDF"
           >
-            <FaDownload size={11} />
+            <FaDownload size={11} aria-hidden="true" />
             <span>Resume</span>
           </a>
 
           {/* Hamburger / Close Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg border border-white/10 bg-dark-900/90 text-slate-200 transition-colors hover:text-white hover:border-indigo-500/40 focus:outline-none"
-            aria-label="Toggle Navigation Menu"
+            className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg border border-white/10 bg-dark-900/90 text-slate-200 transition-colors hover:text-white hover:border-indigo-500/40 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
           >
-            {mobileMenuOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
+            {mobileMenuOpen ? <FaTimes size={18} aria-hidden="true" /> : <FaBars size={18} aria-hidden="true" />}
           </button>
         </div>
       </div>
@@ -186,6 +189,7 @@ export const Header: React.FC = () => {
 
             {/* Slide-Down Menu Content */}
             <motion.div
+              id="mobile-navigation"
               initial={{ opacity: 0, y: -15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
@@ -247,38 +251,42 @@ export const Header: React.FC = () => {
                 <div className="grid grid-cols-2 gap-2 pt-1">
                   <a
                     href="mailto:jadhavvarun67@gmail.com"
-                    className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-dark-900 border border-white/10 text-xs font-medium text-slate-300 hover:text-white hover:border-indigo-400 transition-colors"
+                    className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-dark-900 border border-white/10 text-xs font-medium text-slate-300 hover:text-white hover:border-indigo-400 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400 min-h-[44px]"
+                    aria-label="Send email to Varun Jadhav"
                   >
-                    <FaEnvelope size={12} className="text-indigo-400" />
+                    <FaEnvelope size={12} className="text-indigo-400" aria-hidden="true" />
                     <span>Email Me</span>
                   </a>
                   <a
                     href="tel:7738412722"
-                    className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-dark-900 border border-white/10 text-xs font-medium text-slate-300 hover:text-white hover:border-emerald-400 transition-colors"
+                    className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-dark-900 border border-white/10 text-xs font-medium text-slate-300 hover:text-white hover:border-emerald-400 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-400 min-h-[44px]"
+                    aria-label="Call Varun Jadhav at +91 7738412722"
                   >
-                    <FaPhoneAlt size={11} className="text-emerald-400" />
+                    <FaPhoneAlt size={11} className="text-emerald-400" aria-hidden="true" />
                     <span>Call Varun</span>
                   </a>
                 </div>
 
-                <div className="flex items-center justify-center gap-5 pt-3 border-t border-white/5 text-xs text-slate-400">
+                <div className="flex items-center justify-center gap-5 pt-3 border-t border-white/5 text-xs text-slate-300">
                   <a
                     href="https://github.com/Jadhavvarun"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 hover:text-white transition-colors"
+                    className="flex items-center gap-1.5 hover:text-white transition-colors py-2 px-1 focus:outline-none focus:ring-2 focus:ring-indigo-400 rounded min-h-[40px]"
+                    aria-label="Varun Jadhav GitHub Profile"
                   >
-                    <FaGithub size={15} />
+                    <FaGithub size={15} aria-hidden="true" />
                     <span>GitHub</span>
                   </a>
-                  <span>•</span>
+                  <span aria-hidden="true">•</span>
                   <a
                     href="https://www.linkedin.com/in/varun-jadhav-620814152/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors"
+                    className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors py-2 px-1 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded min-h-[40px]"
+                    aria-label="Varun Jadhav LinkedIn Profile"
                   >
-                    <FaLinkedin size={15} />
+                    <FaLinkedin size={15} aria-hidden="true" />
                     <span>LinkedIn</span>
                   </a>
                 </div>

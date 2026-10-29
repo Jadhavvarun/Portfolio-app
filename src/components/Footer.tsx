@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-dark-950 border-t border-white/10 text-slate-400 py-12 sm:py-16 relative">
+    <footer className="bg-dark-950 border-t border-white/10 text-slate-300 py-12 sm:py-16 relative">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-10 pb-8 sm:pb-12 border-b border-white/5">
           {/* Brand & Summary */}
@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
               </div>
             </div>
 
-            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-sm">
               Engineering enterprise design systems, high-throughput full-stack platforms, and microfrontends with an obsession for 60fps animations and sub-second load times.
             </p>
 
@@ -49,27 +49,27 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="grid grid-cols-2 gap-2 text-xs sm:text-sm">
               <li>
-                <a href="#about" className="hover:text-white transition-colors">
+                <a href="#about" className="inline-flex items-center min-h-[40px] py-1.5 text-slate-300 hover:text-white transition-colors">
                   About & Overview
                 </a>
               </li>
               <li>
-                <a href="#experience" className="hover:text-white transition-colors">
+                <a href="#experience" className="inline-flex items-center min-h-[40px] py-1.5 text-slate-300 hover:text-white transition-colors">
                   Experience & Lead
                 </a>
               </li>
               <li>
-                <a href="#skills" className="hover:text-white transition-colors">
+                <a href="#skills" className="inline-flex items-center min-h-[40px] py-1.5 text-slate-300 hover:text-white transition-colors">
                   Skills & Architecture
                 </a>
               </li>
               <li>
-                <a href="#projects" className="hover:text-white transition-colors">
+                <a href="#projects" className="inline-flex items-center min-h-[40px] py-1.5 text-slate-300 hover:text-white transition-colors">
                   Featured Projects
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-white transition-colors">
+                <a href="#contact" className="inline-flex items-center min-h-[40px] py-1.5 text-slate-300 hover:text-white transition-colors">
                   Get In Touch
                 </a>
               </li>
@@ -78,9 +78,10 @@ export const Footer: React.FC = () => {
                   href="/varun_resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-1"
+                  className="text-indigo-400 hover:text-indigo-300 transition-colors inline-flex items-center gap-1 min-h-[40px] py-1.5"
+                  aria-label="Download Varun Jadhav's Resume PDF"
                 >
-                  <FaDownload size={11} />
+                  <FaDownload size={11} aria-hidden="true" />
                   <span>Resume (PDF)</span>
                 </a>
               </li>
@@ -97,40 +98,48 @@ export const Footer: React.FC = () => {
                 href="https://github.com/Jadhavvarun"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-indigo-400 transition-all shrink-0"
-                title="GitHub"
+                className="flex h-10 w-10 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-indigo-400 transition-all shrink-0 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                aria-label="Varun Jadhav GitHub Profile"
               >
-                <FaGithub size={16} />
+                <FaGithub size={16} aria-hidden="true" />
               </a>
               <a
                 href="https://www.linkedin.com/in/varun-jadhav-620814152/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-cyan-400 transition-all shrink-0"
-                title="LinkedIn"
+                className="flex h-10 w-10 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-cyan-400 transition-all shrink-0 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                aria-label="Varun Jadhav LinkedIn Profile"
               >
-                <FaLinkedin size={16} />
+                <FaLinkedin size={16} aria-hidden="true" />
               </a>
               <a
                 href="mailto:jadhavvarun67@gmail.com"
-                className="flex h-9 w-9 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-indigo-400 transition-all shrink-0"
-                title="Email"
+                className="flex h-10 w-10 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-indigo-400 transition-all shrink-0 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                aria-label="Send email to Varun Jadhav"
               >
-                <FaEnvelope size={15} />
+                <FaEnvelope size={15} aria-hidden="true" />
               </a>
               <a
                 href="tel:7738412722"
-                className="flex h-9 w-9 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-emerald-400 transition-all shrink-0"
-                title="Call"
+                className="flex h-10 w-10 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-emerald-400 transition-all shrink-0 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                aria-label="Call Varun Jadhav at +91 7738412722"
               >
-                <FaPhoneAlt size={13} />
+                <FaPhoneAlt size={13} aria-hidden="true" />
               </a>
             </div>
-            <div className="flex flex-col space-y-1 text-xs text-slate-400 font-mono pt-1">
-              <a href="mailto:jadhavvarun67@gmail.com" className="hover:text-white transition-colors truncate">
+            <div className="flex flex-col space-y-1.5 text-xs text-slate-300 font-mono pt-1">
+              <a
+                href="mailto:jadhavvarun67@gmail.com"
+                className="inline-flex items-center min-h-[44px] hover:text-white transition-colors truncate py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                aria-label="Email: jadhavvarun67@gmail.com"
+              >
                 jadhavvarun67@gmail.com
               </a>
-              <a href="tel:7738412722" className="hover:text-emerald-400 transition-colors">
+              <a
+                href="tel:7738412722"
+                className="inline-flex items-center min-h-[44px] hover:text-emerald-400 transition-colors py-2 focus:outline-none focus:ring-2 focus:ring-emerald-400 rounded"
+                aria-label="Phone: +91 7738412722"
+              >
                 +91 7738412722
               </a>
             </div>
@@ -138,7 +147,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Credits & Scroll to Top */}
-        <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono text-center sm:text-left">
+        <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 font-mono text-center sm:text-left">
           <div>
             &copy; {new Date().getFullYear()} Varun Jadhav. All rights reserved.
           </div>
@@ -148,11 +157,12 @@ export const Footer: React.FC = () => {
 
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-indigo-400 transition-all"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-indigo-400 transition-all min-h-[40px] focus:outline-none focus:ring-2 focus:ring-indigo-400"
               title="Back to Top"
+              aria-label="Scroll back to top of page"
             >
               <span>Top</span>
-              <FaArrowUp size={11} />
+              <FaArrowUp size={11} aria-hidden="true" />
             </button>
           </div>
         </div>

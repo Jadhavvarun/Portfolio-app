@@ -150,34 +150,37 @@ export const Experience: React.FC = () => {
           <div className="flex flex-wrap items-center justify-center gap-2 mt-6 sm:mt-8">
             <button
               onClick={() => setActiveTab("all")}
-              className={`px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-full transition-all ${
+              aria-pressed={activeTab === "all"}
+              className={`px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-full transition-all min-h-[38px] ${
                 activeTab === "all"
                   ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/30"
-                  : "bg-dark-800/80 text-slate-400 hover:text-white border border-white/5"
+                  : "bg-dark-800/80 text-slate-300 hover:text-white border border-white/10"
               }`}
             >
               All Milestones
             </button>
             <button
               onClick={() => setActiveTab("experience")}
-              className={`flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-full transition-all ${
+              aria-pressed={activeTab === "experience"}
+              className={`flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-full transition-all min-h-[38px] ${
                 activeTab === "experience"
                   ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/30"
-                  : "bg-dark-800/80 text-slate-400 hover:text-white border border-white/5"
+                  : "bg-dark-800/80 text-slate-300 hover:text-white border border-white/10"
               }`}
             >
-              <FaBriefcase size={12} />
+              <FaBriefcase size={12} aria-hidden="true" />
               <span>Work & Leadership</span>
             </button>
             <button
               onClick={() => setActiveTab("education")}
-              className={`flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-full transition-all ${
+              aria-pressed={activeTab === "education"}
+              className={`flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-full transition-all min-h-[38px] ${
                 activeTab === "education"
                   ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/30"
-                  : "bg-dark-800/80 text-slate-400 hover:text-white border border-white/5"
+                  : "bg-dark-800/80 text-slate-300 hover:text-white border border-white/10"
               }`}
             >
-              <FaGraduationCap size={13} />
+              <FaGraduationCap size={13} aria-hidden="true" />
               <span>Education</span>
             </button>
           </div>
@@ -212,13 +215,14 @@ export const Experience: React.FC = () => {
                           ? "border-cyan-400 bg-dark-950 text-cyan-300"
                           : "border-indigo-500 bg-dark-950 text-indigo-400"
                       }`}
+                      aria-hidden="true"
                     >
                       {item.isLead ? (
-                        <FaCrown className="text-xs sm:text-sm" />
+                        <FaCrown className="text-xs sm:text-sm" aria-hidden="true" />
                       ) : item.type === "education" ? (
-                        <FaGraduationCap className="text-xs sm:text-sm" />
+                        <FaGraduationCap className="text-xs sm:text-sm" aria-hidden="true" />
                       ) : (
-                        <FaBriefcase className="text-[11px] sm:text-xs" />
+                        <FaBriefcase className="text-[11px] sm:text-xs" aria-hidden="true" />
                       )}
                     </div>
 
@@ -252,12 +256,12 @@ export const Experience: React.FC = () => {
                                   : "bg-indigo-500/20 border-indigo-500/40 text-indigo-300"
                               }`}
                             >
-                              {item.isLead && <RiSparklingFill size={11} />}
+                              {item.isLead && <RiSparklingFill size={11} aria-hidden="true" />}
                               {item.badgeText}
                             </span>
                           )}
-                          <span className="inline-flex items-center gap-1 text-[11px] sm:text-xs text-slate-400 font-mono">
-                            <FaCalendarAlt size={10} />
+                          <span className="inline-flex items-center gap-1 text-[11px] sm:text-xs text-slate-300 font-mono">
+                            <FaCalendarAlt size={10} aria-hidden="true" />
                             {item.period}
                           </span>
                         </div>
@@ -272,9 +276,9 @@ export const Experience: React.FC = () => {
                           }`}
                         >
                           <span>{item.company}</span>
-                          <span className="text-slate-600 hidden xs:inline">•</span>
-                          <span className="text-[11px] sm:text-xs text-slate-400 font-normal flex items-center gap-1">
-                            <FaMapMarkerAlt size={10} />
+                          <span className="text-slate-500 hidden xs:inline" aria-hidden="true">•</span>
+                          <span className="text-[11px] sm:text-xs text-slate-300 font-normal flex items-center gap-1">
+                            <FaMapMarkerAlt size={10} aria-hidden="true" />
                             {item.location}
                           </span>
                         </div>
@@ -284,7 +288,7 @@ export const Experience: React.FC = () => {
                           {item.highlights.map((h, i) => (
                             <li key={i} className="flex items-start gap-2 sm:gap-2.5">
                               <span className="text-indigo-400 mt-0.5 sm:mt-1 shrink-0">
-                                <FaCheckCircle className="text-[11px] sm:text-xs" />
+                                <FaCheckCircle className="text-[11px] sm:text-xs" aria-hidden="true" />
                               </span>
                               <span className="leading-relaxed">{h}</span>
                             </li>

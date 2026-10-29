@@ -143,7 +143,7 @@ export const Projects: React.FC = () => {
                 <span className="px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 shrink-0">RPC: Active</span>
               </div>
             </div>
-            <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-slate-500 font-mono pt-1.5 sm:pt-2 border-t border-white/5">
+            <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-slate-300 font-mono pt-1.5 sm:pt-2 border-t border-white/5">
               <span className="truncate">Microservices & Docker</span>
               <span className="text-emerald-400 shrink-0 font-medium">invocreto.com</span>
             </div>
@@ -180,7 +180,7 @@ export const Projects: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-slate-500 font-mono pt-1.5 sm:pt-2 border-t border-white/5">
+            <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-slate-300 font-mono pt-1.5 sm:pt-2 border-t border-white/5">
               <span className="truncate">Intelligence Feed</span>
               <span className="text-cyan-400 shrink-0 font-medium">indiacorporates.com</span>
             </div>
@@ -217,7 +217,7 @@ export const Projects: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-slate-500 font-mono pt-1.5 sm:pt-2 border-t border-white/5">
+            <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-slate-300 font-mono pt-1.5 sm:pt-2 border-t border-white/5">
               <span className="truncate">Tailwind & Framer Motion</span>
               <span className="text-emerald-400 shrink-0 font-medium">Live Production</span>
             </div>
@@ -349,20 +349,22 @@ export const Projects: React.FC = () => {
                       href={project.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-white transition-colors"
+                      className="inline-flex items-center gap-2 text-xs font-mono text-slate-300 hover:text-white transition-colors min-h-[44px] py-2 px-1 focus:outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                      aria-label={`View ${project.title} on GitHub`}
                     >
-                      <FaGithub size={14} />
-                      <span>Repository</span>
+                      <FaGithub size={14} aria-hidden="true" />
+                      <span>{project.githubLink.includes("Portfolio-app") ? "Repository" : "GitHub"}</span>
                     </a>
 
                     <a
                       href={project.liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-indigo-600/30 border border-indigo-500/40 text-xs font-medium text-indigo-200 hover:bg-indigo-600 hover:text-white hover:border-indigo-400 transition-all shadow-sm"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 min-h-[44px] rounded-lg bg-indigo-600/30 border border-indigo-500/40 text-xs font-medium text-indigo-200 hover:bg-indigo-600 hover:text-white hover:border-indigo-400 transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                      aria-label={`Visit live website for ${project.title}`}
                     >
                       <span>Visit Live</span>
-                      <RiShareBoxLine size={13} />
+                      <RiShareBoxLine size={13} aria-hidden="true" />
                     </a>
                   </div>
                 </div>

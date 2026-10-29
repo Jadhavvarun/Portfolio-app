@@ -249,7 +249,7 @@ export const Hero: React.FC = () => {
 
             {/* Social & Contact Strip */}
             <div className="flex flex-wrap items-center gap-2.5 sm:gap-4 pt-4 border-t border-white/10 w-full text-xs">
-              <span className="uppercase font-mono tracking-wider text-slate-500 text-[11px] sm:text-xs">
+              <span className="uppercase font-mono tracking-wider text-slate-400 text-[11px] sm:text-xs font-semibold">
                 Direct
               </span>
               <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
@@ -257,42 +257,44 @@ export const Hero: React.FC = () => {
                   href="https://github.com/Jadhavvarun"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-400 hover:text-white hover:border-white/30 transition-all"
-                  aria-label="GitHub"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-white/30 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                  aria-label="Varun Jadhav GitHub Profile"
                 >
-                  <FaGithub size={15} />
+                  <FaGithub size={15} aria-hidden="true" />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/varun-jadhav-620814152/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-400 hover:text-white hover:border-cyan-500/40 transition-all"
-                  aria-label="LinkedIn"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-cyan-500/40 transition-all focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                  aria-label="Varun Jadhav LinkedIn Profile"
                 >
-                  <FaLinkedin size={15} />
+                  <FaLinkedin size={15} aria-hidden="true" />
                 </a>
                 <a
                   href="mailto:jadhavvarun67@gmail.com"
-                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-400 hover:text-white hover:border-indigo-500/40 transition-all"
-                  aria-label="Email"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-indigo-500/40 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                  aria-label="Send email to Varun Jadhav"
                 >
-                  <FaEnvelope size={14} />
+                  <FaEnvelope size={14} aria-hidden="true" />
                 </a>
                 <button
                   onClick={copyPhone}
-                  className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-emerald-300 hover:border-emerald-500/40 transition-all font-mono text-[11px] sm:text-xs"
+                  className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-dark-900 border border-white/10 text-slate-200 hover:text-emerald-300 hover:border-emerald-500/40 transition-all font-mono text-[11px] sm:text-xs min-h-[36px] focus:outline-none focus:ring-2 focus:ring-emerald-400"
                   title="Copy Phone Number"
+                  aria-label="Copy phone number +91 7738412722"
                 >
-                  <FaPhoneAlt size={10} className="text-emerald-400" />
+                  <FaPhoneAlt size={10} className="text-emerald-400" aria-hidden="true" />
                   <span>{copiedPhone ? "Copied!" : "+91 7738412722"}</span>
                 </button>
                 <a
                   href="/varun_resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-xs font-mono font-medium text-indigo-400 hover:text-indigo-300 transition-colors ml-0.5"
+                  className="flex items-center gap-1.5 text-xs font-mono font-medium text-indigo-400 hover:text-indigo-300 transition-colors ml-0.5 min-h-[36px] py-1 px-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                  aria-label="Download Varun Jadhav's Resume PDF"
                 >
-                  <FaDownload size={11} />
+                  <FaDownload size={11} aria-hidden="true" />
                   <span>Resume</span>
                 </a>
               </div>
@@ -358,7 +360,7 @@ export const Hero: React.FC = () => {
               <div className="p-3.5 sm:p-5 font-mono text-xs sm:text-sm bg-dark-950/90 min-h-[300px] xs:min-h-[330px] sm:min-h-[380px] flex flex-col justify-between">
                 {activeTab === "code" && (
                   <div className="space-y-1 sm:space-y-1.5 text-slate-300 select-text overflow-x-auto text-[11px] sm:text-xs md:text-sm">
-                    <p className="text-slate-500">{"// Varun Jadhav - Lead Profile"}</p>
+                    <p className="text-slate-400">{"// Varun Jadhav - Lead Profile"}</p>
                     <p>
                       <span className="text-purple-400">const</span>{" "}
                       <span className="text-blue-300">leadDeveloper</span>:{" "}
@@ -407,7 +409,7 @@ export const Hero: React.FC = () => {
                       {"}"},
                     </p>
                     <p>{"};"}</p>
-                    <p className="text-slate-500 pt-1.5 sm:pt-2">
+                    <p className="text-slate-300 pt-1.5 sm:pt-2">
                       <span className="text-emerald-400">✔</span> System compiled with 0 errors.
                     </p>
                   </div>
@@ -494,8 +496,9 @@ export const Hero: React.FC = () => {
                           type="text"
                           value={cliInput}
                           onChange={(e) => setCliInput(e.target.value)}
+                          aria-label="Terminal command input"
                           placeholder="Type 'lead', 'stack', 'projects'..."
-                          className="w-full bg-transparent text-white focus:outline-none placeholder-slate-600 font-mono text-base sm:text-xs"
+                          className="w-full bg-transparent text-white focus:outline-none placeholder-slate-400 font-mono text-base sm:text-xs"
                         />
                       </form>
                     </div>
@@ -503,7 +506,7 @@ export const Hero: React.FC = () => {
                 )}
 
                 {/* Footer status in console */}
-                <div className="pt-2.5 sm:pt-3 border-t border-white/10 flex items-center justify-between text-[10px] sm:text-[11px] text-slate-500">
+                <div className="pt-2.5 sm:pt-3 border-t border-white/10 flex items-center justify-between text-[10px] sm:text-[11px] text-slate-400">
                   <span className="flex items-center gap-1.5">
                     <span className="h-1.5 sm:h-2 w-1.5 sm:w-2 rounded-full bg-emerald-400 animate-pulse"></span>
                     <span>Ready for impact</span>
