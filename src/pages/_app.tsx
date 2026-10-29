@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
+import Head from "next/head";
 import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -18,9 +19,14 @@ const jetbrainsMono = JetBrains_Mono({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={`${plusJakartaSans.variable} ${jetbrainsMono.variable} font-sans`}>
-      <Component {...pageProps} />
-    </div>
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+      </Head>
+      <div className={`${plusJakartaSans.variable} ${jetbrainsMono.variable} font-sans`}>
+        <Component {...pageProps} />
+      </div>
+    </>
   );
 }
 
