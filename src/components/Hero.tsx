@@ -24,7 +24,7 @@ const ROLES = [
 
 export const Hero: React.FC = () => {
   const [roleIndex, setRoleIndex] = useState(0);
-  const [displayedRole, setDisplayedRole] = useState("");
+  const [displayedRole, setDisplayedRole] = useState(ROLES[0]);
   const [isDeleting, setIsDeleting] = useState(false);
   const [activeTab, setActiveTab] = useState<"code" | "terminal" | "leadership">("code");
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -40,20 +40,22 @@ export const Hero: React.FC = () => {
   // Typing effect for the headline role
   useEffect(() => {
     const currentRole = ROLES[roleIndex];
-    const typingSpeed = isDeleting ? 25 : 60;
+    const typingSpeed = isDeleting ? 30 : 65;
+    // When the full word is displayed, wait 2.5s before deleting. This gives reading time and prevents timer thrashing during initial hydration.
+    const delay = !isDeleting && displayedRole === currentRole ? 2500 : typingSpeed;
 
     const timer = setTimeout(() => {
       if (!isDeleting && displayedRole.length < currentRole.length) {
         setDisplayedRole(currentRole.substring(0, displayedRole.length + 1));
       } else if (!isDeleting && displayedRole.length === currentRole.length) {
-        setTimeout(() => setIsDeleting(true), 2000);
+        setIsDeleting(true);
       } else if (isDeleting && displayedRole.length > 0) {
         setDisplayedRole(currentRole.substring(0, displayedRole.length - 1));
       } else if (isDeleting && displayedRole.length === 0) {
         setIsDeleting(false);
         setRoleIndex((prev) => (prev + 1) % ROLES.length);
       }
-    }, typingSpeed);
+    }, delay);
 
     return () => clearTimeout(timer);
   }, [displayedRole, isDeleting, roleIndex]);
@@ -137,33 +139,12 @@ export const Hero: React.FC = () => {
       id="about"
       className="relative min-h-screen pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 flex items-center overflow-hidden bg-dark-950"
     >
-      {/* Animated Floating Gradient Mesh Background */}
-      <motion.div
-        animate={{
-          scale: [1, 1.2, 1],
-          x: [0, 20, 0],
-          y: [0, -20, 0],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] lg:w-[700px] h-[350px] sm:h-[450px] bg-indigo-600/15 rounded-full blur-[100px] sm:blur-[140px] pointer-events-none"
+      {/* Animated Floating Gradient Mesh Background (GPU-composited CSS) */}
+      <div
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] lg:w-[700px] h-[350px] sm:h-[450px] bg-indigo-600/15 rounded-full blur-[100px] sm:blur-[140px] pointer-events-none animate-pulse-slow will-change-transform"
       />
-      <motion.div
-        animate={{
-          scale: [1, 1.15, 1],
-          x: [0, -25, 0],
-          y: [0, 25, 0],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1,
-        }}
-        className="absolute top-1/3 -left-32 w-[300px] sm:w-[450px] h-[300px] sm:h-[400px] bg-cyan-500/12 rounded-full blur-[90px] sm:blur-[130px] pointer-events-none"
+      <div
+        className="absolute top-1/3 -left-32 w-[300px] sm:w-[450px] h-[300px] sm:h-[400px] bg-cyan-500/12 rounded-full blur-[90px] sm:blur-[130px] pointer-events-none animate-float will-change-transform"
       />
       <div className="absolute inset-0 bg-grid pointer-events-none opacity-40" />
 

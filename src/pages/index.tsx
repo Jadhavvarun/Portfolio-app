@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import JsonLd from "@/components/JsonLd";
-import InitialLoader from "@/components/InitialLoader";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Experience from "@/components/Experience";
-import Skills from "@/components/Skills";
-import Projects from "@/components/Projects";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+
+// Code-split below-the-fold components to reduce initial main-thread JavaScript execution
+const Experience = dynamic(() => import("@/components/Experience"), { ssr: true });
+const Skills = dynamic(() => import("@/components/Skills"), { ssr: true });
+const Projects = dynamic(() => import("@/components/Projects"), { ssr: true });
+const Contact = dynamic(() => import("@/components/Contact"), { ssr: true });
+const Footer = dynamic(() => import("@/components/Footer"), { ssr: true });
 
 const SITE_URL = "https://varunjadhav.in/";
 const TITLE = "Varun Jadhav | Full Stack Developer & Frontend Lead at invocreto";
@@ -22,7 +24,7 @@ const OG_IMAGE = `${SITE_URL}/og-image.png`;
 const OG_IMAGE_ALT = "Varun Jadhav — Frontend Lead at invocreto, Full Stack Developer";
 
 export default function Home() {
-  const [isLoaded, setIsLoaded] = useState(false);
+
 
   return (
     <>
@@ -54,9 +56,6 @@ export default function Home() {
 
       {/* JSON-LD Structured Data for Enhanced Search Engine Ranking */}
       <JsonLd />
-
-      {/* Initializing Entrance Loader */}
-      <InitialLoader onComplete={() => setIsLoaded(true)} />
 
       <div className="min-h-screen bg-dark-950 text-slate-100 selection:bg-indigo-500/40 selection:text-white">
         <Header />

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import confetti from "canvas-confetti";
 import { 
   FaEnvelope, 
   FaPhoneAlt,
@@ -14,6 +13,15 @@ import {
   FaDownload 
 } from "react-icons/fa";
 import { RiSendPlaneFill, RiCheckDoubleLine } from "react-icons/ri";
+
+const triggerConfetti = async (options: { particleCount: number; spread: number; origin: { y: number } }) => {
+  try {
+    const confetti = (await import("canvas-confetti")).default;
+    confetti(options);
+  } catch {
+    // ignore
+  }
+};
 
 export const Contact: React.FC = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -56,15 +64,11 @@ export const Contact: React.FC = () => {
     navigator.clipboard.writeText("jadhavvarun67@gmail.com");
     setCopiedEmail(true);
     
-    try {
-      confetti({
-        particleCount: 50,
-        spread: 60,
-        origin: { y: 0.8 },
-      });
-    } catch (e) {
-      // ignore
-    }
+    triggerConfetti({
+      particleCount: 50,
+      spread: 60,
+      origin: { y: 0.8 },
+    });
 
     setTimeout(() => setCopiedEmail(false), 2500);
   };
@@ -73,15 +77,11 @@ export const Contact: React.FC = () => {
     navigator.clipboard.writeText("7738412722");
     setCopiedPhone(true);
     
-    try {
-      confetti({
-        particleCount: 50,
-        spread: 60,
-        origin: { y: 0.8 },
-      });
-    } catch (e) {
-      // ignore
-    }
+    triggerConfetti({
+      particleCount: 50,
+      spread: 60,
+      origin: { y: 0.8 },
+    });
 
     setTimeout(() => setCopiedPhone(false), 2500);
   };
@@ -104,15 +104,11 @@ export const Contact: React.FC = () => {
 
       if (res.ok && data.success) {
         setIsSubmitted(true);
-        try {
-          confetti({
-            particleCount: 120,
-            spread: 80,
-            origin: { y: 0.6 },
-          });
-        } catch (err) {
-          // ignore
-        }
+        triggerConfetti({
+          particleCount: 120,
+          spread: 80,
+          origin: { y: 0.6 },
+        });
       } else {
         setErrorMessage(data.error || "Failed to submit message. Please try again.");
       }
