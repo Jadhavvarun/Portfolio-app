@@ -27,8 +27,12 @@ googleProvider.setCustomParameters({
 // Firestore Database instance
 export const db: Firestore = getFirestore(app);
 
-// Connect to Firebase Emulator Suite in local development
-if (process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATOR === "true") {
+// Connect to Firebase Emulator Suite strictly in non-production local development
+const isDevelopmentEmulator =
+  process.env.NODE_ENV !== "production" &&
+  process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATOR === "true";
+
+if (isDevelopmentEmulator) {
   const authHost = process.env.NEXT_PUBLIC_FIREBASE_AUTH_EMULATOR_HOST || "http://127.0.0.1:9099";
   const firestoreHost = process.env.NEXT_PUBLIC_FIRESTORE_EMULATOR_HOST || "127.0.0.1";
   const firestorePort = Number(process.env.NEXT_PUBLIC_FIRESTORE_EMULATOR_PORT) || 8080;

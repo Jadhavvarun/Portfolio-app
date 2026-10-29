@@ -72,7 +72,9 @@ export default async function handler(
     // Primary: Direct Google Cloud Firestore REST API
     // Executes synchronously and reliably in serverless/Node environments without transport delays
     try {
-      const isEmulator = process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATOR === "true";
+      const isEmulator =
+        process.env.NODE_ENV !== "production" &&
+        process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATOR === "true";
       const emulatorHost = process.env.FIRESTORE_EMULATOR_HOST || "127.0.0.1:8080";
       const firestoreUrl = isEmulator
         ? `http://${emulatorHost}/v1/projects/${FIREBASE_PROJECT_ID || "demo-portfolio"}/databases/(default)/documents/contact`
