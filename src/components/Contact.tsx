@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   FaEnvelope,
-  FaPhoneAlt,
+  FaWhatsapp,
   FaLinkedin,
   FaGithub,
   FaMapMarkerAlt,
@@ -34,18 +34,19 @@ const istTimeFormatter = new Intl.DateTimeFormat("en-US", {
 
 export const Contact: React.FC = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const [copiedPhone, setCopiedPhone] = useState(false);
   const [currentTime, setCurrentTime] = useState("");
   const [formState, setFormState] = useState<{
     name: string;
     email: string;
     subject: string;
     message: string;
+    website?: string;
   }>({
     name: "",
     email: "",
     subject: "",
     message: "",
+    website: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -72,19 +73,6 @@ export const Contact: React.FC = () => {
     });
 
     setTimeout(() => setCopiedEmail(false), 2500);
-  };
-
-  const copyPhone = () => {
-    navigator.clipboard.writeText("7738412722");
-    setCopiedPhone(true);
-
-    triggerConfetti({
-      particleCount: 50,
-      spread: 60,
-      origin: { y: 0.8 },
-    });
-
-    setTimeout(() => setCopiedPhone(false), 2500);
   };
 
   const [errorMessage, setErrorMessage] = useState("");
@@ -203,49 +191,32 @@ export const Contact: React.FC = () => {
                 </button>
               </div>
 
-              {/* Phone Copier Card */}
+              {/* WhatsApp & Direct Messaging Card */}
               <div className="p-3.5 sm:p-4 rounded-xl bg-dark-950/80 border border-white/10 mb-5 sm:mb-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                 <div className="flex items-center gap-3 min-w-0">
                   <div className="p-2 sm:p-2.5 rounded-lg bg-emerald-500/15 text-emerald-400 shrink-0">
-                    <FaPhoneAlt size={14} aria-hidden="true" />
+                    <FaWhatsapp size={16} aria-hidden="true" />
                   </div>
                   <div className="min-w-0">
                     <div className="text-[10px] sm:text-[11px] text-slate-400 uppercase font-mono">
-                      Phone / WhatsApp
+                      WhatsApp / Quick Chat
                     </div>
-                    <div className="text-xs sm:text-sm font-semibold text-white font-mono truncate">
-                      +91 7738412722
+                    <div className="text-xs sm:text-sm font-semibold text-white truncate">
+                      Direct WhatsApp Channel
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 w-full sm:w-auto">
-                  <a
-                    href="tel:7738412722"
-                    className="flex-1 sm:flex-initial text-center px-3.5 py-2 rounded-lg bg-dark-900 border border-white/10 text-xs font-medium text-slate-300 hover:text-white transition-all min-h-[40px] flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-emerald-400"
-                    aria-label="Call Varun Jadhav at +91 7738412722"
-                  >
-                    Call
-                  </a>
-                  <button
-                    onClick={copyPhone}
-                    className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-dark-900 border border-white/10 text-xs font-medium text-slate-300 hover:text-white hover:border-emerald-400 transition-all shrink-0 min-h-[40px] focus:outline-none focus:ring-2 focus:ring-emerald-400"
-                    title="Copy phone to clipboard"
-                    aria-label="Copy phone number +91 7738412722 to clipboard"
-                  >
-                    {copiedPhone ? (
-                      <>
-                        <FaCheck size={12} className="text-emerald-400" aria-hidden="true" />
-                        <span className="text-emerald-300">Copied!</span>
-                      </>
-                    ) : (
-                      <>
-                        <FaCopy size={12} className="text-emerald-400" aria-hidden="true" />
-                        <span>Copy</span>
-                      </>
-                    )}
-                  </button>
-                </div>
+                <a
+                  href="https://wa.me/917738412722?text=Hi%20Varun%2C%20I%20reviewed%20your%20portfolio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-600/20 border border-emerald-500/30 text-xs font-medium text-emerald-300 hover:bg-emerald-600 hover:text-white transition-all shrink-0 min-h-[40px] focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                  aria-label="Open direct WhatsApp conversation with Varun Jadhav"
+                >
+                  <FaWhatsapp size={13} aria-hidden="true" />
+                  <span>Chat on WhatsApp</span>
+                </a>
               </div>
 
               {/* Location & Live Clock: 1 col on small phone, 2 on sm+ */}
@@ -274,7 +245,7 @@ export const Contact: React.FC = () => {
               {/* Social Channels */}
               <div className="pt-3.5 sm:pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs">
                 <a
-                  href="https://www.linkedin.com/in/varun-jadhav-620814152/"
+                  href="https://www.linkedin.com/in/varun-jadhav-3a958b218/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 font-semibold text-slate-300 hover:text-cyan-400 transition-colors min-h-[40px] py-1.5 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded"
@@ -296,7 +267,7 @@ export const Contact: React.FC = () => {
                 </a>
 
                 <a
-                  href="/varun_resume.pdf"
+                  href="/Varun-Jadhav-Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 font-semibold text-indigo-400 hover:text-indigo-300 transition-colors min-h-[40px] py-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-400 rounded"
@@ -363,6 +334,20 @@ export const Contact: React.FC = () => {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4">
+                  {/* Anti-spam honeypot field for bot trapping */}
+                  <div className="hidden" aria-hidden="true" style={{ display: "none" }}>
+                    <label htmlFor="website">Website</label>
+                    <input
+                      type="text"
+                      id="website"
+                      name="website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={formState.website || ""}
+                      onChange={(e) => setFormState({ ...formState, website: e.target.value })}
+                    />
+                  </div>
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                     <div>
                       <label

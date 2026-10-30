@@ -24,7 +24,17 @@ export default async function handler(
   }
 
   try {
-    const { name, email, subject, message } = req.body || {};
+    const { name, email, subject, message, website } = req.body || {};
+
+    // Anti-spam Honeypot: Automated bots usually populate hidden fields
+    if (website && typeof website === "string" && website.trim().length > 0) {
+      console.warn("Spam bot submission caught by honeypot field:", { name, email, website });
+      // Return a simulated success to avoid tipping off spammers
+      return res.status(200).json({
+        success: true,
+        message: "Your message has been transmitted successfully.",
+      });
+    }
 
     // Validate name
     if (!name || typeof name !== "string" || !name.trim()) {

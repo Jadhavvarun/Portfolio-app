@@ -26,41 +26,24 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    id: "invocreto-lead",
-    role: "Frontend Lead",
-    company: "invocreto",
-    period: "2024 - Present",
+    id: "syntags-invocreto",
+    role: "Frontend Lead & Full Stack Developer",
+    company: "Syntags Professional Services (invocreto)",
+    period: "June 2024 - Present",
     location: "Mumbai, India",
     isLead: true,
     isCurrent: true,
     type: "experience",
-    badgeText: "Lead Role • Invoicing & Business Platform",
+    badgeText: "Team Lead • Flagship SaaS: invocreto",
     highlights: [
-      "Led the frontend development of invocreto, an enterprise business management and invoicing platform, using Next.js and Angular.",
-      "Engineered a scalable frontend architecture with modular, reusable UI components and tokenized styling.",
-      "Collaborated on backend and distributed service ecosystem using Node.js, Express.js, MongoDB, Microservice Architecture, RPC, RabbitMQ, and Docker.",
-      "Implemented high-performance state handling and real-time invoicing workflows for high-frequency business transactions.",
+      "Lead frontend architecture and full-stack development for invocreto, an enterprise business management and invoicing platform, utilizing Next.js, Angular, and TypeScript.",
+      "Direct an agile engineering team of 4 developers across sprint planning, code reviews, and architectural alignment to maintain high delivery velocity.",
+      "Engineered a scalable design token system and modular UI library, cutting frontend feature turnaround times significantly.",
+      "Optimized web performance across SSR, dynamic code-splitting, and lazy loading, achieving 90+ Lighthouse scores and 35% bundle size reduction.",
+      "Integrated distributed backend microservices using Node.js, Express, MongoDB, and RabbitMQ event queues for high-throughput invoice workflows.",
+      "Containerized development and staging environments using Docker, establishing automated CI/CD and deployment pipelines.",
     ],
-    skills: ["Next.js", "Angular", "React.js", "Node.js", "MongoDB", "PostgreSQL", "RabbitMQ", "Microservices", "Docker"],
-  },
-  {
-    id: "syntags-dev",
-    role: "Software Developer & Team Lead",
-    company: "Syntags Professional Services",
-    period: "June 2024 - Present",
-    location: "Mumbai, India",
-    isCurrent: true,
-    type: "experience",
-    badgeText: "Team Lead (4 Devs) • Full Stack",
-    highlights: [
-      "Developed and maintained scalable full-stack applications using Angular, React.js, Next.js, TypeScript, Node.js, and Express.js.",
-      "Improved Next.js performance by 40–50% through SSR, code splitting, and image optimization while enhancing SEO and achieving 90+ Lighthouse scores.",
-      "Optimized Angular applications using lazy loading and OnPush change detection, reducing bundle size by 35%.",
-      "Designed and integrated RESTful and GraphQL APIs; worked with Microservice Architecture, RPC-based communication, and RabbitMQ.",
-      "Led a team of 4 developers, establishing reusable development practices and Agile workflows that reduced delivery time by approximately 30%.",
-      "Worked with Docker, CI/CD pipelines, automated testing, staging, and production troubleshooting.",
-    ],
-    skills: ["Angular", "React.js", "Next.js", "TypeScript", "Node.js", "Express.js", "GraphQL", "RabbitMQ", "Docker", "CI/CD"],
+    skills: ["Next.js", "React.js", "Angular", "TypeScript", "Node.js", "Express.js", "MongoDB", "RabbitMQ", "Docker", "CI/CD"],
   },
   {
     id: "unipolar-dev",
@@ -69,13 +52,13 @@ const experiences: ExperienceItem[] = [
     period: "Aug 2023 - May 2024",
     location: "Mumbai, India",
     type: "experience",
-    badgeText: "Frontend & Deployment",
+    badgeText: "Frontend & Production Deployment",
     highlights: [
-      "Developed and maintained scalable web applications using React.js and Next.js, improving application performance through reusable components and optimized rendering techniques.",
-      "Integrated and consumed RESTful APIs, enabling real-time data synchronization and efficient communication between frontend and backend systems.",
-      "Deployed and maintained production applications on Vercel, Plesk, and FileZilla, streamlining release processes with minimal operational overhead.",
+      "Engineered responsive web applications utilizing React.js and Next.js with optimized component rendering and state trees.",
+      "Integrated and consumed RESTful APIs for real-time data synchronizations across frontend portals and backend microservices.",
+      "Managed production application deployments and release operations across Vercel, Plesk, and cloud hostings.",
     ],
-    skills: ["React.js", "Next.js", "RESTful APIs", "Vercel", "Plesk", "FileZilla", "Performance Optimization"],
+    skills: ["React.js", "Next.js", "RESTful APIs", "TypeScript", "Vercel", "Performance Optimization"],
   },
 ];
 
@@ -101,7 +84,7 @@ const educations: ExperienceItem[] = [
     period: "Aug 2018 - Mar 2021",
     location: "Mumbai, India",
     type: "education",
-    badgeText: "CGPA: 6.60 / 10.0",
+    badgeText: "Graduated • Mumbai University",
     highlights: [
       "Built rigorous foundations in financial systems, business logic, quantitative methods, and data analysis.",
       "Self-directed mastery of modern web software engineering, JavaScript, and computer programming.",
@@ -137,7 +120,7 @@ export const Experience: React.FC = () => {
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-950/40 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-indigo-300 mb-3">
             <RiBuildingLine size={13} />
-            <span>Verified Career Progression</span>
+            <span>Career Milestones</span>
           </div>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             Work Experience & <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-primary-300 to-cyan-300">Engineering Leadership</span>

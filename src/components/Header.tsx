@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaGithub, FaLinkedin, FaDownload, FaBars, FaTimes, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaDownload, FaBars, FaTimes, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 import { RiSparklingFill } from "react-icons/ri";
 
 const navLinks = [
@@ -134,7 +134,7 @@ export const Header: React.FC = () => {
             <FaGithub size={16} aria-hidden="true" />
           </a>
           <a
-            href="https://www.linkedin.com/in/varun-jadhav-620814152/"
+            href="https://www.linkedin.com/in/varun-jadhav-3a958b218/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-dark-900/60 text-slate-300 transition-all hover:border-cyan-500/50 hover:bg-cyan-500/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
@@ -143,7 +143,7 @@ export const Header: React.FC = () => {
             <FaLinkedin size={16} aria-hidden="true" />
           </a>
           <a
-            href="/varun_resume.pdf"
+            href="/Varun-Jadhav-Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-indigo-600 to-primary-600 px-3.5 py-2 text-xs font-semibold text-white shadow-md shadow-indigo-600/25 transition-all duration-200 hover:from-indigo-500 hover:to-primary-500 hover:shadow-indigo-600/40 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-indigo-400"
@@ -158,7 +158,7 @@ export const Header: React.FC = () => {
         <div className="flex lg:hidden items-center gap-2">
           {/* Quick Resume Link for Tablet screens */}
           <a
-            href="/varun_resume.pdf"
+            href="/Varun-Jadhav-Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden sm:flex items-center gap-1.5 rounded-lg bg-indigo-600/20 border border-indigo-500/30 px-3 py-1.5 text-xs font-semibold text-indigo-300 hover:bg-indigo-600 hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-indigo-400"
@@ -246,7 +246,7 @@ export const Header: React.FC = () => {
               {/* Action Buttons & Coordinates */}
               <div className="pt-5 mt-5 border-t border-white/10 flex flex-col gap-3">
                 <a
-                  href="/varun_resume.pdf"
+                  href="/Varun-Jadhav-Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-600/25"
@@ -265,12 +265,14 @@ export const Header: React.FC = () => {
                     <span>Email Me</span>
                   </a>
                   <a
-                    href="tel:7738412722"
+                    href="https://wa.me/917738412722?text=Hi%20Varun%2C%20I%20reviewed%20your%20portfolio"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-dark-900 border border-white/10 text-xs font-medium text-slate-300 hover:text-white hover:border-emerald-400 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-400 min-h-[44px]"
-                    aria-label="Call Varun Jadhav at +91 7738412722"
+                    aria-label="Contact Varun Jadhav on WhatsApp"
                   >
-                    <FaPhoneAlt size={11} className="text-emerald-400" aria-hidden="true" />
-                    <span>Call Varun</span>
+                    <FaWhatsapp size={13} className="text-emerald-400" aria-hidden="true" />
+                    <span>WhatsApp</span>
                   </a>
                 </div>
 
@@ -287,7 +289,7 @@ export const Header: React.FC = () => {
                   </a>
                   <span aria-hidden="true">•</span>
                   <a
-                    href="https://www.linkedin.com/in/varun-jadhav-620814152/"
+                    href="https://www.linkedin.com/in/varun-jadhav-3a958b218/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors py-2 px-1 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded min-h-[40px]"

@@ -14,9 +14,8 @@ export const JsonLd: React.FC = () => {
       "url": "https://invocreto.com"
     },
     "email": "jadhavvarun67@gmail.com",
-    "telephone": "+917738412722",
-    "url": "https://varunjadhav.dev",
-    "image": "https://varunjadhav.dev/placeholder.png",
+    "url": "https://varunjadhav.in",
+    "image": "https://varunjadhav.in/hi.jpg",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Mumbai",
@@ -30,7 +29,7 @@ export const JsonLd: React.FC = () => {
       }
     ],
     "sameAs": [
-      "https://www.linkedin.com/in/varun-jadhav-620814152/",
+      "https://www.linkedin.com/in/varun-jadhav-3a958b218/",
       "https://github.com/Jadhavvarun"
     ],
     "knowsAbout": [
@@ -63,8 +62,8 @@ export const JsonLd: React.FC = () => {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Varun Jadhav Portfolio",
-    "alternateName": "Varun Jadhav - Frontend Lead @ invocreto",
-    "url": "https://varunjadhav.dev",
+    "alternateName": "Varun Jadhav - Frontend Lead & Full Stack Developer",
+    "url": "https://varunjadhav.in",
     "author": {
       "@type": "Person",
       "name": "Varun Jadhav"
