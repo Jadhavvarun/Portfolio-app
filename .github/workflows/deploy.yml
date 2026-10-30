@@ -14,6 +14,7 @@ jobs:
   deploy:
     name: Build & Deploy to Netlify
     runs-on: ubuntu-latest
+    timeout-minutes: 4
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -28,8 +29,15 @@ jobs:
         run: npm ci --no-audit --no-fund
 
       - name: Build and Deploy to Netlify
-        run: npx netlify-cli deploy --build --prod --message "Deploy from GitHub Actions ${{ github.sha }}"
+        run: |
+          npx --yes netlify-cli deploy \
+            --build \
+            --prod \
+            --auth="${{ secrets.NETLIFY_AUTH_TOKEN }}" \
+            --site="${{ secrets.NETLIFY_SITE_ID || 'b17eb069-9e2c-4b97-81d8-e78422cb682d' }}" \
+            --message="Deploy from GitHub Actions ${{ github.sha }}"
         env:
+          CI: "true"
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID || 'b17eb069-9e2c-4b97-81d8-e78422cb682d' }}
           NEXT_PUBLIC_FIREBASE_API_KEY: ${{ secrets.NEXT_PUBLIC_FIREBASE_API_KEY || 'AIzaSyCYKlK3AO2UBgPSPnCeE8nZCDsl0_y9tG4' }}
