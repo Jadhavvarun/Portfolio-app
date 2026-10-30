@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaEnvelope, FaArrowUp, FaDownload, FaPhoneAlt, FaLock } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaArrowUp, FaDownload, FaWhatsapp, FaLock } from "react-icons/fa";
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -28,7 +28,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-sm">
-              Engineering enterprise design systems, high-throughput full-stack platforms, and microfrontends with an obsession for 60fps animations and sub-second load times.
+              Engineering enterprise design systems, high-throughput full-stack platforms, and microfrontends focusing on smooth 60fps interactions, accessible UX, and sub-second load times.
             </p>
 
             <div className="flex items-center gap-2 pt-1">
@@ -75,7 +75,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a
-                  href="/varun_resume.pdf"
+                  href="/Varun-Jadhav-Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-indigo-400 hover:text-indigo-300 transition-colors inline-flex items-center gap-1 min-h-[40px] py-1.5"
@@ -104,7 +104,7 @@ export const Footer: React.FC = () => {
                 <FaGithub size={16} aria-hidden="true" />
               </a>
               <a
-                href="https://www.linkedin.com/in/varun-jadhav-620814152/"
+                href="https://www.linkedin.com/in/varun-jadhav-3a958b218/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-cyan-400 transition-all shrink-0 focus:outline-none focus:ring-2 focus:ring-cyan-400"
@@ -120,11 +120,13 @@ export const Footer: React.FC = () => {
                 <FaEnvelope size={15} aria-hidden="true" />
               </a>
               <a
-                href="tel:7738412722"
+                href="https://wa.me/917738412722?text=Hi%20Varun%2C%20I%20reviewed%20your%20portfolio"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-emerald-400 transition-all shrink-0 focus:outline-none focus:ring-2 focus:ring-emerald-400"
-                aria-label="Call Varun Jadhav at +91 7738412722"
+                aria-label="Chat with Varun Jadhav on WhatsApp"
               >
-                <FaPhoneAlt size={13} aria-hidden="true" />
+                <FaWhatsapp size={15} aria-hidden="true" />
               </a>
             </div>
             <div className="flex flex-col space-y-1.5 text-xs text-slate-300 font-mono pt-1">
@@ -136,11 +138,13 @@ export const Footer: React.FC = () => {
                 jadhavvarun67@gmail.com
               </a>
               <a
-                href="tel:7738412722"
+                href="https://wa.me/917738412722?text=Hi%20Varun%2C%20I%20reviewed%20your%20portfolio"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center min-h-[44px] hover:text-emerald-400 transition-colors py-2 focus:outline-none focus:ring-2 focus:ring-emerald-400 rounded"
-                aria-label="Phone: +91 7738412722"
+                aria-label="Chat on WhatsApp"
               >
-                +91 7738412722
+                Direct WhatsApp Channel
               </a>
             </div>
           </div>
@@ -153,7 +157,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-3 sm:gap-5">
-            <span className="hidden xs:inline">Next.js 14 • TypeScript • Tailwind</span>
+            <span className="hidden xs:inline">Next.js 16 • TypeScript • Tailwind</span>
 
             <button
               onClick={scrollToTop}

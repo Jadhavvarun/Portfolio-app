@@ -49,7 +49,7 @@ const skillsList: SkillItem[] = [
     category: "frontend",
     icon: <SiNextdotjs size={24} aria-label="Next.js" role="img" />,
     proficiency: "Lead / Expert",
-    highlight: "SSR, SSG, 40–50% performance uplift, 90+ Lighthouse",
+    highlight: "SSR, SSG, Turbopack, App Router, Core Web Vitals",
     color: "#ffffff",
   },
   {
@@ -61,14 +61,6 @@ const skillsList: SkillItem[] = [
     color: "#38bdf8",
   },
   {
-    name: "Angular",
-    category: "frontend",
-    icon: <FaAngular size={24} aria-label="Angular" role="img" />,
-    proficiency: "Advanced",
-    highlight: "Lazy loading, OnPush change detection, 35% bundle reduction",
-    color: "#ef4444",
-  },
-  {
     name: "TypeScript",
     category: "frontend",
     icon: <SiTypescript size={22} aria-label="TypeScript" role="img" />,
@@ -77,36 +69,60 @@ const skillsList: SkillItem[] = [
     color: "#60a5fa",
   },
   {
-    name: "Tailwind CSS",
-    category: "frontend",
-    icon: <SiTailwindcss size={24} aria-label="Tailwind CSS" role="img" />,
+    name: "Modular Architecture",
+    category: "architecture",
+    icon: <RiLayoutMasonryLine size={24} aria-label="Modular Architecture" role="img" />,
     proficiency: "Lead / Expert",
-    highlight: "Design tokens, utility-first design, fluid responsive layouts",
-    color: "#38bdf8",
+    highlight: "Reusable UI component libraries, scalable frontend patterns",
+    color: "#c084fc",
   },
   {
-    name: "Framer Motion",
-    category: "frontend",
-    icon: <SiFramer size={22} aria-label="Framer Motion" role="img" />,
+    name: "Performance & SEO (90+)",
+    category: "architecture",
+    icon: <RiSpeedLine size={24} aria-label="Performance & SEO" role="img" />,
     proficiency: "Lead / Expert",
-    highlight: "Physics-based micro-interactions, layout transitions, keyframes",
-    color: "#e879f9",
+    highlight: "90+ Lighthouse scores, code-splitting, sub-second TTFB",
+    color: "#10b981",
   },
   {
     name: "JavaScript (ES6+)",
     category: "frontend",
     icon: <FaJsSquare size={24} aria-label="JavaScript" role="img" />,
-    proficiency: "Lead / Expert",
+    proficiency: "Advanced",
     highlight: "Async/await, closures, DOM manipulation, event loop",
     color: "#facc15",
+  },
+  {
+    name: "Angular",
+    category: "frontend",
+    icon: <FaAngular size={24} aria-label="Angular" role="img" />,
+    proficiency: "Advanced",
+    highlight: "Lazy loading, OnPush change detection, modular routing",
+    color: "#ef4444",
+  },
+  {
+    name: "Tailwind CSS",
+    category: "frontend",
+    icon: <SiTailwindcss size={24} aria-label="Tailwind CSS" role="img" />,
+    proficiency: "Advanced",
+    highlight: "Design tokens, utility-first design, fluid responsive layouts",
+    color: "#38bdf8",
   },
   {
     name: "HTML5 & CSS3",
     category: "frontend",
     icon: <FaHtml5 size={24} aria-label="HTML5 and CSS3" role="img" />,
-    proficiency: "Lead / Expert",
+    proficiency: "Advanced",
     highlight: "Semantic markup, accessibility, modern Flexbox & Grid",
     color: "#f97316",
+  },
+  {
+    name: "Framer Motion",
+    category: "frontend",
+    icon: <SiFramer size={22} aria-label="Framer Motion" role="img" />,
+    proficiency: "Proficient",
+    highlight: "Physics-based micro-interactions, layout transitions",
+    color: "#e879f9",
   },
 
   // Backend
@@ -114,17 +130,9 @@ const skillsList: SkillItem[] = [
     name: "Node.js & Express.js",
     category: "backend",
     icon: <FaNodeJs size={24} aria-label="Node.js and Express.js" role="img" />,
-    proficiency: "Lead / Expert",
+    proficiency: "Advanced",
     highlight: "RESTful APIs, middleware pipelines, distributed backends",
     color: "#4ade80",
-  },
-  {
-    name: "RabbitMQ",
-    category: "backend",
-    icon: <RiFlowChart size={24} aria-label="RabbitMQ" role="img" />,
-    proficiency: "Advanced",
-    highlight: "Asynchronous messaging & distributed queue processing",
-    color: "#fb923c",
   },
   {
     name: "Microservices & RPC",
@@ -143,10 +151,26 @@ const skillsList: SkillItem[] = [
     color: "#f43f5e",
   },
   {
+    name: "Team Leadership",
+    category: "architecture",
+    icon: <RiTeamLine size={24} aria-label="Team Leadership" role="img" />,
+    proficiency: "Advanced",
+    highlight: "Sprint orchestration, technical mentorship, code reviews",
+    color: "#6366f1",
+  },
+  {
+    name: "RabbitMQ",
+    category: "backend",
+    icon: <RiFlowChart size={24} aria-label="RabbitMQ" role="img" />,
+    proficiency: "Proficient",
+    highlight: "Asynchronous messaging & distributed queue processing",
+    color: "#fb923c",
+  },
+  {
     name: "MongoDB",
     category: "backend",
     icon: <SiMongodb size={24} aria-label="MongoDB" role="img" />,
-    proficiency: "Advanced",
+    proficiency: "Proficient",
     highlight: "Document schemas, indexing, aggregation pipelines",
     color: "#22c55e",
   },
@@ -154,35 +178,9 @@ const skillsList: SkillItem[] = [
     name: "PostgreSQL & MySQL",
     category: "backend",
     icon: <SiPostgresql size={24} aria-label="PostgreSQL & MySQL" role="img" />,
-    proficiency: "Advanced",
+    proficiency: "Proficient",
     highlight: "Relational queries, transactions, schema integrity",
     color: "#38bdf8",
-  },
-
-  // Architecture & Leadership
-  {
-    name: "Team Leadership (4 Devs)",
-    category: "architecture",
-    icon: <RiTeamLine size={24} aria-label="Team Leadership" role="img" />,
-    proficiency: "Lead / Expert",
-    highlight: "Led team of 4, reduced delivery time by ~30% with Agile",
-    color: "#6366f1",
-  },
-  {
-    name: "Performance & SEO (90+)",
-    category: "architecture",
-    icon: <RiSpeedLine size={24} aria-label="Performance & SEO" role="img" />,
-    proficiency: "Lead / Expert",
-    highlight: "40–50% Next.js speedup, 90+ Lighthouse, bundle optimization",
-    color: "#10b981",
-  },
-  {
-    name: "Modular Architecture",
-    category: "architecture",
-    icon: <RiLayoutMasonryLine size={24} aria-label="Modular Architecture" role="img" />,
-    proficiency: "Lead / Expert",
-    highlight: "Reusable UI component libraries, scalable frontend patterns",
-    color: "#c084fc",
   },
 
   // Tools & DevOps
@@ -190,7 +188,7 @@ const skillsList: SkillItem[] = [
     name: "Docker & CI/CD",
     category: "tools",
     icon: <FaDocker size={24} aria-label="Docker and CI/CD" role="img" />,
-    proficiency: "Advanced",
+    proficiency: "Proficient",
     highlight: "Containerization, automated build/test/deployment lifecycle",
     color: "#0284c7",
   },
@@ -198,7 +196,7 @@ const skillsList: SkillItem[] = [
     name: "Git & Version Control",
     category: "tools",
     icon: <FaGithub size={24} aria-label="Git & Version Control" role="img" />,
-    proficiency: "Lead / Expert",
+    proficiency: "Proficient",
     highlight: "Branch strategies, collaborative Agile PR reviews, releases",
     color: "#f1f5f9",
   },
@@ -206,7 +204,7 @@ const skillsList: SkillItem[] = [
     name: "Figma",
     category: "tools",
     icon: <FaFigma size={22} aria-label="Figma" role="img" />,
-    proficiency: "Advanced",
+    proficiency: "Proficient",
     highlight: "Design-to-code translation, wireframing, UX collaboration",
     color: "#a855f7",
   },
@@ -214,7 +212,7 @@ const skillsList: SkillItem[] = [
     name: "Postman & API Testing",
     category: "tools",
     icon: <SiPostman size={24} aria-label="Postman & API Testing" role="img" />,
-    proficiency: "Advanced",
+    proficiency: "Proficient",
     highlight: "API contract testing, environment mocks, automation",
     color: "#f97316",
   },
@@ -222,7 +220,7 @@ const skillsList: SkillItem[] = [
     name: "Vercel & Plesk",
     category: "tools",
     icon: <SiVercel size={22} aria-label="Vercel & Plesk" role="img" />,
-    proficiency: "Lead / Expert",
+    proficiency: "Proficient",
     highlight: "Production deployments, server management, edge optimizations",
     color: "#ffffff",
   },
@@ -374,9 +372,9 @@ export const Skills: React.FC = () => {
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-indigo-500/20 flex items-center justify-center text-indigo-400 mb-3.5 sm:mb-4">
                 <RiSpeedLine size={20} />
               </div>
-              <h4 className="text-base sm:text-lg font-bold text-white mb-1.5 sm:mb-2">40–50% Performance Boost</h4>
+              <h4 className="text-base sm:text-lg font-bold text-white mb-1.5 sm:mb-2">Performance Engineering</h4>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Next.js SSR, code splitting, and image optimization achieving 90+ Lighthouse; 35% Angular bundle reduction via lazy loading and OnPush.
+                Next.js SSR, code-splitting, and asset optimization achieving 90+ Lighthouse audits; dynamic Angular bundle reduction via lazy loading and OnPush change detection.
               </p>
             </div>
 
@@ -385,9 +383,9 @@ export const Skills: React.FC = () => {
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 mb-3.5 sm:mb-4">
                 <RiTeamLine size={20} />
               </div>
-              <h4 className="text-base sm:text-lg font-bold text-white mb-1.5 sm:mb-2">Team Leadership (4 Devs)</h4>
+              <h4 className="text-base sm:text-lg font-bold text-white mb-1.5 sm:mb-2">Agile Engineering Leadership</h4>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Led a team of 4 developers, established reusable development practices and Agile workflows, reducing delivery cycle times by approximately 30%.
+                Orchestrated sprint workflows for a 4-developer engineering team, standardizing reusable code patterns and expediting production release cycles.
               </p>
             </div>
 
@@ -398,7 +396,7 @@ export const Skills: React.FC = () => {
               </div>
               <h4 className="text-base sm:text-lg font-bold text-white mb-1.5 sm:mb-2">Distributed Microservices</h4>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Asynchronous communication pipelines with RabbitMQ, RPC protocols, RESTful & GraphQL APIs, and Docker containerization.
+                Decoupled asynchronous pipelines with RabbitMQ, RPC protocols, RESTful &amp; GraphQL APIs, and Docker containerization.
               </p>
             </div>
           </div>

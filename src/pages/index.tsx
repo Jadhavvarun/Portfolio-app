@@ -12,20 +12,18 @@ const Projects = dynamic(() => import("@/components/Projects"), { ssr: true });
 const Contact = dynamic(() => import("@/components/Contact"), { ssr: true });
 const Footer = dynamic(() => import("@/components/Footer"), { ssr: true });
 
-const SITE_URL = "https://varunjadhav.in/";
+const SITE_URL = "https://varunjadhav.in";
 const TITLE = "Varun Jadhav | Full Stack Developer & Frontend Lead";
 const DESCRIPTION =
-  "Portfolio of Varun Jadhav — Full Stack Developer & Frontend Lead. Crafting scalable architectures, enterprise design systems, and high-performance Angular & Node.js applications.";
+  "Portfolio of Varun Jadhav — Full Stack Developer & Frontend Lead. Crafting scalable architectures, enterprise design systems, and high-performance React, Next.js, and Node.js applications.";
 const OG_DESCRIPTION =
   "Explore the engineering portfolio, leadership milestones, tech stack, and production works of Varun Jadhav.";
 const TWITTER_DESCRIPTION =
-  "Frontend Lead & Full Stack Engineer specializing in Angular, Next.js, TypeScript, and Node.js.";
+  "Frontend Lead & Full Stack Engineer specializing in Next.js, React, TypeScript, and Node.js.";
 const OG_IMAGE = `${SITE_URL}/og-image.png`;
 const OG_IMAGE_ALT = "Varun Jadhav — Frontend Lead, Full Stack Developer";
 
 export default function Home() {
-
-
   return (
     <>
       <Head>
@@ -33,12 +31,12 @@ export default function Home() {
         <title>{TITLE}</title>
         <meta name="description" content={DESCRIPTION} />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <link rel="canonical" href={SITE_URL} />
+        <link rel="canonical" href={`${SITE_URL}/`} />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Varun Jadhav" />
-        <meta property="og:url" content={SITE_URL} />
+        <meta property="og:url" content={`${SITE_URL}/`} />
         <meta property="og:title" content={TITLE} />
         <meta property="og:description" content={OG_DESCRIPTION} />
         <meta property="og:image" content={OG_IMAGE} />
@@ -57,9 +55,17 @@ export default function Home() {
       {/* JSON-LD Structured Data for Enhanced Search Engine Ranking */}
       <JsonLd />
 
+      {/* Accessibility: Skip to Main Content Link */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2.5 focus:bg-indigo-600 focus:text-white focus:font-semibold focus:rounded-lg focus:shadow-xl focus:outline-none focus:ring-2 focus:ring-white"
+      >
+        Skip to main content
+      </a>
+
       <div className="min-h-screen bg-dark-950 text-slate-100 selection:bg-indigo-500/40 selection:text-white">
         <Header />
-        <main>
+        <main id="main-content">
           <Hero />
           <Experience />
           <Skills />

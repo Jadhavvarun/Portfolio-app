@@ -4,7 +4,7 @@ import {
   FaGithub,
   FaLinkedin,
   FaEnvelope,
-  FaPhoneAlt,
+  FaWhatsapp,
   FaDownload,
   FaArrowRight,
   FaTerminal,
@@ -28,7 +28,6 @@ export const Hero: React.FC = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [activeTab, setActiveTab] = useState<"code" | "terminal" | "leadership">("code");
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const [copiedPhone, setCopiedPhone] = useState(false);
 
   // Terminal state
   const [cliInput, setCliInput] = useState("");
@@ -66,12 +65,6 @@ export const Hero: React.FC = () => {
     setTimeout(() => setCopiedEmail(false), 2500);
   };
 
-  const copyPhone = () => {
-    navigator.clipboard.writeText("7738412722");
-    setCopiedPhone(true);
-    setTimeout(() => setCopiedPhone(false), 2500);
-  };
-
   const handleCommand = (cmd: string) => {
     const trimmed = cmd.trim().toLowerCase();
     let response: string[] = [];
@@ -89,35 +82,36 @@ export const Hero: React.FC = () => {
         break;
       case "lead":
         response = [
-          "👑 FRONTEND LEAD & TEAM LEADERSHIP:",
+          "👑 FRONTEND LEAD & ARCHITECTURE:",
           "  - invocreto: Spearheaded frontend architecture of invoicing & business management platform",
-          "  - Syntags: Led a high-performing team of 4 developers, cutting delivery cycles by 30%",
-          "  - Performance: 40-50% speed uplift in Next.js, 90+ Lighthouse, 35% bundle reduction in Angular",
+          "  - Syntags: Led a high-performing team of 4 developers across agile delivery cycles",
+          "  - Performance: 90+ Lighthouse across Core Web Vitals and modular bundle optimization",
         ];
         break;
       case "stack":
         response = [
           "⚡ CORE TECH STACK:",
-          "  - Frontend: React.js, Next.js, Angular, TypeScript, Tailwind CSS, Framer Motion",
-          "  - Backend: Node.js (Express), RESTful & GraphQL APIs, Microservices, RPC, RabbitMQ",
-          "  - Databases: MongoDB, PostgreSQL, MySQL",
-          "  - DevOps: Docker, CI/CD, Git, Vercel, Plesk, Figma, Firebase",
+          "  - Frontend: React.js, Next.js (App & Pages), TypeScript, Tailwind CSS, Angular",
+          "  - Backend: Node.js, Express.js, Microservices, RabbitMQ, REST APIs, GraphQL",
+          "  - Databases: MongoDB, PostgreSQL, MySQL, Firebase Firestore",
+          "  - DevOps: Docker, CI/CD, Netlify, Linux",
         ];
         break;
       case "projects":
         response = [
-          "🚀 FEATURED LIVE PROJECTS:",
-          "  - invocreto: Next.js, Angular, Node.js, MongoDB, RabbitMQ, Microservices",
-          "  - IndiaCorporates: End-to-end full stack corporate workflows & interactive dashboards",
+          "🚀 PRODUCTION HIGHLIGHTS:",
+          "  - invocreto: Modular UI suite, real-time invoicing, distributed backend integration",
+          "  - IndiaCorporates: End-to-end architecture, intelligence dashboard, API aggregation",
+          "  - Portfolio: Next.js 16 standalone, secure Admin Dashboard, live Firebase sync",
         ];
         break;
       case "contact":
         response = [
           "📫 DIRECT CONTACT COORDINATES:",
           "  - Email: jadhavvarun67@gmail.com",
-          "  - Phone: +91 7738412722",
-          "  - LinkedIn: linkedin.com/in/varun-jadhav-620814152",
-          "  - Location: Mumbai, India",
+          "  - WhatsApp: https://wa.me/917738412722",
+          "  - LinkedIn: https://www.linkedin.com/in/varun-jadhav-3a958b218/",
+          "  - Location: Mumbai, India (IST)",
         ];
         break;
       case "clear":
@@ -158,19 +152,19 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="lg:col-span-7 flex flex-col items-start text-left w-full"
           >
-            {/* Main Headline with generous vertical spacing for desktop */}
+            {/* Main Headline with Name for Search Intent & Title Clarity */}
             <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.2] sm:leading-[1.15] lg:leading-[1.18] my-3 sm:my-5 lg:my-8 break-words w-full">
-              Architecting Enterprise Systems &{" "}
+              Hi, I&apos;m{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-primary-300 to-cyan-300">
-                High-Performance
-              </span>{" "}
-              Web Apps.
+                Varun Jadhav
+              </span>
+              . Full-Stack Developer &amp; Frontend Lead.
             </h1>
 
             {/* Rotating Role Pill */}
             <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 mb-4 sm:mb-5 lg:mb-6 min-h-[32px] sm:min-h-[36px] w-full">
               <span className="text-slate-400 font-mono text-xs sm:text-sm md:text-base shrink-0">
-                I am a
+                Specializing as
               </span>
               <div className="inline-flex items-center px-2.5 sm:px-3 py-1 rounded-md bg-indigo-950/60 border border-indigo-500/30 font-mono text-xs sm:text-sm md:text-base font-semibold text-cyan-300 shadow-inner max-w-full truncate">
                 <span className="truncate">{displayedRole}</span>
@@ -180,7 +174,7 @@ export const Hero: React.FC = () => {
 
             {/* Narrative Summary */}
             <p className="text-slate-300 text-xs xs:text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mb-6 sm:mb-8">
-              Full-Stack Software Developer & Frontend Lead at <strong className="text-white">invocreto</strong>. Experienced in building scalable applications with <strong className="text-cyan-300">Next.js</strong>, <strong className="text-indigo-300">React.js</strong>, <strong className="text-rose-300">Angular</strong>, and <strong className="text-emerald-300">Node.js</strong>. Proven track record leading a team of 4 developers, boosting web performance by 40–50% (90+ Lighthouse), and designing microservices with RabbitMQ and Docker.
+              Full-Stack Software Developer &amp; Frontend Lead at <strong className="text-white">Syntags (invocreto)</strong>. Focused on architecting scalable web applications with <strong className="text-cyan-300">Next.js</strong>, <strong className="text-indigo-300">React.js</strong>, <strong className="text-rose-300">TypeScript</strong>, and <strong className="text-emerald-300">Node.js</strong>. Proven track record leading engineering sprints, optimizing web vitals to 90+ Lighthouse, and integrating resilient distributed microservices.
             </p>
 
             {/* CTAs: Responsive layout for mobile (stacked primary + 2-col secondary) and row on desktop */}
@@ -191,7 +185,7 @@ export const Hero: React.FC = () => {
                 href="#projects"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 via-primary-600 to-cyan-600 px-4 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold text-white shadow-lg shadow-indigo-600/30 hover:shadow-indigo-600/50 transition-all text-center w-full sm:w-auto"
               >
-                <span>Explore invocreto & Projects</span>
+                <span>Explore Featured Work</span>
                 <FaArrowRight size={12} />
               </motion.a>
 
@@ -231,7 +225,7 @@ export const Hero: React.FC = () => {
             {/* Social & Contact Strip */}
             <div className="flex flex-wrap items-center gap-2.5 sm:gap-4 pt-4 border-t border-white/10 w-full text-xs">
               <span className="uppercase font-mono tracking-wider text-slate-400 text-[11px] sm:text-xs font-semibold">
-                Direct
+                Connect
               </span>
               <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
                 <a
@@ -244,7 +238,7 @@ export const Hero: React.FC = () => {
                   <FaGithub size={15} aria-hidden="true" />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/varun-jadhav-620814152/"
+                  href="https://www.linkedin.com/in/varun-jadhav-3a958b218/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex h-9 w-9 items-center justify-center rounded-lg bg-dark-900 border border-white/10 text-slate-300 hover:text-white hover:border-cyan-500/40 transition-all focus:outline-none focus:ring-2 focus:ring-cyan-400"
@@ -259,17 +253,19 @@ export const Hero: React.FC = () => {
                 >
                   <FaEnvelope size={14} aria-hidden="true" />
                 </a>
-                <button
-                  onClick={copyPhone}
-                  className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-dark-900 border border-white/10 text-slate-200 hover:text-emerald-300 hover:border-emerald-500/40 transition-all font-mono text-[11px] sm:text-xs min-h-[36px] focus:outline-none focus:ring-2 focus:ring-emerald-400"
-                  title="Copy Phone Number"
-                  aria-label="Copy phone number +91 7738412722"
-                >
-                  <FaPhoneAlt size={10} className="text-emerald-400" aria-hidden="true" />
-                  <span>{copiedPhone ? "Copied!" : "+91 7738412722"}</span>
-                </button>
                 <a
-                  href="/varun_resume.pdf"
+                  href="https://wa.me/917738412722?text=Hi%20Varun,%20I%20saw%20your%20portfolio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-dark-900 border border-white/10 text-slate-200 hover:text-emerald-300 hover:border-emerald-500/40 transition-all font-mono text-[11px] sm:text-xs min-h-[36px] focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                  title="Message on WhatsApp"
+                  aria-label="Chat with Varun Jadhav on WhatsApp"
+                >
+                  <FaWhatsapp size={12} className="text-emerald-400" aria-hidden="true" />
+                  <span>WhatsApp</span>
+                </a>
+                <a
+                  href="/Varun-Jadhav-Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-xs font-mono font-medium text-indigo-400 hover:text-indigo-300 transition-colors ml-0.5 min-h-[36px] py-1 px-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-400 rounded"
@@ -349,27 +345,25 @@ export const Hero: React.FC = () => {
                       <span className="text-emerald-300">&quot;Varun Jadhav&quot;</span>,
                     </p>
                     <p className="pl-3 sm:pl-4">
-                      <span className="text-slate-400">roles:</span> [
-                      <span className="text-emerald-300">&quot;Frontend Lead @ invocreto&quot;</span>,{" "}
-                      <span className="text-emerald-300">&quot;Syntags Lead&quot;</span>
-                      ],
+                      <span className="text-slate-400">role:</span>{" "}
+                      <span className="text-emerald-300">&quot;Full-Stack &amp; Frontend Lead&quot;</span>,
                     </p>
                     <p className="pl-3 sm:pl-4">
-                      <span className="text-slate-400">teamLeadership:</span>{" "}
-                      <span className="text-cyan-300">&quot;Led 4 devs (-30% delivery)&quot;</span>,
+                      <span className="text-slate-400">organization:</span>{" "}
+                      <span className="text-emerald-300">&quot;Syntags (invocreto)&quot;</span>,
                     </p>
                     <p className="pl-3 sm:pl-4">
                       <span className="text-slate-400">frontend:</span> [
                       <span className="text-cyan-300">&quot;Next.js&quot;</span>,{" "}
                       <span className="text-cyan-300">&quot;React.js&quot;</span>,{" "}
-                      <span className="text-cyan-300">&quot;Angular&quot;</span>
+                      <span className="text-cyan-300">&quot;TypeScript&quot;</span>
                       ],
                     </p>
                     <p className="pl-3 sm:pl-4">
                       <span className="text-slate-400">distributedBackend:</span> [
                       <span className="text-amber-300">&quot;Node.js&quot;</span>,{" "}
-                      <span className="text-amber-300">&quot;RabbitMQ&quot;</span>,{" "}
-                      <span className="text-amber-300">&quot;Microservices&quot;</span>
+                      <span className="text-amber-300">&quot;Microservices&quot;</span>,{" "}
+                      <span className="text-amber-300">&quot;RabbitMQ&quot;</span>
                       ],
                     </p>
                     <p className="pl-3 sm:pl-4">
@@ -379,11 +373,11 @@ export const Hero: React.FC = () => {
                       ],
                     </p>
                     <p className="pl-3 sm:pl-4">
-                      <span className="text-slate-400">performance:</span> {"{"}{" "}
-                      <span className="text-purple-300">uplift:</span>{" "}
-                      <span className="text-yellow-300">&quot;40-50%&quot;</span>,{" "}
+                      <span className="text-slate-400">standards:</span> {"{"}{" "}
                       <span className="text-purple-300">lighthouse:</span>{" "}
-                      <span className="text-yellow-300">&quot;90+&quot;</span>{" "}
+                      <span className="text-yellow-300">&quot;90+&quot;</span>,{" "}
+                      <span className="text-purple-300">architecture:</span>{" "}
+                      <span className="text-yellow-300">&quot;Modular / Clean&quot;</span>{" "}
                       {"}"},
                     </p>
                     <p>{"};"}</p>
@@ -397,31 +391,31 @@ export const Hero: React.FC = () => {
                   <div className="space-y-2.5 sm:space-y-3 text-slate-300 text-xs sm:text-sm">
                     <div className="flex items-center gap-2 pb-2 border-b border-white/10 text-white font-semibold">
                       <RiSparklingFill className="text-cyan-400 shrink-0" />
-                      <span>Leadership & Technical Milestones</span>
+                      <span>Leadership &amp; Technical Milestones</span>
                     </div>
                     <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
                       <li className="flex items-start gap-2">
                         <span className="text-amber-400 font-bold shrink-0">▸</span>
                         <span>
-                          <strong className="text-white">Frontend Lead @ invocreto:</strong> Architected invoicing and business platform with Next.js & Angular.
+                          <strong className="text-white">Frontend Lead @ invocreto:</strong> Spearheaded the frontend architecture for the invoicing and business management platform using Next.js &amp; TypeScript.
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-indigo-400 font-bold shrink-0">▸</span>
                         <span>
-                          <strong className="text-white">Team Lead (4 Devs) @ Syntags:</strong> Reduced delivery time by 30% through reusable component architecture & Agile.
+                          <strong className="text-white">Team Leadership:</strong> Directed a team of 4 engineers with Agile sprint planning, code review standards, and modular component reusability.
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-emerald-400 font-bold shrink-0">▸</span>
                         <span>
-                          <strong className="text-white">40–50% Performance Boost:</strong> Next.js SSR & image optimization (90+ Lighthouse); 35% bundle cut in Angular via OnPush.
+                          <strong className="text-white">Performance Engineering:</strong> Attained 90+ Lighthouse audits and sub-second paint times via Next.js SSR, code-splitting, and OnPush change detection.
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-cyan-400 font-bold shrink-0">▸</span>
                         <span>
-                          <strong className="text-white">Microservices & RPC:</strong> Asynchronous pipelines with RabbitMQ, Docker, and CI/CD automation.
+                          <strong className="text-white">Microservices &amp; RPC:</strong> Integrated decoupled service pipelines with RabbitMQ, Docker containerization, and automated CI/CD workflows.
                         </span>
                       </li>
                     </ul>
@@ -488,7 +482,7 @@ export const Hero: React.FC = () => {
                     <span className="h-1.5 sm:h-2 w-1.5 sm:w-2 rounded-full bg-emerald-400 animate-pulse"></span>
                     <span>Ready for impact</span>
                   </span>
-                  <span className="text-slate-400 font-mono">+91 7738412722</span>
+                  <span className="text-slate-400 font-mono">Mumbai, India (IST)</span>
                 </div>
               </div>
             </div>
@@ -502,25 +496,25 @@ export const Hero: React.FC = () => {
               Frontend Lead
             </div>
             <div className="text-[11px] sm:text-xs md:text-sm text-slate-300 mt-1">
-              invocreto Platform
+              invocreto Architecture
             </div>
           </div>
 
           <div className="glass-panel p-3.5 sm:p-5 rounded-xl border border-white/10 hover:-translate-y-1 transition-transform duration-200">
             <div className="text-xl sm:text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-300 leading-tight">
-              4 Devs Led
+              Team Lead
             </div>
             <div className="text-[11px] sm:text-xs md:text-sm text-slate-300 mt-1">
-              -30% Delivery Time
+              Agile Sprints &amp; Delivery
             </div>
           </div>
 
           <div className="glass-panel p-3.5 sm:p-5 rounded-xl border border-white/10 hover:-translate-y-1 transition-transform duration-200">
             <div className="text-xl sm:text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400 leading-tight">
-              40–50% Uplift
+              90+ Score
             </div>
             <div className="text-[11px] sm:text-xs md:text-sm text-slate-300 mt-1">
-              SSR & 90+ Lighthouse
+              Lighthouse &amp; Core Vitals
             </div>
           </div>
 
@@ -529,7 +523,7 @@ export const Hero: React.FC = () => {
               Full-Stack
             </div>
             <div className="text-[11px] sm:text-xs md:text-sm text-slate-300 mt-1">
-              Microservices & RabbitMQ
+              Microservices &amp; Docker
             </div>
           </div>
         </div>

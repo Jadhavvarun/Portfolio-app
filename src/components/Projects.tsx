@@ -6,7 +6,8 @@ import {
   FaCheckCircle,
   FaFileInvoiceDollar,
   FaBuilding,
-  FaGlobe
+  FaGlobe,
+  FaLock
 } from "react-icons/fa";
 import {
   RiShareBoxLine
@@ -20,8 +21,14 @@ interface Project {
   category: "all" | "lead" | "fullstack";
   description: string;
   impact: string[];
+  caseStudy?: {
+    problem: string;
+    solution: string;
+    result: string;
+  };
   technologies: string[];
   githubLink: string;
+  isPublicRepo?: boolean;
   liveLink: string;
   mockupType: "invocreto" | "indiacorporates" | "portfolio";
 }
@@ -34,7 +41,12 @@ const projects: Project[] = [
     badge: "Live Production",
     category: "lead",
     description:
-      "Enterprise business management and invoicing platform. Spearheaded the frontend development with Next.js and Angular focusing on scalable architecture, reusable UI components, and integrated backend microservices.",
+      "Enterprise business management and invoicing platform. Spearheaded frontend development with Next.js and Angular focusing on scalable architecture, modular design tokens, and integrated backend microservices.",
+    caseStudy: {
+      problem: "Enterprise users required rapid invoice generation, automated tax calculations, and real-time state sync without latency.",
+      solution: "Engineered a modular component architecture in Next.js and Angular backed by Node.js microservices and RabbitMQ event queues.",
+      result: "Delivered unified ledger workflows, instantaneous invoice previews, and decoupled background transaction processing.",
+    },
     impact: [
       "Architected modular component suite with Next.js & Angular",
       "Integrated with distributed backend using RPC, RabbitMQ, and Docker",
@@ -52,6 +64,7 @@ const projects: Project[] = [
       "Docker",
     ],
     githubLink: "https://github.com/Jadhavvarun",
+    isPublicRepo: false,
     liveLink: "https://invocreto.com",
     mockupType: "invocreto",
   },
@@ -62,7 +75,12 @@ const projects: Project[] = [
     badge: "Live Production",
     category: "lead",
     description:
-      "Led end-to-end development of IndiaCorporates, translating complex business requirements into seamless application workflows and technical solutions across frontend, backend, and API integrations.",
+      "Led end-to-end development of IndiaCorporates, translating complex business intelligence requirements into seamless application workflows and technical solutions across frontend, backend, and API integrations.",
+    caseStudy: {
+      problem: "Complex corporate datasets required high-speed query aggregation, structured search indexing, and real-time interactive data views.",
+      solution: "Designed user-centric dashboards with Next.js & React, indexed MongoDB collections, and integrated automated API ingestion pipelines.",
+      result: "Created an intuitive corporate intelligence portal with sub-second entity search and verified data aggregation.",
+    },
     impact: [
       "Designed and developed user-centric interfaces and interactive dashboards",
       "Built end-to-end application workflows and API data aggregation pipelines",
@@ -78,6 +96,7 @@ const projects: Project[] = [
       "Tailwind CSS",
     ],
     githubLink: "https://github.com/Jadhavvarun",
+    isPublicRepo: false,
     liveLink: "https://indiacorporates.com",
     mockupType: "indiacorporates",
   },
@@ -88,23 +107,30 @@ const projects: Project[] = [
     badge: "Live Production",
     category: "fullstack",
     description:
-      "Modern, state-of-the-art engineering portfolio with a built-in secured Admin Dashboard. Powered by Next.js 14, Tailwind CSS, Google OAuth authentication, and real-time Firebase Firestore lead tracking.",
+      "Modern full-stack engineering portfolio with a built-in secured Admin Dashboard. Powered by Next.js 16, React 19, Tailwind CSS, Google OAuth authentication, and real-time Firebase Firestore lead tracking.",
+    caseStudy: {
+      problem: "Needed a production-grade portfolio with an authenticated private admin console to manage leads without third-party SaaS subscriptions.",
+      solution: "Engineered a Next.js 16 standalone container with Firestore REST/SDK persistence, Google OAuth RBAC, and automated Netlify CI/CD.",
+      result: "Achieved 90+ Lighthouse audits across Core Web Vitals, zero-cost lead management, and sub-second page loads.",
+    },
     impact: [
       "Protected Admin Dashboard with Google OAuth and verified admin privileges",
       "Real-time Firestore synchronization for inquiries with zero-latency updates",
-      "Optimized for high-speed delivery with Netlify Edge and 95+ Lighthouse score",
+      "Optimized for high-speed delivery with Netlify Edge and 90+ Lighthouse score",
     ],
     technologies: [
-      "Next.js 14",
+      "Next.js 16",
+      "React 19",
       "TypeScript",
       "Tailwind CSS",
       "Firebase",
       "Firestore",
       "Google Auth",
-      "Framer Motion",
+      "Docker",
       "Netlify",
     ],
     githubLink: "https://github.com/Jadhavvarun/Portfolio-app",
+    isPublicRepo: true,
     liveLink: "https://varunjadhav.in/",
     mockupType: "portfolio",
   },
@@ -136,7 +162,7 @@ export const Projects: React.FC = () => {
             <div className="bg-dark-950/85 p-2.5 sm:p-3 rounded-lg border border-white/10 space-y-1.5 sm:space-y-2">
               <div className="flex justify-between items-center text-xs">
                 <span className="text-white font-semibold truncate">invocreto.com</span>
-                <span className="text-emerald-400 font-mono font-bold shrink-0">$14,850 PAID</span>
+                <span className="text-emerald-400 font-mono text-[10px] px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 shrink-0">Workflow: Active</span>
               </div>
               <div className="flex flex-wrap items-center gap-1.5 text-[10px] text-slate-400 font-mono">
                 <span className="px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 truncate">RabbitMQ: Sync</span>
@@ -144,7 +170,7 @@ export const Projects: React.FC = () => {
               </div>
             </div>
             <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-slate-300 font-mono pt-1.5 sm:pt-2 border-t border-white/5">
-              <span className="truncate">Microservices & Docker</span>
+              <span className="text-slate-400 text-[10px]">Architecture Preview</span>
               <span className="text-emerald-400 shrink-0 font-medium">invocreto.com</span>
             </div>
           </div>
@@ -167,16 +193,16 @@ export const Projects: React.FC = () => {
             <div className="bg-dark-950/80 p-2.5 sm:p-3 rounded-lg border border-white/10 space-y-1 sm:space-y-1.5 text-xs">
               <div className="flex justify-between text-slate-300 text-[10px] sm:text-[11px] font-mono">
                 <span className="truncate">indiacorporates.com</span>
-                <span className="text-cyan-400 shrink-0">99.8% Uptime</span>
+                <span className="text-cyan-400 shrink-0 text-[10px]">Illustrative Mockup</span>
               </div>
               <div className="grid grid-cols-2 gap-2 pt-1">
                 <div className="p-1.5 rounded bg-white/5 text-[10px]">
                   <span className="text-slate-400 block text-[9px] sm:text-[10px]">Workflows</span>
-                  <span className="text-white font-bold">120+ Active</span>
+                  <span className="text-white font-medium">Pipeline Engine</span>
                 </div>
                 <div className="p-1.5 rounded bg-white/5 text-[10px]">
                   <span className="text-slate-400 block text-[9px] sm:text-[10px]">API Integrations</span>
-                  <span className="text-emerald-400 font-bold">Verified</span>
+                  <span className="text-emerald-400 font-medium">Verified Services</span>
                 </div>
               </div>
             </div>
@@ -197,7 +223,7 @@ export const Projects: React.FC = () => {
                 <span className="truncate">Engineering Portfolio & Portal</span>
               </span>
               <span className="text-[10px] bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded border border-indigo-500/30 shrink-0">
-                Next.js 14 + Netlify
+                Next.js 16 + Netlify
               </span>
             </div>
             {/* Live Address & Metrics */}
@@ -213,7 +239,7 @@ export const Projects: React.FC = () => {
                 </div>
                 <div className="p-1.5 rounded bg-white/5">
                   <span className="text-slate-400 block text-[9px]">Lighthouse</span>
-                  <span className="text-amber-300 font-bold">95+ Performance</span>
+                  <span className="text-amber-300 font-bold">90+ Performance</span>
                 </div>
               </div>
             </div>
@@ -311,12 +337,42 @@ export const Projects: React.FC = () => {
                     </h3>
 
                     {/* Description */}
-                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
                       {project.description}
                     </p>
 
+                    {/* Case Study Breakdown */}
+                    {project.caseStudy && (
+                      <div className="mb-4 p-3 rounded-xl bg-dark-950/70 border border-white/5 space-y-2 text-xs">
+                        <div>
+                          <span className="text-[10px] font-mono uppercase text-amber-300 font-semibold tracking-wider block">
+                            Challenge:
+                          </span>
+                          <span className="text-slate-300 text-[11px] leading-relaxed">
+                            {project.caseStudy.problem}
+                          </span>
+                        </div>
+                        <div>
+                          <span className="text-[10px] font-mono uppercase text-cyan-300 font-semibold tracking-wider block">
+                            Solution:
+                          </span>
+                          <span className="text-slate-300 text-[11px] leading-relaxed">
+                            {project.caseStudy.solution}
+                          </span>
+                        </div>
+                        <div>
+                          <span className="text-[10px] font-mono uppercase text-emerald-300 font-semibold tracking-wider block">
+                            Outcome:
+                          </span>
+                          <span className="text-slate-300 text-[11px] leading-relaxed">
+                            {project.caseStudy.result}
+                          </span>
+                        </div>
+                      </div>
+                    )}
+
                     {/* Key Engineering Impact Points */}
-                    <div className="space-y-1.5 mb-5 pt-3 border-t border-white/5">
+                    <div className="space-y-1.5 mb-4 pt-3 border-t border-white/5">
                       <p className="text-[11px] font-mono uppercase text-slate-400 tracking-wider font-semibold">
                         Technical Achievements:
                       </p>
@@ -329,7 +385,7 @@ export const Projects: React.FC = () => {
                     </div>
 
                     {/* Tech Badges */}
-                    <div className="flex flex-wrap gap-1.5 mb-6">
+                    <div className="flex flex-wrap gap-1.5 mb-5">
                       {project.technologies.map((tech) => (
                         <span
                           key={tech}
@@ -343,16 +399,26 @@ export const Projects: React.FC = () => {
 
                   {/* Actions / Live Links */}
                   <div className="flex items-center justify-between gap-3 pt-4 border-t border-white/10">
-                    <a
-                      href={project.githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-xs font-mono text-slate-300 hover:text-white transition-colors min-h-[44px] py-2 px-1 focus:outline-none focus:ring-2 focus:ring-indigo-400 rounded"
-                      aria-label={`View ${project.title} on GitHub`}
-                    >
-                      <FaGithub size={14} aria-hidden="true" />
-                      <span>{project.githubLink.includes("Portfolio-app") ? "Repository" : "GitHub"}</span>
-                    </a>
+                    {!project.isPublicRepo ? (
+                      <span
+                        className="inline-flex items-center gap-1.5 text-xs font-mono text-slate-400 bg-white/5 px-2.5 py-1.5 rounded-lg border border-white/10"
+                        title="Proprietary commercial codebase"
+                      >
+                        <FaLock size={11} className="text-slate-400" aria-hidden="true" />
+                        <span>Private Repo</span>
+                      </span>
+                    ) : (
+                      <a
+                        href={project.githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-xs font-mono text-slate-300 hover:text-white transition-colors min-h-[44px] py-2 px-1 focus:outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+                        aria-label={`View ${project.title} on GitHub`}
+                      >
+                        <FaGithub size={14} aria-hidden="true" />
+                        <span>GitHub Repo</span>
+                      </a>
+                    )}
 
                     <a
                       href={project.liveLink}
